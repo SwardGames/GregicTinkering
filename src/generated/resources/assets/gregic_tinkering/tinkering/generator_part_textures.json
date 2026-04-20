@@ -1,0 +1,94 @@
+{
+  "overrides": {
+    "gregic_tinkering:casing": [
+      "tconstruct:copper",
+      "tconstruct:iron",
+      "tconstruct:osmium",
+      "tconstruct:silver",
+      "tconstruct:lead",
+      "tconstruct:aluminum",
+      "tconstruct:slimesteel",
+      "tconstruct:amethyst_bronze",
+      "tconstruct:pig_iron",
+      "tconstruct:rose_gold",
+      "tconstruct:cobalt",
+      "tconstruct:steel",
+      "tconstruct:electrum",
+      "tconstruct:bronze",
+      "tconstruct:constantan",
+      "tconstruct:invar",
+      "tconstruct:pewter",
+      "tconstruct:cinderslime",
+      "tconstruct:queens_slime",
+      "tconstruct:hepatizon",
+      "tconstruct:manyullyn",
+      "tconstruct:knightmetal",
+      "tconstruct:fiery"
+    ]
+  },
+  "parts": [
+    {
+      "path": "gregic_tinkering:item/tool/parts/drill_head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/wrench/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/wrench/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/wrench/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/wrench/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/drill/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/drill/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/drill/casing",
+      "stat_type": "gregic_tinkering:casing"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/chainsaw/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/chainsaw/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/chainsaw/casing",
+      "stat_type": "gregic_tinkering:casing"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/power_tool/engine",
+      "stat_type": "gregic_tinkering:engine"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/power_tool/battery",
+      "stat_type": "gregic_tinkering:battery"
+    },
+    {
+      "allow_animated": false,
+      "path": "gregic_tinkering:item/tool/drill/head_active",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "allow_animated": false,
+      "path": "gregic_tinkering:item/tool/chainsaw/head_active",
+      "stat_type": "tconstruct:head"
+    }
+  ],
+  "replace": false
+}

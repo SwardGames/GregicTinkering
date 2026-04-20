@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "gregic_tinkering:wrench_head",
+    "gregic_tinkering:drill_head",
+    "gregic_tinkering:chainsaw_head",
+    "gregic_tinkering:casing",
+    "gregic_tinkering:engine",
+    "gregic_tinkering:battery"
+  ]
+}

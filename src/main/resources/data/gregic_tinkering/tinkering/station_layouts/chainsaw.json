@@ -1,0 +1,46 @@
+{
+  "icon": {
+    "item": "gregic_tinkering:chainsaw",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "input_slots": [
+    {
+      "filter": {
+        "item": "gregic_tinkering:chainsaw_head"
+      },
+      "icon": "gregic_tinkering:chainsaw_head",
+      "translation_key": "item.gregic_tinkering.chainsaw_head",
+      "x": 14,
+      "y": 26
+    },
+    {
+      "filter": {
+        "item": "gregic_tinkering:casing"
+      },
+      "icon": "gregic_tinkering:casing",
+      "translation_key": "item.gregic_tinkering.casing",
+      "x": 46,
+      "y": 58
+    },
+    {
+      "filter": {
+        "item": "gregic_tinkering:engine"
+      },
+      "icon": "gregic_tinkering:engine",
+      "translation_key": "item.gregic_tinkering.engine",
+      "x": 38,
+      "y": 38
+    },
+    {
+      "filter": {
+        "item": "gregic_tinkering:battery"
+      },
+      "icon": "gregic_tinkering:battery",
+      "translation_key": "item.gregic_tinkering.battery",
+      "x": 26,
+      "y": 62
+    }
+  ],
+  "sortIndex": 33,
+  "translation_key": "item.gregic_tinkering.chainsaw"
+}

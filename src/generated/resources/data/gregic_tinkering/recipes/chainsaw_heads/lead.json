@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:small_gears/lead"
+    },
+    "H": {
+      "tag": "forge:tools/hammers"
+    },
+    "P": {
+      "tag": "forge:plates/lead"
+    },
+    "R": {
+      "tag": "forge:rings/lead"
+    },
+    "W": {
+      "tag": "forge:tools/wrench"
+    }
+  },
+  "pattern": [
+    "RRW",
+    "RPR",
+    "HRG"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:chainsaw_head",
+    "nbt": {
+      "Material": "tconstruct:lead"
+    }
+  },
+  "show_notification": false
+}

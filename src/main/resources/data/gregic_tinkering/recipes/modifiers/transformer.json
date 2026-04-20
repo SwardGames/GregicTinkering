@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "gtceu:active_transformer"
+    }
+  ],
+  "level": 1,
+  "result": "gregic_tinkering:transformer",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "gregic_tinkering:modifiable/powered"
+    }
+  ]
+}

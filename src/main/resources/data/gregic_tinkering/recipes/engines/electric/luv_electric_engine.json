@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " E ",
+    "CMC",
+    " G "
+  ],
+  "key": {
+    "M": {
+      "item": "gtceu:luv_electric_motor"
+    },
+    "G": {
+      "tag": "forge:small_gears/rhodium_plated_palladium"
+    },
+    "C": {
+      "item": "gtceu:niobium_titanium_single_cable"
+    },
+    "E": {
+      "tag": "gtceu:circuits/luv"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:luv_electric"
+    }
+  },
+  "show_notification": false
+}

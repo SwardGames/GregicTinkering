@@ -1,0 +1,11 @@
+{
+  "stats": {
+    "gregic_tinkering:engine": {
+      "efficiency": 0.9,
+      "fuel_type": "steam",
+      "mining_speed": -0.25,
+      "power_draw": 100,
+      "power_reinforcement": 0.6
+    }
+  }
+}

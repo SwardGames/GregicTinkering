@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "PpP",
+    "RGR"
+  ],
+  "key": {
+    "P": {
+      "tag": "forge:plates/steel"
+    },
+    "R": {
+      "tag": "forge:rods/steel"
+    },
+    "G": {
+      "tag": "forge:small_gears/steel"
+    },
+    "C": {
+      "item": "gtceu:steel_fluid_cell"
+    },
+    "E": {
+      "tag": "gtceu:circuits/lv"
+    },
+    "p": {
+      "item": "gtceu:bronze_tiny_fluid_pipe"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:basic_diesel"
+    }
+  },
+  "show_notification": false
+}

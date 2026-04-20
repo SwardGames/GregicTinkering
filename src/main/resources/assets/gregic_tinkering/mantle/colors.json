@@ -1,0 +1,8 @@
+{
+  "modifier.gregic_tinkering": {
+    "electric_item_handler": "#54FC54",
+    "powered": "#5299F7",
+    "transformer": "#E457FA",
+    "lubricated": "#F9E7AC"
+  }
+}

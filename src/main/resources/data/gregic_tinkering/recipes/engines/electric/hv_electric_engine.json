@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " E ",
+    "CMC",
+    " G "
+  ],
+  "key": {
+    "M": {
+      "item": "gtceu:hv_electric_motor"
+    },
+    "G": {
+      "tag": "forge:small_gears/stainless_steel"
+    },
+    "C": {
+      "item": "gtceu:gold_single_cable"
+    },
+    "E": {
+      "tag": "gtceu:circuits/hv"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:hv_electric"
+    }
+  },
+  "show_notification": false
+}

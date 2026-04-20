@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "B"
+  ],
+  "key": {
+    "C": {
+      "item": "gtceu:gold_single_cable"
+    },
+    "B": {
+      "item": "gtceu:hv_lithium_battery"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:battery",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:large_lithium_battery"
+    }
+  },
+  "show_notification": false
+}

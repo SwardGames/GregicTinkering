@@ -1,0 +1,11 @@
+{
+  "stats": {
+    "gregic_tinkering:engine": {
+      "efficiency": 0.85,
+      "fuel_type": "diesel",
+      "mining_speed": 1.0,
+      "power_draw": 200,
+      "power_reinforcement": 0.65
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "B"
+  ],
+  "key": {
+    "C": {
+      "item": "gtceu:platinum_single_cable"
+    },
+    "B": {
+      "item": "gtceu:iv_vanadium_battery"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:battery",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:medium_vanadium_battery"
+    }
+  },
+  "show_notification": false
+}

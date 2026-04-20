@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "forge:plates/pewter"
+    },
+    "R": {
+      "tag": "forge:rods/pewter"
+    },
+    "S": {
+      "tag": "forge:screws/pewter"
+    },
+    "T": {
+      "tag": "gtceu:tools/crafting_screwdrivers"
+    }
+  },
+  "pattern": [
+    "PPR",
+    "STS",
+    "PPR"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:casing",
+    "nbt": {
+      "Material": "tconstruct:pewter"
+    }
+  },
+  "show_notification": false
+}

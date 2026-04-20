@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "R",
+    "P",
+    "P"
+  ],
+  "key": {
+    "R": {
+      "tag": "forge:rings/rubber"
+    },
+    "P": {
+      "tag": "forge:double_plates/bronze"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:battery",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:bronze_fluid_tank"
+    }
+  },
+  "show_notification": false
+}

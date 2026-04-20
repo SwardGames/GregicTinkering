@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:small_gears/copper"
+    },
+    "H": {
+      "tag": "forge:tools/hammers"
+    },
+    "P": {
+      "tag": "forge:plates/copper"
+    },
+    "R": {
+      "tag": "forge:rings/copper"
+    },
+    "W": {
+      "tag": "forge:tools/wrench"
+    }
+  },
+  "pattern": [
+    "RRW",
+    "RPR",
+    "HRG"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:chainsaw_head",
+    "nbt": {
+      "Material": "tconstruct:copper"
+    }
+  },
+  "show_notification": false
+}

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "forge:plates/knightmetal"
+    },
+    "R": {
+      "tag": "forge:rods/knightmetal"
+    },
+    "S": {
+      "tag": "forge:screws/knightmetal"
+    },
+    "T": {
+      "tag": "gtceu:tools/crafting_screwdrivers"
+    }
+  },
+  "pattern": [
+    "PPR",
+    "STS",
+    "PPR"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:casing",
+    "nbt": {
+      "Material": "tconstruct:knightmetal"
+    }
+  },
+  "show_notification": false
+}

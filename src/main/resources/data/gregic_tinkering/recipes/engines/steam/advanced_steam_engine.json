@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "pPG",
+    "PRP",
+    "IPp"
+  ],
+  "key": {
+    "P": {
+      "tag": "forge:plates/steel"
+    },
+    "R": {
+      "tag": "forge:rotors/bronze"
+    },
+    "G": {
+      "tag": "forge:small_gears/aluminium"
+    },
+    "I": {
+      "tag": "forge:rods/bronze"
+    },
+    "p": {
+      "item": "gtceu:steel_small_fluid_pipe"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:advanced_steam"
+    }
+  },
+  "show_notification": false
+}

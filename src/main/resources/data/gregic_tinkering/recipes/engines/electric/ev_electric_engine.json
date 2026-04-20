@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " E ",
+    "CMC",
+    " G "
+  ],
+  "key": {
+    "M": {
+      "item": "gtceu:ev_electric_motor"
+    },
+    "G": {
+      "tag": "forge:small_gears/titanium"
+    },
+    "C": {
+      "item": "gtceu:aluminium_single_cable"
+    },
+    "E": {
+      "tag": "gtceu:circuits/ev"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:ev_electric"
+    }
+  },
+  "show_notification": false
+}

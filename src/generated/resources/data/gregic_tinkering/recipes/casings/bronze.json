@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "forge:plates/bronze"
+    },
+    "R": {
+      "tag": "forge:rods/bronze"
+    },
+    "S": {
+      "tag": "forge:screws/bronze"
+    },
+    "T": {
+      "tag": "gtceu:tools/crafting_screwdrivers"
+    }
+  },
+  "pattern": [
+    "PPR",
+    "STS",
+    "PPR"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:casing",
+    "nbt": {
+      "Material": "tconstruct:bronze"
+    }
+  },
+  "show_notification": false
+}

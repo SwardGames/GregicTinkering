@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "B"
+  ],
+  "key": {
+    "C": {
+      "item": "gtceu:europium_single_cable"
+    },
+    "B": {
+      "item": "gtceu:max_battery"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:battery",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:ultimate_battery"
+    }
+  },
+  "show_notification": false
+}

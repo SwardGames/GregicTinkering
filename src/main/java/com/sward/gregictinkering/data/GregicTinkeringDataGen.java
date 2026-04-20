@@ -1,0 +1,102 @@
+package com.sward.gregictinkering.data;
+
+import com.gregtechceu.gtceu.api.item.tool.GTToolType;
+import com.sward.gregictinkering.GregicTinkeringMod;
+import com.sward.gregictinkering.GregicTinkeringToolDefinitions;
+import com.sward.gregictinkering.GregicTinkeringToolParts;
+import com.sward.gregictinkering.GregicTinkeringTools;
+import com.sward.gregictinkering.data.material.*;
+import com.sward.gregictinkering.data.model.CraftingToolModelProvider;
+import com.sward.gregictinkering.data.model.GregicItemModelProvider;
+import com.sward.gregictinkering.data.recipe.CasingsRecipeProvider;
+import com.sward.gregictinkering.data.recipe.ChainsawHeadsRecipeProvider;
+import com.sward.gregictinkering.data.recipe.DrillHeadsRecipeProvider;
+import com.sward.gregictinkering.data.sprite.AnimatedMaterialPartMetaProvider;
+import com.sward.gregictinkering.data.sprite.GregicPartSpriteProvider;
+import com.sward.gregictinkering.materials.stats.GregicStatlessMaterialStats;
+import com.sward.gregictinkering.tools.CraftingToolItemObject;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import slimeknights.tconstruct.library.client.data.material.GeneratorPartTextureJsonGenerator;
+import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
+import slimeknights.tconstruct.library.materials.definition.MaterialId;
+import slimeknights.tconstruct.tools.data.sprite.TinkerMaterialSpriteProvider;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+@Mod.EventBusSubscriber(modid = GregicTinkeringMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public final class GregicTinkeringDataGen
+{
+	@SubscribeEvent
+	public static void gatherData(final GatherDataEvent event)
+	{
+		DataGenerator generator = event.getGenerator();
+		PackOutput packOutput = generator.getPackOutput();
+		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+
+		boolean server = event.includeServer();
+
+		// Tool Head Materials (from TConstruct)
+		Collection<MaterialId> metalHeadMaterials = Arrays.stream(TieredMaterialIds.HEAD_METALS).flatMap(Arrays::stream).toList();
+		generator.addProvider(server, new DrillHeadsRecipeProvider(packOutput, metalHeadMaterials));
+		generator.addProvider(server, new ChainsawHeadsRecipeProvider(packOutput, metalHeadMaterials));
+
+		// Casing Materials (from TConstruct)
+		CasingMaterialDataProvider casingMaterials = new CasingMaterialDataProvider(packOutput);
+		generator.addProvider(server, new CasingMaterialStatsDataProvider(packOutput, casingMaterials));
+		generator.addProvider(server, new CasingsRecipeProvider(packOutput, Arrays.stream(CasingMaterialDataProvider.CASINGS).flatMap(Arrays::stream).toList()));
+
+		// Power Tool Materials
+		PowerToolMaterialDataProvider materials = new PowerToolMaterialDataProvider(packOutput);
+		generator.addProvider(server, materials);
+		generator.addProvider(server, new PowerToolMaterialStatsDataProvider(packOutput, materials));
+		generator.addProvider(server, new PowerToolMaterialTraitsDataProvider(packOutput, materials));
+
+		boolean client = event.includeClient();
+
+		TinkerMaterialSpriteProvider tcMaterialSprites = new TinkerMaterialSpriteProvider();
+		GregicPartSpriteProvider partSprites = new GregicPartSpriteProvider();
+
+		GeneratorPartTextureJsonGenerator.StatOverride.Builder overridesBuilder = new GeneratorPartTextureJsonGenerator.StatOverride.Builder();
+
+		for (int i = 0; i < CasingMaterialDataProvider.CASINGS.length; ++i)
+		{
+			for (MaterialId metalId : CasingMaterialDataProvider.CASINGS[i])
+			{
+				overridesBuilder.add(GregicStatlessMaterialStats.CASING.getIdentifier(), metalId);
+			}
+		}
+
+		GeneratorPartTextureJsonGenerator.StatOverride overrides = overridesBuilder.build();
+
+		generator.addProvider(client, new GregicItemModelProvider(packOutput, existingFileHelper));
+		generator.addProvider(
+			client,
+			new CraftingToolModelProvider(
+				packOutput,
+				existingFileHelper,
+				GregicTinkeringTools.WRENCH.tool.getId(),
+				GregicTinkeringTools.HAMMER.tool.getId(),
+				GregicTinkeringTools.FILE.tool.getId(),
+				GregicTinkeringTools.SCREWDRIVER.tool.getId(),
+				GregicTinkeringTools.SAW.tool.getId(),
+				GregicTinkeringTools.WIRE_CUTTER.tool.getId(),
+				GregicTinkeringTools.CROWBAR.tool.getId(),
+				GregicTinkeringTools.SOFT_MALLET.tool.getId(),
+				GregicTinkeringTools.PLUNGER.tool.getId()
+			)
+		);
+		generator.addProvider(client, new GeneratorPartTextureJsonGenerator(packOutput, GregicTinkeringMod.MOD_ID, partSprites, overrides));
+		generator.addProvider(client, new MaterialPartTextureGenerator(packOutput, existingFileHelper, partSprites, overrides, tcMaterialSprites));
+		generator.addProvider(client, new AnimatedMaterialPartMetaProvider(packOutput, existingFileHelper, partSprites, overrides, tcMaterialSprites));
+
+		GregicMaterialSpriteProvider materialSprites = new GregicMaterialSpriteProvider();
+
+		generator.addProvider(client, new GregicMaterialRenderInfoProvider(packOutput, materialSprites, existingFileHelper));
+	}
+}

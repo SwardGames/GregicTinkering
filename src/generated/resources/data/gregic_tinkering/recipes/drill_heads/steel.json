@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:small_gears/steel"
+    },
+    "H": {
+      "tag": "forge:tools/hammers"
+    },
+    "P": {
+      "tag": "forge:plates/steel"
+    },
+    "W": {
+      "tag": "forge:tools/wrench"
+    }
+  },
+  "pattern": [
+    "PPW",
+    "PPP",
+    "HPG"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:drill_head",
+    "nbt": {
+      "Material": "tconstruct:steel"
+    }
+  },
+  "show_notification": false
+}

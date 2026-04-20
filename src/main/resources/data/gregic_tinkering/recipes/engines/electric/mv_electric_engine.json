@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " E ",
+    "CMC",
+    " G "
+  ],
+  "key": {
+    "M": {
+      "item": "gtceu:mv_electric_motor"
+    },
+    "G": {
+      "tag": "forge:small_gears/aluminium"
+    },
+    "C": {
+      "item": "gtceu:copper_single_cable"
+    },
+    "E": {
+      "tag": "gtceu:circuits/mv"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:mv_electric"
+    }
+  },
+  "show_notification": false
+}

@@ -1,0 +1,23 @@
+{
+  "generator": {
+    "supported_stats": [
+      "gregic_tinkering:engine"
+    ],
+    "transformer": {
+      "type": "tconstruct:recolor_sprite",
+      "color_mapping": {
+        "type": "tconstruct:grey_to_color",
+        "palette": [
+          {
+            "color": "FF000000",
+            "grey": 0
+          },
+          {
+            "color": "FFFF00FF",
+            "grey": 255
+          }
+        ]
+      }
+    }
+  }
+}

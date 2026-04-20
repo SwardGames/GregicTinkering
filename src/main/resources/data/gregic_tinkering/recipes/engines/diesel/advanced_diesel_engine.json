@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "PpP",
+    "RGR"
+  ],
+  "key": {
+    "P": {
+      "tag": "forge:plates/aluminium"
+    },
+    "R": {
+      "tag": "forge:rods/aluminium"
+    },
+    "G": {
+      "tag": "forge:small_gears/aluminium"
+    },
+    "C": {
+      "item": "gtceu:aluminium_fluid_cell"
+    },
+    "E": {
+      "tag": "gtceu:circuits/mv"
+    },
+    "p": {
+      "item": "gtceu:steel_small_fluid_pipe"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:advanced_diesel"
+    }
+  },
+  "show_notification": false
+}

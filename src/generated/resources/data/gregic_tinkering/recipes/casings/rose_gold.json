@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "forge:plates/rose_gold"
+    },
+    "R": {
+      "tag": "forge:rods/rose_gold"
+    },
+    "S": {
+      "tag": "forge:screws/rose_gold"
+    },
+    "T": {
+      "tag": "gtceu:tools/crafting_screwdrivers"
+    }
+  },
+  "pattern": [
+    "PPR",
+    "STS",
+    "PPR"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:casing",
+    "nbt": {
+      "Material": "tconstruct:rose_gold"
+    }
+  },
+  "show_notification": false
+}

@@ -1,0 +1,9 @@
+{
+  "stats": {
+    "gregic_tinkering:battery": {
+      "capacity": 4000,
+      "is_tank": true,
+      "power_tier": 0
+    }
+  }
+}

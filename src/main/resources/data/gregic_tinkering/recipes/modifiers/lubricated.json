@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "gtceu:lubricant_bucket"
+    },
+    {
+      "item": "gtceu:lubricant_bucket"
+    },
+    {
+      "item": "gtceu:rubber_ring"
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "gregic_tinkering:lubricated",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "gregic_tinkering:modifiable/power_tool"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "B"
+  ],
+  "key": {
+    "C": {
+      "item": "gtceu:vanadium_gallium_single_cable"
+    },
+    "B": {
+      "item": "gtceu:zpm_naquadria_battery"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:battery",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:medium_naquadria_battery"
+    }
+  },
+  "show_notification": false
+}

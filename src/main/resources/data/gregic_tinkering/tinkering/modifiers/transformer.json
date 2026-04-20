@@ -1,0 +1,11 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:set_stat",
+      "stat": "gregic_tinkering:power_tier",
+      "value": 30
+    }
+  ],
+  "tooltip_display": "always"
+}

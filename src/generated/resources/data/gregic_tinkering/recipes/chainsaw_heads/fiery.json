@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:small_gears/fiery"
+    },
+    "H": {
+      "tag": "forge:tools/hammers"
+    },
+    "P": {
+      "tag": "forge:plates/fiery"
+    },
+    "R": {
+      "tag": "forge:rings/fiery"
+    },
+    "W": {
+      "tag": "forge:tools/wrench"
+    }
+  },
+  "pattern": [
+    "RRW",
+    "RPR",
+    "HRG"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:chainsaw_head",
+    "nbt": {
+      "Material": "tconstruct:fiery"
+    }
+  },
+  "show_notification": false
+}

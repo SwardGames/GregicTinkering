@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "forge:plates/invar"
+    },
+    "R": {
+      "tag": "forge:rods/invar"
+    },
+    "S": {
+      "tag": "forge:screws/invar"
+    },
+    "T": {
+      "tag": "gtceu:tools/crafting_screwdrivers"
+    }
+  },
+  "pattern": [
+    "PPR",
+    "STS",
+    "PPR"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:casing",
+    "nbt": {
+      "Material": "tconstruct:invar"
+    }
+  },
+  "show_notification": false
+}

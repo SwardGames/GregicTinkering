@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:small_gears/pig_iron"
+    },
+    "H": {
+      "tag": "forge:tools/hammers"
+    },
+    "P": {
+      "tag": "forge:plates/pig_iron"
+    },
+    "R": {
+      "tag": "forge:rings/pig_iron"
+    },
+    "W": {
+      "tag": "forge:tools/wrench"
+    }
+  },
+  "pattern": [
+    "RRW",
+    "RPR",
+    "HRG"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:chainsaw_head",
+    "nbt": {
+      "Material": "tconstruct:pig_iron"
+    }
+  },
+  "show_notification": false
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "R",
+    "C"
+  ],
+  "key": {
+    "R": {
+      "tag": "forge:rings/rubber"
+    },
+    "C": {
+      "item": "gtceu:stainless_steel_fluid_cell"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:battery",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:stainless_steel_fluid_tank"
+    }
+  },
+  "show_notification": false
+}

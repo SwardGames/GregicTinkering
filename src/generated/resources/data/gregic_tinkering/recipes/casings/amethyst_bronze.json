@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "forge:plates/amethyst_bronze"
+    },
+    "R": {
+      "tag": "forge:rods/amethyst_bronze"
+    },
+    "S": {
+      "tag": "forge:screws/amethyst_bronze"
+    },
+    "T": {
+      "tag": "gtceu:tools/crafting_screwdrivers"
+    }
+  },
+  "pattern": [
+    "PPR",
+    "STS",
+    "PPR"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:casing",
+    "nbt": {
+      "Material": "tconstruct:amethyst_bronze"
+    }
+  },
+  "show_notification": false
+}

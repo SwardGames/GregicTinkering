@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " E ",
+    "CMC",
+    " G "
+  ],
+  "key": {
+    "M": {
+      "item": "gtceu:uv_electric_motor"
+    },
+    "G": {
+      "tag": "forge:small_gears/darmstadtium"
+    },
+    "C": {
+      "item": "gtceu:yttrium_barium_cuprate_single_cable"
+    },
+    "E": {
+      "tag": "gtceu:circuits/uv"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:uv_electric"
+    }
+  },
+  "show_notification": false
+}

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " E ",
+    "CMC",
+    " G "
+  ],
+  "key": {
+    "M": {
+      "item": "gtceu:zpm_electric_motor"
+    },
+    "G": {
+      "tag": "forge:small_gears/naquadah_alloy"
+    },
+    "C": {
+      "item": "gtceu:vanadium_gallium_single_cable"
+    },
+    "E": {
+      "tag": "gtceu:circuits/zpm"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:zpm_electric"
+    }
+  },
+  "show_notification": false
+}

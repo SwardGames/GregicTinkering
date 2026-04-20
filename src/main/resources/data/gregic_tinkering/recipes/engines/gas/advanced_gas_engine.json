@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "EPR",
+    "PRP",
+    "GPp"
+  ],
+  "key": {
+    "P": {
+      "tag": "forge:plates/aluminium"
+    },
+    "R": {
+      "tag": "forge:rotors/bronze"
+    },
+    "G": {
+      "tag": "forge:small_gears/aluminium"
+    },
+    "E": {
+      "tag": "gtceu:circuits/mv"
+    },
+    "p": {
+      "item": "gtceu:steel_small_fluid_pipe"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:engine",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:advanced_gas"
+    }
+  },
+  "show_notification": false
+}

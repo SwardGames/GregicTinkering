@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:small_gears/knightmetal"
+    },
+    "H": {
+      "tag": "forge:tools/hammers"
+    },
+    "P": {
+      "tag": "forge:plates/knightmetal"
+    },
+    "R": {
+      "tag": "forge:rings/knightmetal"
+    },
+    "W": {
+      "tag": "forge:tools/wrench"
+    }
+  },
+  "pattern": [
+    "RRW",
+    "RPR",
+    "HRG"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:chainsaw_head",
+    "nbt": {
+      "Material": "tconstruct:knightmetal"
+    }
+  },
+  "show_notification": false
+}

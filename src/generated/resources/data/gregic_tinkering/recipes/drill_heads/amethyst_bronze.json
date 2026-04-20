@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:small_gears/amethyst_bronze"
+    },
+    "H": {
+      "tag": "forge:tools/hammers"
+    },
+    "P": {
+      "tag": "forge:plates/amethyst_bronze"
+    },
+    "W": {
+      "tag": "forge:tools/wrench"
+    }
+  },
+  "pattern": [
+    "PPW",
+    "PPP",
+    "HPG"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:drill_head",
+    "nbt": {
+      "Material": "tconstruct:amethyst_bronze"
+    }
+  },
+  "show_notification": false
+}

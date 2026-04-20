@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:small_gears/slimesteel"
+    },
+    "H": {
+      "tag": "forge:tools/hammers"
+    },
+    "P": {
+      "tag": "forge:plates/slimesteel"
+    },
+    "W": {
+      "tag": "forge:tools/wrench"
+    }
+  },
+  "pattern": [
+    "PPW",
+    "PPP",
+    "HPG"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:drill_head",
+    "nbt": {
+      "Material": "tconstruct:slimesteel"
+    }
+  },
+  "show_notification": false
+}

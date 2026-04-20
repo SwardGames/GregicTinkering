@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "forge:plates/slimesteel"
+    },
+    "R": {
+      "tag": "forge:rods/slimesteel"
+    },
+    "S": {
+      "tag": "forge:screws/slimesteel"
+    },
+    "T": {
+      "tag": "gtceu:tools/crafting_screwdrivers"
+    }
+  },
+  "pattern": [
+    "PPR",
+    "STS",
+    "PPR"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:casing",
+    "nbt": {
+      "Material": "tconstruct:slimesteel"
+    }
+  },
+  "show_notification": false
+}

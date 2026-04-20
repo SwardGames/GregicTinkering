@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "forge:plates/cinderslime"
+    },
+    "R": {
+      "tag": "forge:rods/cinderslime"
+    },
+    "S": {
+      "tag": "forge:screws/cinderslime"
+    },
+    "T": {
+      "tag": "gtceu:tools/crafting_screwdrivers"
+    }
+  },
+  "pattern": [
+    "PPR",
+    "STS",
+    "PPR"
+  ],
+  "result": {
+    "count": 1,
+    "item": "gregic_tinkering:casing",
+    "nbt": {
+      "Material": "tconstruct:cinderslime"
+    }
+  },
+  "show_notification": false
+}

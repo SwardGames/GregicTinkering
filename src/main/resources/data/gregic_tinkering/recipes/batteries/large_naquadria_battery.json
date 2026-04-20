@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C",
+    "B"
+  ],
+  "key": {
+    "C": {
+      "item": "gtceu:yttrium_barium_cuprate_single_cable"
+    },
+    "B": {
+      "item": "gtceu:uv_naquadria_battery"
+    }
+  },
+  "result": {
+    "item": "gregic_tinkering:battery",
+    "count": 1,
+    "nbt": {
+      "Material": "gregic_tinkering:large_naquadria_battery"
+    }
+  },
+  "show_notification": false
+}
