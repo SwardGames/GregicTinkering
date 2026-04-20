@@ -1,7 +1,5 @@
 package com.sward.gregictinkering;
 
-import com.gregtechceu.gtceu.api.item.tool.GTToolType;
-import com.sward.gregictinkering.tools.CraftingToolItemObject;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
 public final class GregicTinkeringToolDefinitions

@@ -2,8 +2,6 @@ package com.sward.gregictinkering.data.model;
 
 import com.sward.gregictinkering.GregicTinkeringMod;
 import com.sward.gregictinkering.GregicTinkeringToolParts;
-import com.sward.gregictinkering.materials.stats.PlungerHeadMaterialStats;
-import com.sward.gregictinkering.materials.stats.SoftMalletHeadMaterialStats;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +15,6 @@ import net.minecraftforge.registries.RegistryObject;
 import slimeknights.tconstruct.common.data.model.MaterialModelBuilder;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.part.MaterialItem;
-import slimeknights.tconstruct.library.tools.part.ToolPartItem;
-import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 public class GregicItemModelProvider extends ItemModelProvider
 {

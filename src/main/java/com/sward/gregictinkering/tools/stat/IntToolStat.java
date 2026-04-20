@@ -133,25 +133,25 @@ public class IntToolStat implements INumericToolStat<Integer>
 	@Override
 	public void add(ModifierStatsBuilder builder, double value)
 	{
-		builder.<IntegerBuilder>updateStat(this, b -> b.add += value);
+		builder.<IntegerBuilder>updateStat(this, b -> b.add += (int)value);
 	}
 
 	@Override
 	public void percent(ModifierStatsBuilder builder, double factor)
 	{
-		builder.<IntegerBuilder>updateStat(this, b -> b.percent += factor);
+		builder.<IntegerBuilder>updateStat(this, b -> b.percent += (int)factor);
 	}
 
 	@Override
 	public void multiply(ModifierStatsBuilder builder, double factor)
 	{
-		builder.<IntegerBuilder>updateStat(this, b -> b.multiply *= factor);
+		builder.<IntegerBuilder>updateStat(this, b -> b.multiply *= (int)factor);
 	}
 
 	@Override
 	public void multiplyAll(ModifierStatsBuilder builder, double factor)
 	{
-		builder.<IntegerBuilder>updateStat(this, b -> b.multiply *= factor);
+		builder.<IntegerBuilder>updateStat(this, b -> b.multiply *= (int)factor);
 		builder.multiplier(this, factor);
 	}
 

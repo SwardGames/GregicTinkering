@@ -1,9 +1,6 @@
 package com.sward.gregictinkering.data;
 
-import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.sward.gregictinkering.GregicTinkeringMod;
-import com.sward.gregictinkering.GregicTinkeringToolDefinitions;
-import com.sward.gregictinkering.GregicTinkeringToolParts;
 import com.sward.gregictinkering.GregicTinkeringTools;
 import com.sward.gregictinkering.data.material.*;
 import com.sward.gregictinkering.data.model.CraftingToolModelProvider;
@@ -14,7 +11,6 @@ import com.sward.gregictinkering.data.recipe.DrillHeadsRecipeProvider;
 import com.sward.gregictinkering.data.sprite.AnimatedMaterialPartMetaProvider;
 import com.sward.gregictinkering.data.sprite.GregicPartSpriteProvider;
 import com.sward.gregictinkering.materials.stats.GregicStatlessMaterialStats;
-import com.sward.gregictinkering.tools.CraftingToolItemObject;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;

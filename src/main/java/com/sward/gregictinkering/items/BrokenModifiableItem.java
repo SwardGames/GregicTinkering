@@ -3,7 +3,6 @@ package com.sward.gregictinkering.items;
 import com.sward.gregictinkering.tools.IBrokenTool;
 import lombok.Getter;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.RegistryObject;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 

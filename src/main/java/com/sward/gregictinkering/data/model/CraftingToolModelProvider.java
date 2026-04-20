@@ -3,31 +3,15 @@ package com.sward.gregictinkering.data.model;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import com.sward.gregictinkering.GregicTinkeringMod;
-import com.sward.gregictinkering.GregicTinkeringToolParts;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
-import slimeknights.tconstruct.common.data.model.MaterialModelBuilder;
-import slimeknights.tconstruct.common.registration.CastItemObject;
-import slimeknights.tconstruct.library.materials.definition.MaterialId;
-import slimeknights.tconstruct.library.tools.item.ModifiableItem;
-import slimeknights.tconstruct.library.tools.part.MaterialItem;
-import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -38,7 +22,6 @@ public class CraftingToolModelProvider implements DataProvider
 	private final ExistingFileHelper existingFileHelper;
 	private final ResourceLocation[] tools;
 
-	@SafeVarargs
 	public CraftingToolModelProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper, ResourceLocation... tools)
 	{
 		this.pathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/item");

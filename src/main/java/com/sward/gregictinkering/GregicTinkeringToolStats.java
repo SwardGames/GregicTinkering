@@ -2,7 +2,6 @@ package com.sward.gregictinkering;
 
 import com.sward.gregictinkering.energy.ToolElectricItemCapability;
 import com.sward.gregictinkering.materials.stats.*;
-import com.sward.gregictinkering.modifiers.AirFedModifier;
 import com.sward.gregictinkering.modules.FuelTypeNameModule;
 import com.sward.gregictinkering.modules.SneakConditionalAOEIterator;
 import com.sward.gregictinkering.tools.stat.EnumToolStat;

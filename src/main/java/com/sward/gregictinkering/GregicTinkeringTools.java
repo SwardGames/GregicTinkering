@@ -1,10 +1,6 @@
 package com.sward.gregictinkering;
 
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
-import com.gregtechceu.gtceu.api.sound.ExistingSoundEntry;
-import com.gregtechceu.gtceu.api.sound.SoundEntry;
-import com.sward.gregictinkering.items.BrokenModifiableItem;
-import com.sward.gregictinkering.items.ModifiableGTToolItem;
 import com.sward.gregictinkering.items.PowerToolItem;
 import com.sward.gregictinkering.tools.CraftingToolItemObject;
 import net.minecraft.world.item.Item;

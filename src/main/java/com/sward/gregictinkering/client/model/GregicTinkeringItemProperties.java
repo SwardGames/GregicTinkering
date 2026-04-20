@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
 
+@SuppressWarnings("deprecation")
 public class GregicTinkeringItemProperties
 {
 	private static final ResourceLocation MINING_ID = GregicTinkeringMod.id("mining");

@@ -132,7 +132,7 @@ public class LongToolStat implements INumericToolStat<Long>
 	@Override
 	public void add(ModifierStatsBuilder builder, double value)
 	{
-		builder.<LongBuilder>updateStat(this, b -> b.add += value);
+		builder.<LongBuilder>updateStat(this, b -> b.add += (long)value);
 	}
 
 	@Override

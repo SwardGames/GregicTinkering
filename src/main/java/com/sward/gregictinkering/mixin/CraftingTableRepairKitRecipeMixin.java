@@ -4,17 +4,11 @@ import com.sward.gregictinkering.tools.IBrokenTool;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.CustomRecipe;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import slimeknights.tconstruct.library.recipe.RecipeResult;
-import slimeknights.tconstruct.library.recipe.tinkerstation.ITinkerStationContainer;
-import slimeknights.tconstruct.library.recipe.tinkerstation.ITinkerStationRecipe;
-import slimeknights.tconstruct.library.tools.nbt.LazyToolStack;
 import slimeknights.tconstruct.tables.recipe.CraftingTableRepairKitRecipe;
-import slimeknights.tconstruct.tables.recipe.TinkerStationRepairRecipe;
 
 @Mixin(value = CraftingTableRepairKitRecipe.class, remap = false)
 public abstract class CraftingTableRepairKitRecipeMixin

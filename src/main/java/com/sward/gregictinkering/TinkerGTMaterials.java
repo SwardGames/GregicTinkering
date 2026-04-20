@@ -6,6 +6,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import net.minecraft.world.level.ItemLike;
 import slimeknights.mantle.registration.object.MetalItemObject;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.shared.TinkerMaterials;
@@ -101,7 +102,7 @@ public class TinkerGTMaterials
 
 		TagPrefix.ingot.setIgnored(material, tinkersMetal::getIngot);
 		TagPrefix.nugget.setIgnored(material, tinkersMetal::getNugget);
-		TagPrefix.block.setIgnored(material, tinkersMetal::get);
+		TagPrefix.block.setIgnored(material, (ItemLike)tinkersMetal);
 
 		return material;
 	}
@@ -118,7 +119,7 @@ public class TinkerGTMaterials
 
 		TagPrefix.ingot.setIgnored(material, tinkersMetal::getIngot);
 		TagPrefix.nugget.setIgnored(material, tinkersMetal::getNugget);
-		TagPrefix.block.setIgnored(material, tinkersMetal::get);
+		TagPrefix.block.setIgnored(material, (ItemLike)tinkersMetal);
 
 		return material;
 	}
