@@ -1,6 +1,8 @@
 package com.sward.gregictinkering;
 
 import com.sward.gregictinkering.energy.ToolElectricItemCapability;
+import com.sward.gregictinkering.materials.stats.PlungerHeadMaterialStats;
+import com.sward.gregictinkering.materials.stats.SoftMalletHeadMaterialStats;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +19,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
+import slimeknights.tconstruct.library.tools.part.ToolPartItem;
+import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -39,9 +43,22 @@ public class GregicTinkeringMod
 			.displayItems(
 				(params, output) ->
 				{
+					// Crafting Tool Heads
 					accept(output::accept, GregicTinkeringToolParts.WRENCH_HEAD);
+					accept(output::accept, GregicTinkeringToolParts.HAMMER_HEAD);
+					accept(output::accept, GregicTinkeringToolParts.FILE_HEAD);
+					accept(output::accept, GregicTinkeringToolParts.SCREWDRIVER_HEAD);
+					accept(output::accept, GregicTinkeringToolParts.SAW_HEAD);
+					accept(output::accept, GregicTinkeringToolParts.WIRE_CUTTER_HEAD);
+					accept(output::accept, GregicTinkeringToolParts.CROWBAR_HEAD);
+					accept(output::accept, GregicTinkeringToolParts.SOFT_MALLET_HEAD);
+					accept(output::accept, GregicTinkeringToolParts.PLUNGER_HEAD);
+
+					// Power Tool Heads
 					accept(output::accept, GregicTinkeringToolParts.DRILL_HEAD);
 					accept(output::accept, GregicTinkeringToolParts.CHAINSAW_HEAD);
+
+					// Power Tool Parts
 					accept(output::accept, GregicTinkeringToolParts.CASING);
 					accept(output::accept, GregicTinkeringToolParts.ENGINE);
 					accept(output::accept, GregicTinkeringToolParts.BATTERY);
@@ -59,7 +76,7 @@ public class GregicTinkeringMod
 			.displayItems(
 				(params, output) ->
 				{
-					output.accept(GregicTinkeringTools.WRENCH.tool.get());
+					// Crafting Tools
 					output.accept(GregicTinkeringTools.WRENCH.tool.get());
 					output.accept(GregicTinkeringTools.HAMMER.tool.get());
 					output.accept(GregicTinkeringTools.FILE.tool.get());
@@ -69,6 +86,8 @@ public class GregicTinkeringMod
 					output.accept(GregicTinkeringTools.CROWBAR.tool.get());
 					output.accept(GregicTinkeringTools.SOFT_MALLET.tool.get());
 					output.accept(GregicTinkeringTools.PLUNGER.tool.get());
+
+					// Power Tools
 					output.accept(GregicTinkeringTools.DRILL.get());
 					output.accept(GregicTinkeringTools.CHAINSAW.get());
 				}
