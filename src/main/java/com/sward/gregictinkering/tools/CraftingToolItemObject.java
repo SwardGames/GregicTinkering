@@ -9,16 +9,18 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
+import java.util.function.Supplier;
+
 public class CraftingToolItemObject
 {
 	public final RegistryObject<ModifiableGTToolItem> tool;
 
 	public final RegistryObject<BrokenModifiableItem> brokenTool;
 
-	public CraftingToolItemObject(DeferredRegister<Item> items, String name, ToolDefinition toolDefinition, GTToolType toolType)
+	public CraftingToolItemObject(DeferredRegister<Item> items, String name, Supplier<ToolDefinition> toolDefinition, Supplier<GTToolType> toolType)
 	{
-		tool = items.register(name, () -> new ModifiableGTToolItem(GregicTinkeringTools.PROPS, toolDefinition, toolType, this::getBrokenToolItem));
-		brokenTool = items.register(name, () -> new BrokenModifiableItem(GregicTinkeringTools.PROPS, toolDefinition, this::getToolItem));
+		tool = items.register(name, () -> new ModifiableGTToolItem(GregicTinkeringTools.PROPS, toolDefinition.get(), toolType.get(), this::getBrokenToolItem));
+		brokenTool = items.register(name + "_broken", () -> new BrokenModifiableItem(GregicTinkeringTools.PROPS, toolDefinition.get(), this::getToolItem));
 	}
 
 	public Item getToolItem()
