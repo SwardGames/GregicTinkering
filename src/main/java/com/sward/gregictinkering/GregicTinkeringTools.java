@@ -1,7 +1,7 @@
 package com.sward.gregictinkering;
 
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
-import com.sward.gregictinkering.items.PowerToolItem;
+import com.sward.gregictinkering.items.ModifiableGTToolItem;
 import com.sward.gregictinkering.tools.CraftingToolItemObject;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
@@ -27,6 +27,6 @@ public final class GregicTinkeringTools
 	public static final CraftingToolItemObject PLUNGER = new CraftingToolItemObject(ITEMS, "plunger", () -> GregicTinkeringToolDefinitions.PLUNGER, () -> GTToolType.PLUNGER);
 
 	// Power Tools
-	public static final RegistryObject<ModifiableItem> DRILL = ITEMS.register("drill", () -> new PowerToolItem(PROPS, GregicTinkeringToolDefinitions.DRILL));
-	public static final RegistryObject<ModifiableItem> CHAINSAW = ITEMS.register("chainsaw", () -> new PowerToolItem(PROPS, GregicTinkeringToolDefinitions.CHAINSAW));
+	public static final RegistryObject<ModifiableItem> DRILL = ITEMS.register("drill", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.DRILL, GTToolType.DRILL_LV, true));
+	public static final RegistryObject<ModifiableItem> CHAINSAW = ITEMS.register("chainsaw", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.CHAINSAW, GTToolType.DRILL_MV, true));
 }

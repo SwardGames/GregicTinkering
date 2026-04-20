@@ -1,6 +1,8 @@
 package com.sward.gregictinkering.items;
 
 import com.gregtechceu.gtceu.api.capability.CombinedCapabilityProvider;
+import com.gregtechceu.gtceu.api.capability.GTCapabilityHelper;
+import com.gregtechceu.gtceu.api.capability.IElectricItem;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.item.IGTTool;
 import com.gregtechceu.gtceu.api.item.component.forge.IComponentCapability;
@@ -23,7 +25,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.Capability;
@@ -47,11 +48,29 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 
 	private final Supplier<Item> brokenItem;
 
+	private final boolean cancelSwing;
+
+	public ModifiableGTToolItem(Properties properties, ToolDefinition toolDefinition, GTToolType toolType)
+	{
+		this(properties, toolDefinition, toolType, null, false);
+	}
+
 	public ModifiableGTToolItem(Properties properties, ToolDefinition toolDefinition, GTToolType toolType, Supplier<Item> brokenItem)
+	{
+		this(properties, toolDefinition, toolType, brokenItem, false);
+	}
+
+	public ModifiableGTToolItem(Properties properties, ToolDefinition toolDefinition, GTToolType toolType, boolean cancelSwing)
+	{
+		this(properties, toolDefinition, toolType, null, cancelSwing);
+	}
+
+	public ModifiableGTToolItem(Properties properties, ToolDefinition toolDefinition, GTToolType toolType, Supplier<Item> brokenItem, boolean cancelSwing)
 	{
 		super(properties, toolDefinition);
 		this.toolType = toolType;
 		this.brokenItem = brokenItem;
+		this.cancelSwing = cancelSwing;
 	}
 
 	@Override
@@ -90,6 +109,12 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 	}
 
 	@Override
+	public boolean onEntitySwing(ItemStack stack, LivingEntity entity)
+	{
+		return cancelSwing;
+	}
+
+	@Override
 	public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction)
 	{
 		return super.canPerformAction(stack, toolAction) || definition$canPerformAction(stack, toolAction);
@@ -124,13 +149,21 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 	@Override
 	public boolean onBlockStartBreak(@NotNull ItemStack stack, @NotNull BlockPos pos, @NotNull Player player)
 	{
-		return super.onBlockStartBreak(stack, pos, player) || definition$onBlockStartBreak(stack, pos, player);
-	}
+		boolean result = super.onBlockStartBreak(stack, pos, player);
 
-	@Override
-	public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level worldIn, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity entityLiving)
-	{
-		return super.mineBlock(stack, worldIn, state, pos, entityLiving) || definition$mineBlock(stack, worldIn, state, pos, entityLiving);
+		if (result)
+		{
+			//noinspection resource
+			if (!player.level().isClientSide)
+			{
+				if (playSoundOnBlockDestroy())
+				{
+					playSound(player);
+				}
+			}
+		}
+
+		return result;
 	}
 
 	@Override
@@ -179,7 +212,7 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 
 		ToolDamageUtil.damage(tool, 1, player, stack);
 
-		if (tool.isBroken())
+		if (tool.isBroken() && brokenItem != null)
 		{
 			CompoundTag tag = stack.getTag();
 			stack = new ItemStack(brokenItem.get(), stack.getCount());
@@ -200,7 +233,8 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 	@Override
 	public boolean isElectric()
 	{
-		return false;
+		// Return true so that the electricity bar can be shown
+		return true;
 	}
 
 	@Override
@@ -225,5 +259,117 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 	public boolean playSoundOnBlockDestroy()
 	{
 		return toolType.playSoundOnBlockDestroy;
+	}
+
+	@Override
+	public ItemStack getRaw()
+	{
+		return new ItemStack(this);
+	}
+
+	@Override
+	public ItemStack get()
+	{
+		ItemStack result = getRaw();
+		ToolStack.ensureInitialized(result, getToolDefinition());
+		return result;
+	}
+
+	@Override
+	public ItemStack get(long defaultCharge, long defaultMaxCharge)
+	{
+		return get();
+	}
+
+	@Override
+	public ItemStack get(long defaultMaxCharge)
+	{
+		return get();
+	}
+
+	@Override
+	public long getCharge(ItemStack stack)
+	{
+		IElectricItem electricItem = GTCapabilityHelper.getElectricItem(stack);
+		return electricItem != null ? electricItem.getCharge() : 0;
+	}
+
+	@Override
+	public long getMaxCharge(ItemStack stack)
+	{
+		IElectricItem electricItem = GTCapabilityHelper.getElectricItem(stack);
+		return electricItem != null ? electricItem.getMaxCharge() : 0;
+	}
+
+	@Override
+	public float getMaterialToolSpeed()
+	{
+		return 0;
+	}
+
+	@Override
+	public float getMaterialAttackDamage()
+	{
+		return 0;
+	}
+
+	@Override
+	public float getMaterialAttackSpeed()
+	{
+		return 0;
+	}
+
+	@Override
+	public int getMaterialDurability()
+	{
+		return 0;
+	}
+
+	@Override
+	public int getMaterialEnchantability()
+	{
+		return 0;
+	}
+
+	@Override
+	public int getMaterialHarvestLevel()
+	{
+		return 0;
+	}
+
+	@Override
+	public float getTotalToolSpeed(ItemStack stack)
+	{
+		return 0;
+	}
+
+	@Override
+	public float getTotalAttackDamage(ItemStack stack)
+	{
+		return 0;
+	}
+
+	@Override
+	public float getTotalAttackSpeed(ItemStack stack)
+	{
+		return 0;
+	}
+
+	@Override
+	public int getTotalMaxDurability(ItemStack stack)
+	{
+		return 0;
+	}
+
+	@Override
+	public int getTotalEnchantability(ItemStack stack)
+	{
+		return 0;
+	}
+
+	@Override
+	public int getTotalHarvestLevel(ItemStack stack)
+	{
+		return 0;
 	}
 }

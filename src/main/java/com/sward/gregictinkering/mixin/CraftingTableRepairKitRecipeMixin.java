@@ -13,7 +13,7 @@ import slimeknights.tconstruct.tables.recipe.CraftingTableRepairKitRecipe;
 @Mixin(value = CraftingTableRepairKitRecipe.class, remap = false)
 public abstract class CraftingTableRepairKitRecipeMixin
 {
-	@Inject(method = "assemble", at = @At(value = "RETURN", ordinal = 3), cancellable = true)
+	@Inject(method = "assemble(Lnet/minecraft/world/inventory/CraftingContainer;Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;", at = @At(value = "RETURN", ordinal = 3), cancellable = true)
 	private void onGetValidatedResult(
 		CraftingContainer inv,
 		RegistryAccess access,
