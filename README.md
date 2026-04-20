@@ -1,36 +1,60 @@
-# GregTech Addon Template
-## Template for GregTech Modern addons on 1.20.1
-
- Original template by [screret](https://github.com/screret), maintained by [JuiceyBeans](https://github.com/JuiceyBeans)
+# Gregic Tinkering
+## GregTech Tools for Tinkers Construct
 
 <hr>
 
-## How do I make an addon for GregTech Modern?
-Well for one, you WILL need to know Java to make an addon. There's no getting around this. A good starting point would be [MOOC](https://java-programming.mooc.fi/) or [W3Schools](https://www.w3schools.com/java/
-)
+# What is it?
 
-Unfortunately, there isn't any official documentation so far for making GregTech Modern addons. There are a couple of mods you can look at to reference though!
-
-Repositories for other addons:
-
-- [GT Community Additions](https://github.com/mordgren/GTCA)
-- [MoniLabs](https://github.com/NegaNote/MoniLabs)
-
-Additionally, you may be able to find help on the [GregTech CEu Discord](https://discord.gg/bWSWuYvURP)!
+Gregic Tinkering adds new tool types to Tinkers Construct 3 which are compatible with GregTech: Modern.
 
 <hr>
 
-## This template comes packaged with [Spotless](https://github.com/diffplug/spotless)!
+# Features
 
-### 1. What is Spotless?
-- Spotless keeps your code neatly formatted. It's essentially a grammar check for your code!
-### 2. Can I choose not to use Spotless?
-- Yes! Spotless is completely optional and will not affect your project by default
-### 3. How do I run Spotless?
-- You can run Spotless anytime by:
-  - Running the `spotlessApply` task from the Gradle tab in IntelliJ
-  - Installing the [Spotless Gradle plugin for IntelliJ](https://plugins.jetbrains.com/plugin/18321-spotless-gradle)
-  - Typing in `gradlew.bat :spotlessApply` if you're on Windows
-  - Typing in `bash gradlew :spotlessApply` if you're on Linux
-### 4. So how do I check if Spotless has been applied to my code?
-- Running `spotlessApply` will format all files for you automatically! If you want GitHub to check each commit for if Spotless has been run, you can add [this](https://github.com/Frontiers-PackForge/CosmicCore/blob/main-1.20.1-forge/.github/workflows/spotless.yml) and [this](https://github.com/Frontiers-PackForge/CosmicCore/blob/main-1.20.1-forge/.github/actions/build_setup/action.yml) to your project
+## Crafting Tools
+
+Adds tinkerable varieties of all crafting tools (excluding the knife), including all in-world interactions!
+
+This means that you can make a wrench from multiple parts, repair it and even give it modifiers.
+
+Crafting tool heads are made with the casting table. Copper tool heads can also be crafted.
+
+## Power Tools
+
+This mod also adds Power Tools (available at steam age, requires the Tinkers Anvil), electric variants of broad harvest tools.
+
+Power Tools, as their name suggests, require a form of power to function, determined by the tools Engine Unit.
+
+They can not only be powered by EU, but also by various fuels, as determined by their engine type (using Steam Turbine, Gas Turbine or Combustion Generator recipes).
+
+Power Tools are entirely reliant upon power to function, and will not work without any! Furthermore, gas- and diesel-powered tools need an air supply in order to produce power (currently, this means that they will not function underwater or in any dimension type tagged `gregic_tinkering:no_air`)
+
+However, they consume durability far slower than normal tools, ignoring 60% of durability damage at LV, and a further 5% per tier above LV.
+
+Finally, Power Tools have their own unique modifiers, such as Lubricated, which reduces EU usage and Transformer, which lets electric tools be charged at any voltage tier!
+
+The two current Power Tools are the Drill, which mines dirt and stone blocks in a 3x3 area (unless sneaking), and the Chainsaw which cuts down trees and breaks wood blocks in a 3x3 area (unless sneaking). 
+
+<hr>
+
+# Planned Features
+
+Powered variants of crafting tools.
+
+Energy Sword/Cleaver: Electric powered versions of the Sword and Cleaver. Will have special modifiers to 
+
+Omnitool: HV-tier electric crafting tool which cycle through any crafting tool type with a keybind.
+
+Power Armor: High defense and toughness, as well as piece-dependent boosts (such as movement speed, attack speed/damage bonus, and air supply), but without power slows the user. Will have lots of special modifiers, such as:
+ - Hazmat (gives the effects of a hazmat suit when all armor pieces have this)
+ - Boost Jump (when on the ground, sneak and jump to be launched into the air at the cost of EU)
+ - Jetpacks (will come in various tiers, such as fueled and electric, as well as gravic which allows for creative-style flight)
+ - Elytra Thrusters (lets you go at boosted speeds by consuming EU or fuel)
+
+Steam Charger: A steam-age machine which fills inserted fluid tanks with steam.
+
+Air Tank Modifier: Lets air fed tools work without air for a brief period of time.
+
+Breathtaking Modifier: Lets air fed tools work without air by consuming the players breath bar.
+
+Ad Astra Compat: Lets air fed tools work within an oxygen bubble, even in dimensions without air.
