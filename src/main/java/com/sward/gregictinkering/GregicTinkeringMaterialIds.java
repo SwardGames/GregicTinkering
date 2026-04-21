@@ -9,6 +9,10 @@ public final class GregicTinkeringMaterialIds
 {
 	// Rubbers (For Plungers)
 	public static final MaterialId RUBBER = id("rubber");
+	public static final MaterialId POLYETHYLENE = id("polyethylene");
+	public static final MaterialId SILICONE_RUBBER = id("silicone_rubber");
+	public static final MaterialId STYRENE_BUTADIENE_RUBBER = id("styrene_butadiene_rubber");
+	public static final MaterialId POLYTETRAFLUOROETHYLENE = id("polytetrafluoroethylene");
 
 	// Engines
 	// Tier 1 (LV)

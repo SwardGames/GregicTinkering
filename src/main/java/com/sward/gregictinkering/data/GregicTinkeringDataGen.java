@@ -39,7 +39,7 @@ public final class GregicTinkeringDataGen
 
 		// Crafting Tool Head Materials
 		CraftingToolMaterialDataProvider craftingToolMaterials = new CraftingToolMaterialDataProvider(packOutput);
-//		generator.addProvider(server, craftingToolMaterials); // IMPORTANT: DO NOT REGISTER
+		generator.addProvider(server, craftingToolMaterials);
 		generator.addProvider(server, new CraftingToolMaterialStatsDataProvider(packOutput, craftingToolMaterials));
 		generator.addProvider(server, new CraftingToolMaterialTraitsDataProvider(packOutput, craftingToolMaterials));
 
@@ -84,15 +84,15 @@ public final class GregicTinkeringDataGen
 			new CraftingToolModelProvider(
 				packOutput,
 				existingFileHelper,
-				GregicTinkeringTools.WRENCH.tool.getId(),
-				GregicTinkeringTools.HAMMER.tool.getId(),
-				GregicTinkeringTools.FILE.tool.getId(),
-				GregicTinkeringTools.SCREWDRIVER.tool.getId(),
-				GregicTinkeringTools.SAW.tool.getId(),
-				GregicTinkeringTools.WIRE_CUTTER.tool.getId(),
-				GregicTinkeringTools.CROWBAR.tool.getId(),
-				GregicTinkeringTools.SOFT_MALLET.tool.getId(),
-				GregicTinkeringTools.PLUNGER.tool.getId()
+				GregicTinkeringTools.WRENCH.getId(),
+				GregicTinkeringTools.HAMMER.getId(),
+				GregicTinkeringTools.FILE.getId(),
+				GregicTinkeringTools.SCREWDRIVER.getId(),
+				GregicTinkeringTools.SAW.getId(),
+				GregicTinkeringTools.WIRE_CUTTER.getId(),
+				GregicTinkeringTools.CROWBAR.getId(),
+				GregicTinkeringTools.SOFT_MALLET.getId(),
+				GregicTinkeringTools.PLUNGER.getId()
 			)
 		);
 		generator.addProvider(client, new GeneratorPartTextureJsonGenerator(packOutput, GregicTinkeringMod.MOD_ID, partSprites, overrides));

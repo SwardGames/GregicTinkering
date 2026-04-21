@@ -41,18 +41,8 @@ public class CraftingToolModelProvider implements DataProvider
 				futures.add(
 					DataProvider.saveStable(
 						output,
-						buildJson(tool, "", true),
+						buildJson(tool),
 						pathProvider.json(tool)
-					)
-				);
-			}
-			if (!existingFileHelper.exists(tool, PackType.CLIENT_RESOURCES, "_broken.json", "models/item"))
-			{
-				futures.add(
-					DataProvider.saveStable(
-						output,
-						buildJson(tool, "_broken", false),
-						pathProvider.json(tool.withSuffix("_broken"))
 					)
 				);
 			}
@@ -61,7 +51,7 @@ public class CraftingToolModelProvider implements DataProvider
 		return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
 	}
 
-	private JsonObject buildJson(ResourceLocation toolId, String headSuffix, boolean hasOverrides)
+	private JsonObject buildJson(ResourceLocation toolId)
 	{
 		String toolName = toolId.getPath();
 
@@ -70,7 +60,7 @@ public class CraftingToolModelProvider implements DataProvider
 		root.addProperty("parent", "tconstruct:item/base/axe");
 
 		JsonObject textures = new JsonObject();
-			textures.add("head", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/head" + headSuffix));
+			textures.add("head", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/head"));
 			textures.add("handle", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/handle"));
 			textures.add("binding", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/binding"));
 		root.add("textures", textures);
@@ -89,17 +79,14 @@ public class CraftingToolModelProvider implements DataProvider
 			}
 		root.add("parts", parts);
 
-		if (hasOverrides)
-		{
-			JsonArray overrides = new JsonArray();
-				JsonObject broken = new JsonObject();
-					JsonObject broken_predicate = new JsonObject();
-						broken_predicate.add("tconstruct:broken", new JsonPrimitive(1));
-					broken.add("predicate", broken_predicate);
-					broken.add("model", new JsonPrimitive("gregic_tinkering:item/" + toolName + "_broken"));
-				overrides.add(broken);
-			root.add("overrides", overrides);
-		}
+		JsonArray overrides = new JsonArray();
+			JsonObject broken = new JsonObject();
+				JsonObject broken_predicate = new JsonObject();
+					broken_predicate.add("tconstruct:broken", new JsonPrimitive(1));
+				broken.add("predicate", broken_predicate);
+				broken.add("model", new JsonPrimitive("gregic_tinkering:item/" + toolName + "_broken"));
+			overrides.add(broken);
+		root.add("overrides", overrides);
 
 		return root;
 	}

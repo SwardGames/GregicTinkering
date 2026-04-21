@@ -1,8 +1,7 @@
 package com.sward.gregictinkering;
 
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
-import com.sward.gregictinkering.items.ModifiableGTToolItem;
-import com.sward.gregictinkering.tools.CraftingToolItemObject;
+import com.sward.gregictinkering.tools.ModifiableGTToolItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -16,15 +15,15 @@ public final class GregicTinkeringTools
 	static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, GregicTinkeringMod.MOD_ID);
 
 	// Simple Tools
-	public static final CraftingToolItemObject WRENCH = new CraftingToolItemObject(ITEMS, "wrench", () -> GregicTinkeringToolDefinitions.WRENCH, () -> GTToolType.WRENCH);
-	public static final CraftingToolItemObject HAMMER = new CraftingToolItemObject(ITEMS, "hammer", () -> GregicTinkeringToolDefinitions.HAMMER, () -> GTToolType.HARD_HAMMER);
-	public static final CraftingToolItemObject FILE = new CraftingToolItemObject(ITEMS, "file", () -> GregicTinkeringToolDefinitions.FILE, () -> GTToolType.FILE);
-	public static final CraftingToolItemObject SCREWDRIVER = new CraftingToolItemObject(ITEMS, "screwdriver", () -> GregicTinkeringToolDefinitions.SCREWDRIVER, () -> GTToolType.SCREWDRIVER);
-	public static final CraftingToolItemObject SAW = new CraftingToolItemObject(ITEMS, "saw", () -> GregicTinkeringToolDefinitions.SAW, () -> GTToolType.SAW);
-	public static final CraftingToolItemObject WIRE_CUTTER = new CraftingToolItemObject(ITEMS, "wire_cutter", () -> GregicTinkeringToolDefinitions.WIRE_CUTTER, () -> GTToolType.WIRE_CUTTER);
-	public static final CraftingToolItemObject CROWBAR = new CraftingToolItemObject(ITEMS, "crowbar", () -> GregicTinkeringToolDefinitions.CROWBAR, () -> GTToolType.CROWBAR);
-	public static final CraftingToolItemObject SOFT_MALLET = new CraftingToolItemObject(ITEMS, "soft_mallet", () -> GregicTinkeringToolDefinitions.SOFT_MALLET, () -> GTToolType.SOFT_MALLET);
-	public static final CraftingToolItemObject PLUNGER = new CraftingToolItemObject(ITEMS, "plunger", () -> GregicTinkeringToolDefinitions.PLUNGER, () -> GTToolType.PLUNGER);
+	public static final RegistryObject<ModifiableGTToolItem> WRENCH = ITEMS.register("wrench", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.WRENCH, GTToolType.WRENCH));
+	public static final RegistryObject<ModifiableGTToolItem> HAMMER = ITEMS.register("hammer", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.HAMMER, GTToolType.HARD_HAMMER));
+	public static final RegistryObject<ModifiableGTToolItem> FILE = ITEMS.register("file", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.FILE, GTToolType.FILE));
+	public static final RegistryObject<ModifiableGTToolItem> SCREWDRIVER = ITEMS.register("screwdriver", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.SCREWDRIVER, GTToolType.SCREWDRIVER));
+	public static final RegistryObject<ModifiableGTToolItem> SAW = ITEMS.register("saw", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.SAW, GTToolType.SAW));
+	public static final RegistryObject<ModifiableGTToolItem> WIRE_CUTTER = ITEMS.register("wire_cutter", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.WIRE_CUTTER, GTToolType.WIRE_CUTTER));
+	public static final RegistryObject<ModifiableGTToolItem> CROWBAR = ITEMS.register("crowbar", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.CROWBAR, GTToolType.CROWBAR));
+	public static final RegistryObject<ModifiableGTToolItem> SOFT_MALLET = ITEMS.register("soft_mallet", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.SOFT_MALLET, GTToolType.SOFT_MALLET));
+	public static final RegistryObject<ModifiableGTToolItem> PLUNGER = ITEMS.register("plunger", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.PLUNGER, GTToolType.PLUNGER));
 
 	// Power Tools
 	public static final RegistryObject<ModifiableItem> DRILL = ITEMS.register("drill", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.DRILL, GTToolType.DRILL_LV, true));

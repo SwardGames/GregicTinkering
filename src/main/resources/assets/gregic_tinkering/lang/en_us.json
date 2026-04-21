@@ -1,8 +1,30 @@
 {
   "item.gregic_tinkering.wrench": "Wrench",
-  "item.gregic_tinkering.wrench_broken": "Wrench",
-  "item.gregic_tinkering.wrench.description": "The Wrench is a tool used to manipulate and dismantle machines and pipes.\nIt is also used in crafting.",
-  "item.gregic_tinkering.wrench_broken.description": "This wrench has been broken. Better repair it!\nIf you can see this, something has probably gone wrong.",
+  "item.gregic_tinkering.wrench.description": "The Wrench is a tool used to manipulate and dismantle machines and pipes.\nIt is also used in crafting to assemble components.",
+
+  "item.gregic_tinkering.hammer": "Hammer",
+  "item.gregic_tinkering.hammer.description": "The Hammer is a used in crafting to shape metals.\nIt can also be used to silence machines, prospect for ores or caves, and can harvest blocks, breaking them down in the process.",
+
+  "item.gregic_tinkering.file": "File",
+  "item.gregic_tinkering.file.description": "The File is a tool used in crafting to shape an item by removing material.",
+
+  "item.gregic_tinkering.screwdriver": "Screwdriver",
+  "item.gregic_tinkering.screwdriver.description": "The Screwdriver is a used to configure a machines outputs.\nIt is also used in crafting to fasten screws.",
+
+  "item.gregic_tinkering.saw": "Saw",
+  "item.gregic_tinkering.saw.description": "The Saw is a used to cut wood and harvest ice.\nIt is also used in crafting to cut apart items.",
+
+  "item.gregic_tinkering.wire_cutter": "Wire Cutter",
+  "item.gregic_tinkering.wire_cutter.description": "The Wire Cutter is a used to manipulate and break wires.\nIt is also used in crafting to make fine cuts in metal.",
+
+  "item.gregic_tinkering.crowbar": "Crowbar",
+  "item.gregic_tinkering.crowbar.description": "The Crowbar is a used to pry covers off of machines and pipes.\nIt is also used to kill headcrabs.",
+
+  "item.gregic_tinkering.soft_mallet": "Soft Mallet",
+  "item.gregic_tinkering.soft_mallet.description": "The Soft Mallet is a used to toggle a machines active state.\nIt is also used in crafting where a hammer would be too damaging.",
+
+  "item.gregic_tinkering.plunger": "Plunger",
+  "item.gregic_tinkering.plunger.description": "The Soft Mallet is a used to erase unwanted fluids from tanks.\nIt is also used to exterminate.",
 
   "item.gregic_tinkering.drill": "Drill",
   "item.gregic_tinkering.drill.description": "The Drill is a powered mining tool. It is effective on both dirt and rock, and harvests blocks in a large range.\nIt requires energy to function.",
@@ -11,6 +33,14 @@
   "item.gregic_tinkering.chainsaw.description": "The Chainsaw is a powered wood-cutting tool, capable of quickly felling even the largest of trees.\nIt requires energy to function.",
 
   "item.gregic_tinkering.wrench_head": "Wrench Head",
+  "item.gregic_tinkering.hammer_head": "Hammer Head",
+  "item.gregic_tinkering.file_head": "File Head",
+  "item.gregic_tinkering.screwdriver_head": "Screwdriver Head",
+  "item.gregic_tinkering.saw_head": "Saw Head",
+  "item.gregic_tinkering.wire_cutter_head": "Wire Cutter Head",
+  "item.gregic_tinkering.crowbar_head": "Crowbar Head",
+  "item.gregic_tinkering.soft_mallet_head": "Soft Mallet Head",
+  "item.gregic_tinkering.plunger_head": "Plunger Head",
   "item.gregic_tinkering.drill_head": "Drill Head",
   "item.gregic_tinkering.chainsaw_head": "Chainsaw Head",
   "item.gregic_tinkering.casing": "Tool Casing",

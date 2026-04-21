@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#gregic_tinkering:modifiable/crafting_tool",
-    "#gregic_tinkering:modifiable/broken/crafting_tool"
+    "#gregic_tinkering:modifiable/crafting_tool"
   ]
 }

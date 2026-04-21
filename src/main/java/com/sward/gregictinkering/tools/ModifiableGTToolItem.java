@@ -1,4 +1,4 @@
-package com.sward.gregictinkering.items;
+package com.sward.gregictinkering.tools;
 
 import com.gregtechceu.gtceu.api.capability.CombinedCapabilityProvider;
 import com.gregtechceu.gtceu.api.capability.GTCapabilityHelper;
@@ -20,7 +20,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -39,37 +38,23 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 {
 	@Getter
 	private final GTToolType toolType;
 
-	private final Supplier<Item> brokenItem;
-
 	private final boolean cancelSwing;
 
 	public ModifiableGTToolItem(Properties properties, ToolDefinition toolDefinition, GTToolType toolType)
 	{
-		this(properties, toolDefinition, toolType, null, false);
-	}
-
-	public ModifiableGTToolItem(Properties properties, ToolDefinition toolDefinition, GTToolType toolType, Supplier<Item> brokenItem)
-	{
-		this(properties, toolDefinition, toolType, brokenItem, false);
+		this(properties, toolDefinition, toolType, false);
 	}
 
 	public ModifiableGTToolItem(Properties properties, ToolDefinition toolDefinition, GTToolType toolType, boolean cancelSwing)
 	{
-		this(properties, toolDefinition, toolType, null, cancelSwing);
-	}
-
-	public ModifiableGTToolItem(Properties properties, ToolDefinition toolDefinition, GTToolType toolType, Supplier<Item> brokenItem, boolean cancelSwing)
-	{
 		super(properties, toolDefinition);
 		this.toolType = toolType;
-		this.brokenItem = brokenItem;
 		this.cancelSwing = cancelSwing;
 	}
 
@@ -117,7 +102,7 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 	@Override
 	public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction)
 	{
-		return super.canPerformAction(stack, toolAction) || (!isBroken(stack) && definition$canPerformAction(stack, toolAction));
+		return super.canPerformAction(stack, toolAction) || (!ToolDamageUtil.isBroken(stack) && definition$canPerformAction(stack, toolAction));
 	}
 
 	@Override
@@ -127,7 +112,7 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 
 		if (result == InteractionResult.PASS)
 		{
-			if (isBroken(stack))
+			if (!ToolDamageUtil.isBroken(stack))
 			{
 				return definition$onItemUseFirst(stack, context);
 			}
@@ -143,7 +128,7 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 
 		if (result == InteractionResult.PASS)
 		{
-			if (isBroken(context.getItemInHand()))
+			if (!ToolDamageUtil.isBroken(context.getItemInHand()))
 			{
 				return definition$onItemUse(context);
 			}
@@ -179,7 +164,7 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 
 		if (result.getResult() == InteractionResult.PASS)
 		{
-			if (isBroken(playerIn.getItemInHand(hand)))
+			if (!ToolDamageUtil.isBroken(playerIn.getItemInHand(hand)))
 			{
 				return definition$use(worldIn, playerIn, hand);
 			}
@@ -220,13 +205,6 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 		Player player = ForgeHooks.getCraftingPlayer();
 
 		ToolDamageUtil.damage(tool, 1, player, stack);
-
-		if (tool.isBroken() && brokenItem != null)
-		{
-			CompoundTag tag = stack.getTag();
-			stack = new ItemStack(brokenItem.get(), stack.getCount());
-			stack.setTag(tag);
-		}
 
 		this.playCraftingSound(player, stack);
 
@@ -380,12 +358,5 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 	public int getTotalHarvestLevel(ItemStack stack)
 	{
 		return 0;
-	}
-
-	private static boolean isBroken(@NotNull ItemStack stack)
-	{
-		CompoundTag nbt = stack.getTag();
-
-		return nbt != null && nbt.contains(ToolStack.TAG_BROKEN);
 	}
 }

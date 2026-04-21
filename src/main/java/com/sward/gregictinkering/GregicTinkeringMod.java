@@ -73,15 +73,15 @@ public class GregicTinkeringMod
 				(params, output) ->
 				{
 					// Crafting Tools
-					output.accept(GregicTinkeringTools.WRENCH.tool.get());
-					output.accept(GregicTinkeringTools.HAMMER.tool.get());
-					output.accept(GregicTinkeringTools.FILE.tool.get());
-					output.accept(GregicTinkeringTools.SCREWDRIVER.tool.get());
-					output.accept(GregicTinkeringTools.SAW.tool.get());
-					output.accept(GregicTinkeringTools.WIRE_CUTTER.tool.get());
-					output.accept(GregicTinkeringTools.CROWBAR.tool.get());
-					output.accept(GregicTinkeringTools.SOFT_MALLET.tool.get());
-					output.accept(GregicTinkeringTools.PLUNGER.tool.get());
+					output.accept(GregicTinkeringTools.WRENCH.get());
+					output.accept(GregicTinkeringTools.HAMMER.get());
+					output.accept(GregicTinkeringTools.FILE.get());
+					output.accept(GregicTinkeringTools.SCREWDRIVER.get());
+					output.accept(GregicTinkeringTools.SAW.get());
+					output.accept(GregicTinkeringTools.WIRE_CUTTER.get());
+					output.accept(GregicTinkeringTools.CROWBAR.get());
+					output.accept(GregicTinkeringTools.SOFT_MALLET.get());
+					output.accept(GregicTinkeringTools.PLUNGER.get());
 
 					// Power Tools
 					output.accept(GregicTinkeringTools.DRILL.get());

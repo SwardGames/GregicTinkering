@@ -11,15 +11,6 @@
     "gregic_tinkering:wire_cutter",
     "gregic_tinkering:crowbar",
     "gregic_tinkering:soft_mallet",
-    "gregic_tinkering:plunger",
-    "gregic_tinkering:wrench_broken",
-    "gregic_tinkering:hammer_broken",
-    "gregic_tinkering:file_broken",
-    "gregic_tinkering:screwdriver_broken",
-    "gregic_tinkering:saw_broken",
-    "gregic_tinkering:wire_cutter_broken",
-    "gregic_tinkering:crowbar_broken",
-    "gregic_tinkering:soft_mallet_broken",
-    "gregic_tinkering:plunger_broken"
+    "gregic_tinkering:plunger"
   ]
 }

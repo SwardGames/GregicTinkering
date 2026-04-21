@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "gregic_tinkering:hammer",
     "gregic_tinkering:drill"
   ]
 }
