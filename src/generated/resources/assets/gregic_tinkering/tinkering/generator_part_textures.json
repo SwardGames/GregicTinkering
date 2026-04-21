@@ -48,6 +48,134 @@
       "stat_type": "tconstruct:handle"
     },
     {
+      "path": "gregic_tinkering:item/tool/hammer/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/hammer/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/hammer/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/hammer/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/file/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/file/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/file/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/file/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/screwdriver/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/screwdriver/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/screwdriver/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/screwdriver/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/saw/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/saw/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/saw/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/saw/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/wire_cutter/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/wire_cutter/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/wire_cutter/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/wire_cutter/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/crowbar/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/crowbar/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/crowbar/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/crowbar/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/soft_mallet/head",
+      "stat_type": "gregic_tinkering:soft_mallet_head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/soft_mallet/head_broken",
+      "stat_type": "gregic_tinkering:soft_mallet_head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/soft_mallet/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/soft_mallet/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/plunger/head",
+      "stat_type": "gregic_tinkering:plunger_head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/plunger/head_broken",
+      "stat_type": "gregic_tinkering:plunger_head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/plunger/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/plunger/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
       "path": "gregic_tinkering:item/tool/drill/head",
       "stat_type": "tconstruct:head"
     },

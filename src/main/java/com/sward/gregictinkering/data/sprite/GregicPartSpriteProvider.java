@@ -1,15 +1,15 @@
 package com.sward.gregictinkering.data.sprite;
 
 import com.sward.gregictinkering.GregicTinkeringMod;
-import com.sward.gregictinkering.materials.stats.BatteryMaterialStats;
-import com.sward.gregictinkering.materials.stats.EngineMaterialStats;
-import com.sward.gregictinkering.materials.stats.GregicStatlessMaterialStats;
+import com.sward.gregictinkering.materials.stats.*;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.client.data.material.AbstractPartSpriteProvider;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 public class GregicPartSpriteProvider extends AbstractPartSpriteProvider
 {
+	private static final String[] CRAFTING_TOOLS = { "wrench", "hammer", "file", "screwdriver", "saw", "wire_cutter", "crowbar" };
+
 	public GregicPartSpriteProvider()
 	{
 		super(GregicTinkeringMod.MOD_ID);
@@ -28,8 +28,21 @@ public class GregicPartSpriteProvider extends AbstractPartSpriteProvider
 		addHead("drill_head");
 
 		// Tools
-		buildTool("wrench")
-			.addBreakableHead("head")
+		for (String craftingTool : CRAFTING_TOOLS)
+		{
+			buildTool(craftingTool)
+				.addBreakableHead("head")
+				.addBinding("binding")
+				.addHandle("handle");
+		}
+
+		buildTool("soft_mallet")
+			.addBreakablePart("head", SoftMalletHeadMaterialStats.ID)
+			.addBinding("binding")
+			.addHandle("handle");
+
+		buildTool("plunger")
+			.addBreakablePart("head", PlungerHeadMaterialStats.ID)
 			.addBinding("binding")
 			.addHandle("handle");
 

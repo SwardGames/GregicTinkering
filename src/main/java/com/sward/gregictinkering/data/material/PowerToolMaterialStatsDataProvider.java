@@ -9,6 +9,7 @@ import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvide
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 
 import static com.sward.gregictinkering.GregicTinkeringMaterialIds.*;
+import static com.sward.gregictinkering.data.TieredMaterialIds.*;
 
 public class PowerToolMaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
 {

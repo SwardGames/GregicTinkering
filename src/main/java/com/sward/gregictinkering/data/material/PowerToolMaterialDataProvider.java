@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 
-import static com.sward.gregictinkering.GregicTinkeringMaterialIds.*;
+import static com.sward.gregictinkering.data.TieredMaterialIds.*;
 
 public class PowerToolMaterialDataProvider extends AbstractMaterialDataProvider
 {

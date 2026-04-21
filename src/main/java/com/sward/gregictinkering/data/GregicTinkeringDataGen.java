@@ -37,13 +37,21 @@ public final class GregicTinkeringDataGen
 
 		boolean server = event.includeServer();
 
-		// Tool Head Materials (from TConstruct)
+		// Crafting Tool Head Materials
+		CraftingToolMaterialDataProvider craftingToolMaterials = new CraftingToolMaterialDataProvider(packOutput);
+//		generator.addProvider(server, craftingToolMaterials); // IMPORTANT: DO NOT REGISTER
+		generator.addProvider(server, new CraftingToolMaterialStatsDataProvider(packOutput, craftingToolMaterials));
+		generator.addProvider(server, new CraftingToolMaterialTraitsDataProvider(packOutput, craftingToolMaterials));
+
+
+		// Power Tool Head Materials (from TConstruct)
 		Collection<MaterialId> metalHeadMaterials = Arrays.stream(TieredMaterialIds.HEAD_METALS).flatMap(Arrays::stream).toList();
 		generator.addProvider(server, new DrillHeadsRecipeProvider(packOutput, metalHeadMaterials));
 		generator.addProvider(server, new ChainsawHeadsRecipeProvider(packOutput, metalHeadMaterials));
 
 		// Casing Materials (from TConstruct)
 		CasingMaterialDataProvider casingMaterials = new CasingMaterialDataProvider(packOutput);
+//		generator.addProvider(server, casingMaterials); // IMPORTANT: DO NOT REGISTER
 		generator.addProvider(server, new CasingMaterialStatsDataProvider(packOutput, casingMaterials));
 		generator.addProvider(server, new CasingsRecipeProvider(packOutput, Arrays.stream(CasingMaterialDataProvider.CASINGS).flatMap(Arrays::stream).toList()));
 
@@ -91,8 +99,6 @@ public final class GregicTinkeringDataGen
 		generator.addProvider(client, new MaterialPartTextureGenerator(packOutput, existingFileHelper, partSprites, overrides, tcMaterialSprites));
 		generator.addProvider(client, new AnimatedMaterialPartMetaProvider(packOutput, existingFileHelper, partSprites, overrides, tcMaterialSprites));
 
-		GregicMaterialSpriteProvider materialSprites = new GregicMaterialSpriteProvider();
-
-		generator.addProvider(client, new GregicMaterialRenderInfoProvider(packOutput, materialSprites, existingFileHelper));
+		generator.addProvider(client, new GregicMaterialRenderInfoProvider(packOutput, new GregicMaterialSpriteProvider(), existingFileHelper));
 	}
 }

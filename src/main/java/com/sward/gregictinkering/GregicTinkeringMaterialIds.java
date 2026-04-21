@@ -7,6 +7,9 @@ import slimeknights.tconstruct.library.materials.definition.MaterialId;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class GregicTinkeringMaterialIds
 {
+	// Rubbers (For Plungers)
+	public static final MaterialId RUBBER = id("rubber");
+
 	// Engines
 	// Tier 1 (LV)
 	public static final MaterialId LV_ELECTRIC = id("lv_electric");
@@ -80,99 +83,6 @@ public final class GregicTinkeringMaterialIds
 
 	// Tier 9 (UV)
 	public static final MaterialId ULTIMATE_BATTERY = id("ultimate_battery");
-
-	public static final MaterialId[][] ENGINES = {
-		{
-
-		},
-		{
-			LV_ELECTRIC,
-			BASIC_STEAM,
-			BASIC_DIESEL,
-			BASIC_GAS
-		},
-		{
-			MV_ELECTRIC,
-			ADVANCED_STEAM,
-			ADVANCED_DIESEL,
-			ADVANCED_GAS
-		},
-		{
-			HV_ELECTRIC,
-			TURBO_STEAM,
-			TURBO_DIESEL,
-			TURBO_GAS
-		},
-		{
-			EV_ELECTRIC
-		},
-		{
-			IV_ELECTRIC
-		},
-		{
-			LUV_ELECTRIC
-		},
-		{
-			ZPM_ELECTRIC
-		},
-		{
-			UV_ELECTRIC
-		}
-	};
-
-	public static final MaterialId[][] BATTERIES = {
-		{
-
-		},
-		{
-			SMALL_SODIUM_BATTERY,
-			SMALL_CADMIUM_BATTERY,
-			SMALL_LITHIUM_BATTERY,
-		},
-		{
-			MEDIUM_SODIUM_BATTERY,
-			MEDIUM_CADMIUM_BATTERY,
-			MEDIUM_LITHIUM_BATTERY,
-		},
-		{
-			LARGE_SODIUM_BATTERY,
-			LARGE_CADMIUM_BATTERY,
-			LARGE_LITHIUM_BATTERY,
-		},
-		{
-			SMALL_VANADIUM_BATTERY
-		},
-		{
-			MEDIUM_VANADIUM_BATTERY
-		},
-		{
-			LARGE_VANADIUM_BATTERY
-		},
-		{
-			MEDIUM_NAQUADRIA_BATTERY
-		},
-		{
-			LARGE_NAQUADRIA_BATTERY
-		},
-		{
-			ULTIMATE_BATTERY
-		}
-	};
-
-	public static final MaterialId[][] TANKS = {
-		{
-			BRONZE_FLUID_TANK
-		},
-		{
-			STEEL_FLUID_TANK
-		},
-		{
-			ALUMINIUM_FLUID_TANK
-		},
-		{
-			STAINLESS_STEEL_FLUID_TANK
-		}
-	};
 
 	private static MaterialId id(String name)
 	{

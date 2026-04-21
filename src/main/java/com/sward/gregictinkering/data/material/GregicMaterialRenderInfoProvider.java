@@ -1,6 +1,5 @@
 package com.sward.gregictinkering.data.material;
 
-import com.sward.gregictinkering.GregicTinkeringMaterialIds;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
@@ -8,6 +7,8 @@ import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRend
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 import slimeknights.tconstruct.library.materials.definition.IMaterial;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
+
+import static com.sward.gregictinkering.data.TieredMaterialIds.*;
 
 public class GregicMaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvider
 {
@@ -25,9 +26,9 @@ public class GregicMaterialRenderInfoProvider extends AbstractMaterialRenderInfo
 	{
 		buildRenderInfo(IMaterial.UNKNOWN_ID);
 
-		addUntinted(GregicTinkeringMaterialIds.ENGINES);
-		addUntinted(GregicTinkeringMaterialIds.BATTERIES);
-		addUntinted(GregicTinkeringMaterialIds.TANKS);
+		addUntinted(ENGINES);
+		addUntinted(BATTERIES);
+		addUntinted(TANKS);
 	}
 
 	@Override

@@ -8,7 +8,7 @@ import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataPr
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 
-import static com.sward.gregictinkering.GregicTinkeringMaterialIds.*;
+import static com.sward.gregictinkering.data.TieredMaterialIds.*;
 
 public class PowerToolMaterialTraitsDataProvider extends AbstractMaterialTraitDataProvider
 {

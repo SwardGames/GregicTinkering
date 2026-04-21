@@ -1,6 +1,5 @@
 package com.sward.gregictinkering.data.material;
 
-import com.sward.gregictinkering.GregicTinkeringMaterialIds;
 import com.sward.gregictinkering.materials.stats.BatteryMaterialStats;
 import com.sward.gregictinkering.materials.stats.EngineMaterialStats;
 import org.jetbrains.annotations.NotNull;
@@ -8,6 +7,8 @@ import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpri
 import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToColorMapping;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
+
+import static com.sward.gregictinkering.data.TieredMaterialIds.*;
 
 public class GregicMaterialSpriteProvider extends AbstractMaterialSpriteProvider
 {
@@ -19,9 +20,9 @@ public class GregicMaterialSpriteProvider extends AbstractMaterialSpriteProvider
 	@Override
 	protected void addAllMaterials()
 	{
-		addInvalid(GregicTinkeringMaterialIds.ENGINES, EngineMaterialStats.ID);
-		addInvalid(GregicTinkeringMaterialIds.BATTERIES, BatteryMaterialStats.ID);
-		addInvalid(GregicTinkeringMaterialIds.TANKS, BatteryMaterialStats.ID);
+		addInvalid(ENGINES, EngineMaterialStats.ID);
+		addInvalid(BATTERIES, BatteryMaterialStats.ID);
+		addInvalid(TANKS, BatteryMaterialStats.ID);
 	}
 
 	private void addInvalid(MaterialId[][] materials, MaterialStatsId... stats)

@@ -1,0 +1,10 @@
+{
+  "stats": {
+    "gregic_tinkering:soft_mallet_head": {
+      "durability": 200,
+      "melee_attack": 3.0,
+      "mining_speed": 8.0,
+      "mining_tier": "minecraft:diamond"
+    }
+  }
+}
