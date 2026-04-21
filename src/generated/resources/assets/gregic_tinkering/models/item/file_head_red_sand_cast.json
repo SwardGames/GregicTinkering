@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gregic_tinkering:item/red_sand_cast/file_head"
+  }
+}

@@ -30,14 +30,14 @@ public class GregicItemModelProvider extends ItemModelProvider
 	{
 		// Tool Parts
 		part(GregicTinkeringToolParts.WRENCH_HEAD, "wrench/head").offset(-4, 4);
-		part(GregicTinkeringToolParts.HAMMER_HEAD, "hammer/head").offset(-4, 4);
-		part(GregicTinkeringToolParts.FILE_HEAD, "file/head").offset(-4, 4);
-		part(GregicTinkeringToolParts.SCREWDRIVER_HEAD, "screwdriver/head").offset(-4, 4);
-		part(GregicTinkeringToolParts.SAW_HEAD, "saw/head").offset(-4, 4);
+		part(GregicTinkeringToolParts.HAMMER_HEAD, "hammer/head").offset(-3, 3);
+		part(GregicTinkeringToolParts.FILE_HEAD, "file/head").offset(-3, 3);
+		part(GregicTinkeringToolParts.SCREWDRIVER_HEAD, "screwdriver/head").offset(-3, 3);
+		part(GregicTinkeringToolParts.SAW_HEAD, "saw/head").offset(1, 1);
 		part(GregicTinkeringToolParts.WIRE_CUTTER_HEAD, "wire_cutter/head").offset(-4, 4);
 		part(GregicTinkeringToolParts.CROWBAR_HEAD, "crowbar/head").offset(-4, 4);
 		part(GregicTinkeringToolParts.SOFT_MALLET_HEAD, "soft_mallet/head").offset(-4, 4);
-		part(GregicTinkeringToolParts.PLUNGER_HEAD, "plunger/head").offset(-4, 4);
+		part(GregicTinkeringToolParts.PLUNGER_HEAD, "plunger/head").offset(-3, 3);
 
 		part(GregicTinkeringToolParts.DRILL_HEAD, "drill/head").offset(4, 4);
 		part(GregicTinkeringToolParts.CHAINSAW_HEAD, "chainsaw/head").offset(4, 4);

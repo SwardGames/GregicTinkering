@@ -117,7 +117,7 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 	@Override
 	public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction)
 	{
-		return super.canPerformAction(stack, toolAction) || definition$canPerformAction(stack, toolAction);
+		return super.canPerformAction(stack, toolAction) || (!isBroken(stack) && definition$canPerformAction(stack, toolAction));
 	}
 
 	@Override
@@ -127,7 +127,10 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 
 		if (result == InteractionResult.PASS)
 		{
-			return definition$onItemUseFirst(stack, context);
+			if (isBroken(stack))
+			{
+				return definition$onItemUseFirst(stack, context);
+			}
 		}
 
 		return result;
@@ -140,7 +143,10 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 
 		if (result == InteractionResult.PASS)
 		{
-			return definition$onItemUse(context);
+			if (isBroken(context.getItemInHand()))
+			{
+				return definition$onItemUse(context);
+			}
 		}
 
 		return result;
@@ -173,7 +179,10 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 
 		if (result.getResult() == InteractionResult.PASS)
 		{
-			return definition$use(worldIn, playerIn, hand);
+			if (isBroken(playerIn.getItemInHand(hand)))
+			{
+				return definition$use(worldIn, playerIn, hand);
+			}
 		}
 
 		return result;
@@ -371,5 +380,12 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 	public int getTotalHarvestLevel(ItemStack stack)
 	{
 		return 0;
+	}
+
+	private static boolean isBroken(@NotNull ItemStack stack)
+	{
+		CompoundTag nbt = stack.getTag();
+
+		return nbt != null && nbt.contains(ToolStack.TAG_BROKEN);
 	}
 }

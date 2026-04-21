@@ -9,6 +9,7 @@
     "ToolHelperMixin"
   ],
   "client": [
+    "GTToolBarRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

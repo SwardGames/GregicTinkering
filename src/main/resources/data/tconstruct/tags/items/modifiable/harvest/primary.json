@@ -1,8 +1,25 @@
 {
   "replace": false,
   "values": [
-    "#gregic_tinkering:modifiable/power_tool",
-    "#gregic_tinkering:modifiable/crafting_tool",
-    "#gregic_tinkering:modifiable/broken/crafting_tool"
+    "gregic_tinkering:drill",
+    "gregic_tinkering:chainsaw",
+    "gregic_tinkering:wrench",
+    "gregic_tinkering:hammer",
+    "gregic_tinkering:file",
+    "gregic_tinkering:screwdriver",
+    "gregic_tinkering:saw",
+    "gregic_tinkering:wire_cutter",
+    "gregic_tinkering:crowbar",
+    "gregic_tinkering:soft_mallet",
+    "gregic_tinkering:plunger",
+    "gregic_tinkering:wrench_broken",
+    "gregic_tinkering:hammer_broken",
+    "gregic_tinkering:file_broken",
+    "gregic_tinkering:screwdriver_broken",
+    "gregic_tinkering:saw_broken",
+    "gregic_tinkering:wire_cutter_broken",
+    "gregic_tinkering:crowbar_broken",
+    "gregic_tinkering:soft_mallet_broken",
+    "gregic_tinkering:plunger_broken"
   ]
 }

@@ -45,7 +45,7 @@ public class GregicTinkeringToolParts
 	public static final CastItemObject SCREWDRIVER_HEAD_CAST = registerCast("screwdriver_head");
 	public static final CastItemObject SAW_HEAD_CAST = registerCast("saw_head");
 	public static final CastItemObject WIRE_CUTTER_HEAD_CAST = registerCast("wire_cutter_head");
-	public static final CastItemObject CROWBAR_HEAD_CAST = registerCast("crowbar_cutter_head");
+	public static final CastItemObject CROWBAR_HEAD_CAST = registerCast("crowbar_head");
 
 	private static CastItemObject registerCast(String name)
 	{

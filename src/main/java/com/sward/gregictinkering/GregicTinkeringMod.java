@@ -1,8 +1,6 @@
 package com.sward.gregictinkering;
 
 import com.sward.gregictinkering.energy.ToolElectricItemCapability;
-import com.sward.gregictinkering.materials.stats.PlungerHeadMaterialStats;
-import com.sward.gregictinkering.materials.stats.SoftMalletHeadMaterialStats;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -19,8 +17,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.part.IMaterialItem;
-import slimeknights.tconstruct.library.tools.part.ToolPartItem;
-import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
