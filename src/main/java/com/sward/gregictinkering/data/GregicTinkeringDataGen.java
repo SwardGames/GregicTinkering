@@ -1,6 +1,5 @@
 package com.sward.gregictinkering.data;
 
-import com.sward.gregictinkering.GregicTinkeringMod;
 import com.sward.gregictinkering.GregicTinkeringTools;
 import com.sward.gregictinkering.data.material.*;
 import com.sward.gregictinkering.data.model.CraftingToolModelProvider;
@@ -8,6 +7,7 @@ import com.sward.gregictinkering.data.model.ToolPartItemModelProvider;
 import com.sward.gregictinkering.data.recipe.CasingsRecipeProvider;
 import com.sward.gregictinkering.data.recipe.ChainsawHeadsRecipeProvider;
 import com.sward.gregictinkering.data.recipe.DrillHeadsRecipeProvider;
+import com.sward.gregictinkering.data.recipe.ToolPartBuildingRecipeProvider;
 import com.sward.gregictinkering.data.sprite.AnimatedMaterialPartMetaProvider;
 import com.sward.gregictinkering.data.sprite.GregicPartSpriteProvider;
 import com.sward.gregictinkering.data.tags.ModBlockTagsProvider;
@@ -51,12 +51,13 @@ public final class GregicTinkeringDataGen
 		DatapackBuiltinEntriesProvider datapackRegistryProvider = new DatapackBuiltinEntriesProvider(packOutput, lookupProvider, registrySetBuilder, Set.of(MOD_ID));
 		generator.addProvider(server, datapackRegistryProvider);
 
-		// Crafting Tool Head Materials
+		// Crafting Tool Heads
 		CraftingToolMaterialDataProvider craftingToolMaterials = new CraftingToolMaterialDataProvider(packOutput);
 		generator.addProvider(server, craftingToolMaterials);
 		generator.addProvider(server, new CraftingToolMaterialStatsDataProvider(packOutput, craftingToolMaterials));
+		generator.addProvider(server, new ToolPartBuildingRecipeProvider(packOutput));
 
-		// Power Tool Head Materials (from TConstruct)
+		// Power Tool Heads (from TConstruct)
 		Collection<MaterialId> metalHeadMaterials = Arrays.stream(TieredMaterialIds.HEAD_METALS).flatMap(Arrays::stream).toList();
 		generator.addProvider(server, new DrillHeadsRecipeProvider(packOutput, metalHeadMaterials));
 		generator.addProvider(server, new ChainsawHeadsRecipeProvider(packOutput, metalHeadMaterials));

@@ -1,6 +1,8 @@
 package com.sward.gregictinkering;
 
 import com.sward.gregictinkering.materials.stats.*;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -12,7 +14,8 @@ import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 import static com.sward.gregictinkering.GregicTinkeringMod.*;
 
-public class GregicTinkeringToolParts
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class GregicTinkeringToolParts
 {
 	private static final Item.Properties PROPS = new Item.Properties();
 

@@ -3,11 +3,14 @@ package com.sward.gregictinkering;
 import com.sward.gregictinkering.energy.ElectricItemHandlerModifier;
 import com.sward.gregictinkering.modifiers.AirFedModifier;
 import com.sward.gregictinkering.modifiers.PoweredModifier;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import slimeknights.tconstruct.library.modifiers.util.DynamicModifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
-public class GregicTinkeringModifiers
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class GregicTinkeringModifiers
 {
 	static final ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(GregicTinkeringMod.MOD_ID);
 

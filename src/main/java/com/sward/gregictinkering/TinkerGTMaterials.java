@@ -6,12 +6,15 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import net.minecraft.world.level.ItemLike;
 import slimeknights.mantle.registration.object.MetalItemObject;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 
-public class TinkerGTMaterials
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class TinkerGTMaterials
 {
 	public static Material SLIMESTEEL;
 	public static Material AMETHYST_BRONZE;

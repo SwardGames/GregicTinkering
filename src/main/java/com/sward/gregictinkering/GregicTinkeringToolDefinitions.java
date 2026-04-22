@@ -1,7 +1,10 @@
 package com.sward.gregictinkering;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class GregicTinkeringToolDefinitions
 {
 	// Simple Tools

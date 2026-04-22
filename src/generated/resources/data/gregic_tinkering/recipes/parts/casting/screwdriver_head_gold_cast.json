@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "gregic_tinkering:casts/multi_use/screwdriver_head"
+  },
+  "item_cost": 2,
+  "result": "gregic_tinkering:screwdriver_head"
+}

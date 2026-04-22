@@ -2,12 +2,15 @@ package com.sward.gregictinkering;
 
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.sward.gregictinkering.tools.ModifiableGTToolItem;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class GregicTinkeringTools
 {
 	public static final Item.Properties PROPS = (new Item.Properties()).stacksTo(1);

@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "gregic_tinkering:casts/single_use/wrench_head"
+  },
+  "cast_consumed": true,
+  "item_cost": 4,
+  "result": "gregic_tinkering:wrench_head"
+}

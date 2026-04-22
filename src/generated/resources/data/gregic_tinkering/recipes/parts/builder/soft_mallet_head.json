@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 6,
+  "pattern": "gregic_tinkering:soft_mallet_head",
+  "result": {
+    "item": "gregic_tinkering:soft_mallet_head"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 3,
+  "pattern": "gregic_tinkering:plunger_head",
+  "result": {
+    "item": "gregic_tinkering:plunger_head"
+  }
+}

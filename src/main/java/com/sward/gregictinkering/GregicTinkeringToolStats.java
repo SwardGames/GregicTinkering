@@ -6,6 +6,8 @@ import com.sward.gregictinkering.modules.FuelTypeNameModule;
 import com.sward.gregictinkering.modules.SneakConditionalAOEIterator;
 import com.sward.gregictinkering.tools.stat.EnumToolStat;
 import com.sward.gregictinkering.tools.stat.IntToolStat;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import net.minecraft.core.registries.Registries;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.RegisterEvent;
@@ -17,6 +19,7 @@ import slimeknights.tconstruct.library.tools.stat.FloatToolStat;
 import slimeknights.tconstruct.library.tools.stat.ToolStatId;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class GregicTinkeringToolStats
 {
 	/** Internal material stats ID for the sake of adding traits exclusive to power tools */
@@ -39,8 +42,7 @@ public final class GregicTinkeringToolStats
 		return new ToolStatId(GregicTinkeringMod.MOD_ID, name);
 	}
 
-	@SubscribeEvent
-	void register(RegisterEvent event)
+	public static void register(RegisterEvent event)
 	{
 		if (event.getRegistryKey() == Registries.ITEM)
 		{

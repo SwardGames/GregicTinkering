@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "gregic_tinkering:casts/multi_use/wire_cutter_head"
+  },
+  "item_cost": 3,
+  "result": "gregic_tinkering:wire_cutter_head"
+}

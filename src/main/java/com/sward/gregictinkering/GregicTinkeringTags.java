@@ -1,5 +1,7 @@
 package com.sward.gregictinkering;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -7,7 +9,8 @@ import net.minecraft.world.level.dimension.DimensionType;
 
 import static com.sward.gregictinkering.GregicTinkeringMod.id;
 
-public class GregicTinkeringTags
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class GregicTinkeringTags
 {
 	public static class Items
 	{

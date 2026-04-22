@@ -2,8 +2,8 @@
   "item.gregic_tinkering.wrench": "Wrench",
   "item.gregic_tinkering.wrench.description": "The Wrench is a tool used to manipulate and dismantle machines and pipes.\nIt is also used in crafting to assemble components.",
 
-  "item.gregic_tinkering.hammer": "Hammer",
-  "item.gregic_tinkering.hammer.description": "The Hammer is a used in crafting to shape metals.\nIt can also be used to silence machines, prospect for ores or caves, and can harvest blocks, breaking them down in the process.",
+  "item.gregic_tinkering.hammer": "Hard Hammer",
+  "item.gregic_tinkering.hammer.description": "The Hard Hammer is a used in crafting to shape metals, silence machines, and prospect for ores or caves.\nIt can also harvest blocks, breaking them down in the process.",
 
   "item.gregic_tinkering.file": "File",
   "item.gregic_tinkering.file.description": "The File is a tool used in crafting to shape an item by removing material.",
@@ -24,7 +24,7 @@
   "item.gregic_tinkering.soft_mallet.description": "The Soft Mallet is a used to toggle a machines active state.\nIt is also used in crafting where a hammer would be too damaging.",
 
   "item.gregic_tinkering.plunger": "Plunger",
-  "item.gregic_tinkering.plunger.description": "The Soft Mallet is a used to erase unwanted fluids from tanks.\nIt is also used to exterminate.",
+  "item.gregic_tinkering.plunger.description": "The Soft Mallet is a used to erase unwanted fluids from tanks.\nIt is also used to EXTERMINATE.",
 
   "item.gregic_tinkering.drill": "Drill",
   "item.gregic_tinkering.drill.description": "The Drill is a powered mining tool. It is effective on both dirt and rock, and harvests blocks in a large range.\nIt requires energy to function.",
@@ -33,7 +33,7 @@
   "item.gregic_tinkering.chainsaw.description": "The Chainsaw is a powered wood-cutting tool, capable of quickly felling even the largest of trees.\nIt requires energy to function.",
 
   "item.gregic_tinkering.wrench_head": "Wrench Head",
-  "item.gregic_tinkering.hammer_head": "Hammer Head",
+  "item.gregic_tinkering.hammer_head": "Hard Hammer Head",
   "item.gregic_tinkering.file_head": "File Head",
   "item.gregic_tinkering.screwdriver_head": "Screwdriver Head",
   "item.gregic_tinkering.saw_head": "Saw Head",
