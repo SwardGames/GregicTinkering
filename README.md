@@ -33,13 +33,11 @@ However, they consume durability far slower than normal tools, ignoring 60% of d
 
 Finally, Power Tools have their own unique modifiers, such as Lubricated, which reduces EU usage and Transformer, which lets electric tools be charged at any voltage tier!
 
-The two current Power Tools are the Drill, which mines dirt and stone blocks in a 3x3 area (unless sneaking), and the Chainsaw which cuts down trees and breaks wood blocks in a 3x3 area (unless sneaking). 
+The current Power Tools are the Drill, which mines dirt and stone blocks in a 3x3 area (unless sneaking), the Chainsaw which cuts down trees and breaks wood blocks in a 3x3 area (unless sneaking), and 6 powered variants of crafting tools: the Impact Wrench (wrench), Jackhammer (hammer), Angle Grider (file), Screw Gun (screwdriver), Buzzsaw (saw), and Powered Wire Cutter (wire cutter).
 
 <hr>
 
 # Planned Features
-
-Powered variants of crafting tools.
 
 Energy Sword/Cleaver: Electric powered versions of the Sword and Cleaver. Will have special modifiers to 
 
