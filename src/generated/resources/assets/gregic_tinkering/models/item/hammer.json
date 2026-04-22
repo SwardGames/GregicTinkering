@@ -6,7 +6,7 @@
   ],
   "overrides": [
     {
-      "model": "gregic_tinkering:item/hammer_broken",
+      "model": "gregic_tinkering:item/hammer/broken",
       "predicate": {
         "tconstruct:broken": 1
       }

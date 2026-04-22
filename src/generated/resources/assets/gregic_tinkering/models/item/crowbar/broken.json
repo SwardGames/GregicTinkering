@@ -1,0 +1,26 @@
+{
+  "parent": "tconstruct:item/base/axe",
+  "loader": "tconstruct:tool",
+  "modifier_roots": [
+    "gregic_tinkering:item/tool/wrench/modifiers/"
+  ],
+  "parts": [
+    {
+      "index": 0,
+      "name": "head"
+    },
+    {
+      "index": 1,
+      "name": "handle"
+    },
+    {
+      "index": 2,
+      "name": "binding"
+    }
+  ],
+  "textures": {
+    "binding": "gregic_tinkering:item/tool/crowbar/binding",
+    "handle": "gregic_tinkering:item/tool/crowbar/handle",
+    "head": "gregic_tinkering:item/tool/crowbar/head_broken"
+  }
+}

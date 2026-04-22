@@ -3,6 +3,7 @@ package com.sward.gregictinkering.client;
 import com.sward.gregictinkering.GregicTinkeringMod;
 import com.sward.gregictinkering.GregicTinkeringTools;
 import com.sward.gregictinkering.client.model.GregicTinkeringItemProperties;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,12 +19,30 @@ public class GregicTinkeringClient
 		event.enqueueWork(
 			() ->
 			{
-				TinkerItemProperties.registerToolProperties(GregicTinkeringTools.DRILL.get());
-				GregicTinkeringItemProperties.registerMiningProperty(GregicTinkeringTools.DRILL.get());
+				registerToolItemProperties(GregicTinkeringTools.WRENCH.get());
+				registerToolItemProperties(GregicTinkeringTools.HAMMER.get());
+				registerToolItemProperties(GregicTinkeringTools.FILE.get());
+				registerToolItemProperties(GregicTinkeringTools.SCREWDRIVER.get());
+				registerToolItemProperties(GregicTinkeringTools.SAW.get());
+				registerToolItemProperties(GregicTinkeringTools.WIRE_CUTTER.get());
+				registerToolItemProperties(GregicTinkeringTools.CROWBAR.get());
+				registerToolItemProperties(GregicTinkeringTools.SOFT_MALLET.get());
+				registerToolItemProperties(GregicTinkeringTools.PLUNGER.get());
 
-				TinkerItemProperties.registerToolProperties(GregicTinkeringTools.CHAINSAW.get());
-				GregicTinkeringItemProperties.registerMiningProperty(GregicTinkeringTools.CHAINSAW.get());
+				registerElectricToolItemProperties(GregicTinkeringTools.DRILL.get());
+				registerElectricToolItemProperties(GregicTinkeringTools.CHAINSAW.get());
 			}
 		);
+	}
+
+	private static void registerToolItemProperties(Item item)
+	{
+		TinkerItemProperties.registerToolProperties(item);
+	}
+
+	private static void registerElectricToolItemProperties(Item item)
+	{
+		registerToolItemProperties(item);
+		GregicTinkeringItemProperties.registerMiningProperty(item);
 	}
 }

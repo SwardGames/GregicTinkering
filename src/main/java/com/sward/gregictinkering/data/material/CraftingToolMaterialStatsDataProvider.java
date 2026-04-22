@@ -70,6 +70,7 @@ public class CraftingToolMaterialStatsDataProvider extends AbstractMaterialStats
 		addMaterialStats(SILICONE_RUBBER, new PlungerHeadMaterialStats(512, 0.5F));
 		addMaterialStats(STYRENE_BUTADIENE_RUBBER, new PlungerHeadMaterialStats(512, 0.5F));
 		addMaterialStats(POLYTETRAFLUOROETHYLENE, new PlungerHeadMaterialStats(512, 0.5F));
+		addMaterialStats(POLYBENZIMIDAZOLE, new PlungerHeadMaterialStats(1024, 0.5F));
 	}
 
 	@Override

@@ -6,7 +6,7 @@
   ],
   "overrides": [
     {
-      "model": "gregic_tinkering:item/soft_mallet_broken",
+      "model": "gregic_tinkering:item/soft_mallet/broken",
       "predicate": {
         "tconstruct:broken": 1
       }

@@ -4,15 +4,20 @@ import com.sward.gregictinkering.GregicTinkeringMod;
 import com.sward.gregictinkering.GregicTinkeringTools;
 import com.sward.gregictinkering.data.material.*;
 import com.sward.gregictinkering.data.model.CraftingToolModelProvider;
-import com.sward.gregictinkering.data.model.GregicItemModelProvider;
+import com.sward.gregictinkering.data.model.ToolPartItemModelProvider;
 import com.sward.gregictinkering.data.recipe.CasingsRecipeProvider;
 import com.sward.gregictinkering.data.recipe.ChainsawHeadsRecipeProvider;
 import com.sward.gregictinkering.data.recipe.DrillHeadsRecipeProvider;
 import com.sward.gregictinkering.data.sprite.AnimatedMaterialPartMetaProvider;
 import com.sward.gregictinkering.data.sprite.GregicPartSpriteProvider;
+import com.sward.gregictinkering.data.tags.ModBlockTagsProvider;
+import com.sward.gregictinkering.data.tags.ModItemTagsProvider;
 import com.sward.gregictinkering.materials.stats.GregicStatlessMaterialStats;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -24,8 +29,12 @@ import slimeknights.tconstruct.tools.data.sprite.TinkerMaterialSpriteProvider;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(modid = GregicTinkeringMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+import static com.sward.gregictinkering.GregicTinkeringMod.MOD_ID;
+
+@Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class GregicTinkeringDataGen
 {
 	@SubscribeEvent
@@ -33,16 +42,19 @@ public final class GregicTinkeringDataGen
 	{
 		DataGenerator generator = event.getGenerator();
 		PackOutput packOutput = generator.getPackOutput();
+		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
 		boolean server = event.includeServer();
+
+		RegistrySetBuilder registrySetBuilder = new RegistrySetBuilder();
+		DatapackBuiltinEntriesProvider datapackRegistryProvider = new DatapackBuiltinEntriesProvider(packOutput, lookupProvider, registrySetBuilder, Set.of(MOD_ID));
+		generator.addProvider(server, datapackRegistryProvider);
 
 		// Crafting Tool Head Materials
 		CraftingToolMaterialDataProvider craftingToolMaterials = new CraftingToolMaterialDataProvider(packOutput);
 		generator.addProvider(server, craftingToolMaterials);
 		generator.addProvider(server, new CraftingToolMaterialStatsDataProvider(packOutput, craftingToolMaterials));
-		generator.addProvider(server, new CraftingToolMaterialTraitsDataProvider(packOutput, craftingToolMaterials));
-
 
 		// Power Tool Head Materials (from TConstruct)
 		Collection<MaterialId> metalHeadMaterials = Arrays.stream(TieredMaterialIds.HEAD_METALS).flatMap(Arrays::stream).toList();
@@ -61,6 +73,11 @@ public final class GregicTinkeringDataGen
 		generator.addProvider(server, new PowerToolMaterialStatsDataProvider(packOutput, materials));
 		generator.addProvider(server, new PowerToolMaterialTraitsDataProvider(packOutput, materials));
 
+		// Tags
+		ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(packOutput, lookupProvider, MOD_ID, existingFileHelper);
+		generator.addProvider(server, blockTagsProvider);
+		generator.addProvider(server, new ModItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
+
 		boolean client = event.includeClient();
 
 		TinkerMaterialSpriteProvider tcMaterialSprites = new TinkerMaterialSpriteProvider();
@@ -78,7 +95,7 @@ public final class GregicTinkeringDataGen
 
 		GeneratorPartTextureJsonGenerator.StatOverride overrides = overridesBuilder.build();
 
-		generator.addProvider(client, new GregicItemModelProvider(packOutput, existingFileHelper));
+		generator.addProvider(client, new ToolPartItemModelProvider(packOutput, existingFileHelper));
 		generator.addProvider(
 			client,
 			new CraftingToolModelProvider(
@@ -95,7 +112,7 @@ public final class GregicTinkeringDataGen
 				GregicTinkeringTools.PLUNGER.getId()
 			)
 		);
-		generator.addProvider(client, new GeneratorPartTextureJsonGenerator(packOutput, GregicTinkeringMod.MOD_ID, partSprites, overrides));
+		generator.addProvider(client, new GeneratorPartTextureJsonGenerator(packOutput, MOD_ID, partSprites, overrides));
 		generator.addProvider(client, new MaterialPartTextureGenerator(packOutput, existingFileHelper, partSprites, overrides, tcMaterialSprites));
 		generator.addProvider(client, new AnimatedMaterialPartMetaProvider(packOutput, existingFileHelper, partSprites, overrides, tcMaterialSprites));
 

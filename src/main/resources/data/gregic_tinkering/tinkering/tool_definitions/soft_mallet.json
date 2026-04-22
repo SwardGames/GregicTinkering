@@ -41,6 +41,15 @@
       }
     },
     {
+      "type": "tconstruct:traits",
+      "traits": [
+        {
+          "level": 1,
+          "name": "tconstruct:bonking"
+        }
+      ]
+    },
+    {
       "type": "tconstruct:tool_actions",
       "tool_actions": [
         "mallet_pause",

@@ -16,11 +16,11 @@ import slimeknights.tconstruct.common.data.model.MaterialModelBuilder;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.part.MaterialItem;
 
-public class GregicItemModelProvider extends ItemModelProvider
+public class ToolPartItemModelProvider extends ItemModelProvider
 {
 	private final ModelFile.UncheckedModelFile GENERATED = new ModelFile.UncheckedModelFile("item/generated");
 
-	public GregicItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper)
+	public ToolPartItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper)
 	{
 		super(output, GregicTinkeringMod.MOD_ID, existingFileHelper);
 	}

@@ -1,0 +1,11 @@
+{
+  "values": [
+    "#gregic_tinkering:casts/single_use/wrench_head",
+    "#gregic_tinkering:casts/single_use/hammer_head",
+    "#gregic_tinkering:casts/single_use/file_head",
+    "#gregic_tinkering:casts/single_use/screwdriver_head",
+    "#gregic_tinkering:casts/single_use/saw_head",
+    "#gregic_tinkering:casts/single_use/wire_cutter_head",
+    "#gregic_tinkering:casts/single_use/crowbar_head"
+  ]
+}

@@ -13,6 +13,7 @@ public final class GregicTinkeringMaterialIds
 	public static final MaterialId SILICONE_RUBBER = id("silicone_rubber");
 	public static final MaterialId STYRENE_BUTADIENE_RUBBER = id("styrene_butadiene_rubber");
 	public static final MaterialId POLYTETRAFLUOROETHYLENE = id("polytetrafluoroethylene");
+	public static final MaterialId POLYBENZIMIDAZOLE = id("polybenzimidazole");
 
 	// Engines
 	// Tier 1 (LV)

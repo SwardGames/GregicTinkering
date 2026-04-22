@@ -6,7 +6,7 @@
   ],
   "overrides": [
     {
-      "model": "gregic_tinkering:item/screwdriver_broken",
+      "model": "gregic_tinkering:item/screwdriver/broken",
       "predicate": {
         "tconstruct:broken": 1
       }

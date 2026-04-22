@@ -1,5 +1,6 @@
 package com.sward.gregictinkering;
 
+import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.sward.gregictinkering.energy.ToolElectricItemCapability;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -28,6 +29,8 @@ public class GregicTinkeringMod
 	public static final String MOD_ID = "gregic_tinkering";
 	public static final Logger LOGGER = LogManager.getLogger();
 
+	static final GTRegistrate REGISTRATE = GTRegistrate.create(MOD_ID);
+
 	private static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
 	public static final RegistryObject<CreativeModeTab> TOOL_PARTS_TAB = CREATIVE_TABS.register(
@@ -39,6 +42,33 @@ public class GregicTinkeringMod
 			.displayItems(
 				(params, output) ->
 				{
+					// Casts
+					output.accept(GregicTinkeringToolParts.WRENCH_HEAD_CAST);
+					output.accept(GregicTinkeringToolParts.HAMMER_HEAD_CAST);
+					output.accept(GregicTinkeringToolParts.FILE_HEAD_CAST);
+					output.accept(GregicTinkeringToolParts.SCREWDRIVER_HEAD_CAST);
+					output.accept(GregicTinkeringToolParts.SAW_HEAD_CAST);
+					output.accept(GregicTinkeringToolParts.WIRE_CUTTER_HEAD_CAST);
+					output.accept(GregicTinkeringToolParts.CROWBAR_HEAD_CAST);
+
+					// Sand
+					output.accept(GregicTinkeringToolParts.WRENCH_HEAD_CAST::getSand);
+					output.accept(GregicTinkeringToolParts.HAMMER_HEAD_CAST::getSand);
+					output.accept(GregicTinkeringToolParts.FILE_HEAD_CAST::getSand);
+					output.accept(GregicTinkeringToolParts.SCREWDRIVER_HEAD_CAST::getSand);
+					output.accept(GregicTinkeringToolParts.SAW_HEAD_CAST::getSand);
+					output.accept(GregicTinkeringToolParts.WIRE_CUTTER_HEAD_CAST::getSand);
+					output.accept(GregicTinkeringToolParts.CROWBAR_HEAD_CAST::getSand);
+
+					// Red Sand
+					output.accept(GregicTinkeringToolParts.WRENCH_HEAD_CAST::getRedSand);
+					output.accept(GregicTinkeringToolParts.HAMMER_HEAD_CAST::getRedSand);
+					output.accept(GregicTinkeringToolParts.FILE_HEAD_CAST::getRedSand);
+					output.accept(GregicTinkeringToolParts.SCREWDRIVER_HEAD_CAST::getRedSand);
+					output.accept(GregicTinkeringToolParts.SAW_HEAD_CAST::getRedSand);
+					output.accept(GregicTinkeringToolParts.WIRE_CUTTER_HEAD_CAST::getRedSand);
+					output.accept(GregicTinkeringToolParts.CROWBAR_HEAD_CAST::getRedSand);
+
 					// Crafting Tool Heads
 					accept(output::accept, GregicTinkeringToolParts.WRENCH_HEAD);
 					accept(output::accept, GregicTinkeringToolParts.HAMMER_HEAD);
