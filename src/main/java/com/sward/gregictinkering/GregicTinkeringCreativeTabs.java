@@ -14,9 +14,9 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import static com.sward.gregictinkering.GregicTinkeringMod.*;
+import static com.sward.gregictinkering.GregicTinkeringItems.*;
 import static com.sward.gregictinkering.GregicTinkeringToolParts.*;
 import static com.sward.gregictinkering.GregicTinkeringTools.*;
-import static com.sward.gregictinkering.GregicTinkeringTools.POWERED_HAMMER;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @SuppressWarnings("unused")
@@ -33,6 +33,15 @@ public final class GregicTinkeringCreativeTabs
 			.displayItems(
 				(params, output) ->
 				{
+					// Shapes
+					output.accept(WRENCH_HEAD_SHAPE.get());
+					output.accept(HAMMER_HEAD_SHAPE.get());
+					output.accept(FILE_HEAD_SHAPE.get());
+					output.accept(SCREWDRIVER_HEAD_SHAPE.get());
+					output.accept(SAW_HEAD_SHAPE.get());
+					output.accept(WIRE_CUTTER_HEAD_SHAPE.get());
+					output.accept(CROWBAR_HEAD_SHAPE.get());
+
 					// Casts
 					output.accept(WRENCH_HEAD_CAST);
 					output.accept(HAMMER_HEAD_CAST);

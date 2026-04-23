@@ -1,0 +1,9 @@
+{
+  "type": "gregic_tinkering:part_builder",
+  "pattern": "gregic_tinkering:crowbar_head",
+  "input": { "item": "minecraft:cobblestone" },
+  "cost": 4,
+  "result": {
+    "item": "gregic_tinkering:crowbar_head_shape"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gregic_tinkering:item/shape/hammer_head_shape"
+  }
+}

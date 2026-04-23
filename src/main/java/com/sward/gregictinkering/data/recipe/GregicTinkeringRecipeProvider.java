@@ -5,6 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
 import slimeknights.tconstruct.library.recipe.partbuilder.PartRecipeBuilder;
@@ -50,6 +51,14 @@ public class GregicTinkeringRecipeProvider extends RecipeProvider implements ITo
 		partCasting(consumer, GregicTinkeringToolParts.SAW_HEAD.get(), GregicTinkeringToolParts.SAW_HEAD_CAST, 2, partFolder, castFolder);
 		partCasting(consumer, GregicTinkeringToolParts.WIRE_CUTTER_HEAD.get(), GregicTinkeringToolParts.WIRE_CUTTER_HEAD_CAST, 3, partFolder, castFolder);
 		partCasting(consumer, GregicTinkeringToolParts.CROWBAR_HEAD.get(), GregicTinkeringToolParts.CROWBAR_HEAD_CAST, 2, partFolder, castFolder);
+
+		castCreation(consumer, Ingredient.of(GregicTinkeringItems.WRENCH_HEAD_SHAPE.get()), GregicTinkeringToolParts.WRENCH_HEAD_CAST, castFolder, "wrench_head_from_shape");
+		castCreation(consumer, Ingredient.of(GregicTinkeringItems.HAMMER_HEAD_SHAPE.get()), GregicTinkeringToolParts.HAMMER_HEAD_CAST, castFolder, "hammer_head_from_shape");
+		castCreation(consumer, Ingredient.of(GregicTinkeringItems.FILE_HEAD_SHAPE.get()), GregicTinkeringToolParts.FILE_HEAD_CAST, castFolder, "file_head_from_shape");
+		castCreation(consumer, Ingredient.of(GregicTinkeringItems.SCREWDRIVER_HEAD_SHAPE.get()), GregicTinkeringToolParts.SCREWDRIVER_HEAD_CAST, castFolder, "screwdriver_head_from_shape");
+		castCreation(consumer, Ingredient.of(GregicTinkeringItems.SAW_HEAD_SHAPE.get()), GregicTinkeringToolParts.SAW_HEAD_CAST, castFolder, "saw_head_from_shape");
+		castCreation(consumer, Ingredient.of(GregicTinkeringItems.WIRE_CUTTER_HEAD_SHAPE.get()), GregicTinkeringToolParts.WIRE_CUTTER_HEAD_CAST, castFolder, "wire_cutter_head_from_shape");
+		castCreation(consumer, Ingredient.of(GregicTinkeringItems.CROWBAR_HEAD_SHAPE.get()), GregicTinkeringToolParts.CROWBAR_HEAD_CAST, castFolder, "crowbar_head_from_shape");
 
 		partBuilding(consumer, GregicTinkeringToolParts.SOFT_MALLET_HEAD.get(), 6, partFolder);
 		partBuilding(consumer, GregicTinkeringToolParts.PLUNGER_HEAD.get(), 3, partFolder);

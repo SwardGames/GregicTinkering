@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gregic_tinkering:item/shape/wrench_head_shape"
+  }
+}

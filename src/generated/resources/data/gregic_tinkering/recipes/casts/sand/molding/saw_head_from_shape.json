@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:molding_table",
+  "material": {
+    "tag": "tconstruct:casts/sand"
+  },
+  "pattern": {
+    "item": "gregic_tinkering:saw_head_shape"
+  },
+  "result": "gregic_tinkering:saw_head_sand_cast"
+}

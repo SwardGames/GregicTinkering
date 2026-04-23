@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:molding_table",
+  "material": {
+    "tag": "tconstruct:casts/red_sand"
+  },
+  "pattern": {
+    "item": "gregic_tinkering:hammer_head_shape"
+  },
+  "result": "gregic_tinkering:hammer_head_red_sand_cast"
+}
