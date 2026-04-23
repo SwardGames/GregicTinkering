@@ -19,8 +19,8 @@
       },
       "icon": "tconstruct:tool_handle",
       "translation_key": "item.tconstruct.tool_handle",
-      "x": 15,
-      "y": 60
+      "x": 33,
+      "y": 42
     },
     {
       "filter": {
@@ -28,8 +28,8 @@
       },
       "icon": "gregic_tinkering:crowbar_head",
       "translation_key": "item.gregic_tinkering.crowbar_head",
-      "x": 33,
-      "y": 42
+      "x": 15,
+      "y": 60
     }
   ],
   "sortIndex": 16,

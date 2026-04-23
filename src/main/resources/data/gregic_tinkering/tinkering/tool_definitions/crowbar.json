@@ -3,9 +3,15 @@
     {
       "type": "tconstruct:part_stats",
       "parts": [
-        "gregic_tinkering:crowbar_head",
+        {
+          "item": "gregic_tinkering:crowbar_head",
+          "scale": 0.75
+        },
         "tconstruct:tool_handle",
-        "gregic_tinkering:crowbar_head"
+        {
+          "item": "gregic_tinkering:crowbar_head",
+          "scale": 0.25
+        }
       ],
       "primary_part": 0
     },
