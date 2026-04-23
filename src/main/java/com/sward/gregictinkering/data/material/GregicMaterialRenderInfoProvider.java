@@ -9,9 +9,6 @@ import slimeknights.tconstruct.library.materials.definition.IMaterial;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 
 import static com.sward.gregictinkering.GregicTinkeringMaterialIds.*;
-import static com.sward.gregictinkering.GregicTinkeringMaterialIds.POLYBENZIMIDAZOLE;
-import static com.sward.gregictinkering.GregicTinkeringMaterialIds.POLYTETRAFLUOROETHYLENE;
-import static com.sward.gregictinkering.GregicTinkeringMaterialIds.STYRENE_BUTADIENE_RUBBER;
 import static com.sward.gregictinkering.data.TieredMaterialIds.*;
 
 public class GregicMaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvider
