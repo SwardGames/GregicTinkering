@@ -1,6 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
 license = "${mod_license}"
+logoFile="icon.png"
 
 # This is a URL to e.g. your GitHub or CurseForge issues page.
 # It will appear in any crash reports this mod is directly involved in.

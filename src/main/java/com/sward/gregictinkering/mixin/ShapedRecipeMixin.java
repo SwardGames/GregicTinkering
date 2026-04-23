@@ -1,5 +1,7 @@
 package com.sward.gregictinkering.mixin;
 
+import com.sward.gregictinkering.GregicTinkeringModifiers;
+import com.sward.gregictinkering.modifiers.PoweredModifier;
 import com.sward.gregictinkering.tools.ModifiableGTToolItem;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.ItemStack;
@@ -9,7 +11,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 @Mixin(value = ShapedRecipe.class)
 public abstract class ShapedRecipeMixin
@@ -37,6 +41,13 @@ public abstract class ShapedRecipeMixin
 		if (stack.getItem() instanceof ModifiableGTToolItem)
 		{
 			if (ToolDamageUtil.isBroken(stack))
+			{
+				cir.setReturnValue(false);
+			}
+
+			ToolStack toolStack = ToolStack.from(stack);
+
+			if (toolStack.getModifier(GregicTinkeringModifiers.POWERED.getId()) != ModifierEntry.EMPTY && !PoweredModifier.isPowered(toolStack))
 			{
 				cir.setReturnValue(false);
 			}

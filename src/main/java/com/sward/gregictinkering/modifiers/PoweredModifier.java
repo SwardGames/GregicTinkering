@@ -12,8 +12,6 @@ import com.sward.gregictinkering.energy.ToolElectricItemCapability;
 import com.sward.gregictinkering.materials.stats.FuelType;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
@@ -26,18 +24,12 @@ import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.ToolDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.combat.DamageDealtModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.mining.BlockBreakModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedContext;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
-import slimeknights.tconstruct.library.tools.context.EquipmentContext;
-import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
-import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.FloatToolStat;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
@@ -48,9 +40,6 @@ import java.util.*;
 public class PoweredModifier extends NoLevelsModifier implements
 	ConditionalStatModifierHook,
 	BreakSpeedModifierHook,
-	BlockBreakModifierHook,
-	MeleeDamageModifierHook,
-	DamageDealtModifierHook,
 	ToolDamageModifierHook,
 	TooltipModifierHook
 {
@@ -61,9 +50,6 @@ public class PoweredModifier extends NoLevelsModifier implements
 			this,
 			ModifierHooks.CONDITIONAL_STAT,
 			ModifierHooks.BREAK_SPEED,
-			ModifierHooks.BLOCK_BREAK,
-			ModifierHooks.MELEE_DAMAGE,
-			ModifierHooks.DAMAGE_DEALT,
 			ModifierHooks.TOOL_DAMAGE,
 			ModifierHooks.TOOLTIP
 		);
@@ -115,49 +101,13 @@ public class PoweredModifier extends NoLevelsModifier implements
 	}
 
 	@Override
-	public void afterBlockBreak(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, @NotNull ToolHarvestContext context)
-	{
-		discharge(tool);
-	}
-
-	@Override
-	public float getMeleeDamage(
-		@NotNull IToolStackView tool,
-		@NotNull ModifierEntry modifier,
-		@NotNull ToolAttackContext context,
-		float baseDamage,
-		float damage
-	)
-	{
-		if (isPowered(tool))
-		{
-			// TODO: Amplify damage when powered
-
-			return damage;
-		}
-
-		return baseDamage;
-	}
-
-	@Override
-	public void onDamageDealt(
-		@NotNull IToolStackView tool,
-		@NotNull ModifierEntry modifier,
-		@NotNull EquipmentContext context,
-		@NotNull EquipmentSlot slotType,
-		@NotNull LivingEntity target,
-		@NotNull DamageSource source,
-		float amount,
-		boolean isDirectDamage
-	)
-	{
-		discharge(tool);
-	}
-
-	@Override
 	public int onDamageTool(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, int amount, @Nullable LivingEntity holder)
 	{
-		if (isPowered(tool) && RANDOM.nextFloat() < tool.getStats().get(GregicTinkeringToolStats.POWER_REINFORCEMENT))
+		boolean wasPowered = isPowered(tool);
+
+		discharge(tool, amount);
+
+		if (wasPowered && RANDOM.nextFloat() < tool.getStats().get(GregicTinkeringToolStats.POWER_REINFORCEMENT))
 		{
 			return 0;
 		}
@@ -192,7 +142,7 @@ public class PoweredModifier extends NoLevelsModifier implements
 		);
 	}
 
-	private static boolean isPowered(IToolStackView tool)
+	public static boolean isPowered(IToolStackView tool)
 	{
 		if (ToolElectricItemCapability.getCharge(tool) > 0L)
 		{
@@ -217,13 +167,13 @@ public class PoweredModifier extends NoLevelsModifier implements
 			GregicTinkeringToolStats.EFFICIENCY));
 	}
 
-	private static void discharge(IToolStackView tool)
+	private static void discharge(IToolStackView tool, int amount)
 	{
 		long charge = ToolElectricItemCapability.getCharge(tool);
 
-		int powerDraw = getPowerDraw(tool);
+		long powerDraw = getPowerDraw(tool);
 
-		charge -= powerDraw;
+		charge -= powerDraw * amount;
 
 		if (charge < 0L)
 		{
