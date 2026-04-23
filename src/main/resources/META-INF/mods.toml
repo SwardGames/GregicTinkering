@@ -19,8 +19,8 @@ license = "${mod_license}"
     # Some more fluff displayed in the Mods panel. Plug your stuff here!
     authors="${mod_author}"
     description = '''
-Example Description
-...ain is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,... (Lorem Ipsum translated to english.)
+GregTech: Modern x Tinkers Construct 3
+Adds modifiable variants of common crafting tools, including a unique spin on power tools!
 '''
 
     [[dependencies.${mod_id}]]
@@ -39,5 +39,17 @@ Example Description
         modId = "gtceu"
         mandatory = true
         versionRange = "[${gtceu_version},)"
+        ordering = "AFTER"
+        side = "BOTH"
+    [[dependencies.${mod_id}]]
+        modId = "tconstruct"
+        mandatory = true
+        versionRange = "[${tinkers_build},)"
+        ordering = "AFTER"
+        side = "BOTH"
+    [[dependencies.${mod_id}]]
+        modId = "mantle"
+        mandatory = true
+        versionRange = "[${mantle_build},)"
         ordering = "AFTER"
         side = "BOTH"
