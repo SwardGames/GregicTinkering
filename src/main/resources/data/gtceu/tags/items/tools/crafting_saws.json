@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "gregic_tinkering:saw"
+    "gregic_tinkering:saw",
+    "gregic_tinkering:powered_saw"
   ]
 }

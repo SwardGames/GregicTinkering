@@ -52,7 +52,7 @@ public record BatteryMaterialStats(long capacity, int powerTier, boolean isTank)
 	@Override
 	public @NotNull MutableComponent getLocalizedName()
 	{
-		return Component.translatable(isTank ? "stat.gregic_tinkering.tank" : "stat.gregic_tinkering.battery");
+		return Component.translatable(isTank ? "stat.gregic_tinkering.battery.tank" : "stat.gregic_tinkering.battery.battery");
 	}
 
 	@Override

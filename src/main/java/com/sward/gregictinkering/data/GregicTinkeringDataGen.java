@@ -1,18 +1,22 @@
 package com.sward.gregictinkering.data;
 
+import com.sward.gregictinkering.GregicTinkeringMaterialIds;
 import com.sward.gregictinkering.GregicTinkeringTools;
 import com.sward.gregictinkering.data.material.*;
 import com.sward.gregictinkering.data.model.CraftingToolModelProvider;
+import com.sward.gregictinkering.data.model.PowerToolModelProvider;
 import com.sward.gregictinkering.data.model.ToolPartItemModelProvider;
 import com.sward.gregictinkering.data.recipe.CasingsRecipeProvider;
 import com.sward.gregictinkering.data.recipe.ChainsawHeadsRecipeProvider;
 import com.sward.gregictinkering.data.recipe.DrillHeadsRecipeProvider;
-import com.sward.gregictinkering.data.recipe.ToolPartBuildingRecipeProvider;
+import com.sward.gregictinkering.data.recipe.GregicTinkeringRecipeProvider;
 import com.sward.gregictinkering.data.sprite.AnimatedMaterialPartMetaProvider;
 import com.sward.gregictinkering.data.sprite.GregicPartSpriteProvider;
 import com.sward.gregictinkering.data.tags.ModBlockTagsProvider;
 import com.sward.gregictinkering.data.tags.ModItemTagsProvider;
 import com.sward.gregictinkering.materials.stats.GregicStatlessMaterialStats;
+import com.sward.gregictinkering.materials.stats.PlungerHeadMaterialStats;
+import com.sward.gregictinkering.materials.stats.SoftMalletHeadMaterialStats;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.data.DataGenerator;
@@ -55,7 +59,7 @@ public final class GregicTinkeringDataGen
 		CraftingToolMaterialDataProvider craftingToolMaterials = new CraftingToolMaterialDataProvider(packOutput);
 		generator.addProvider(server, craftingToolMaterials);
 		generator.addProvider(server, new CraftingToolMaterialStatsDataProvider(packOutput, craftingToolMaterials));
-		generator.addProvider(server, new ToolPartBuildingRecipeProvider(packOutput));
+		generator.addProvider(server, new GregicTinkeringRecipeProvider(packOutput));
 
 		// Power Tool Heads (from TConstruct)
 		Collection<MaterialId> metalHeadMaterials = Arrays.stream(TieredMaterialIds.HEAD_METALS).flatMap(Arrays::stream).toList();
@@ -86,13 +90,28 @@ public final class GregicTinkeringDataGen
 
 		GeneratorPartTextureJsonGenerator.StatOverride.Builder overridesBuilder = new GeneratorPartTextureJsonGenerator.StatOverride.Builder();
 
-		for (int i = 0; i < CasingMaterialDataProvider.CASINGS.length; ++i)
+		for (MaterialId[] tier : CasingMaterialDataProvider.CASINGS)
 		{
-			for (MaterialId metalId : CasingMaterialDataProvider.CASINGS[i])
+			for (MaterialId materialId : tier)
 			{
-				overridesBuilder.add(GregicStatlessMaterialStats.CASING.getIdentifier(), metalId);
+				overridesBuilder.add(GregicStatlessMaterialStats.CASING.getIdentifier(), materialId);
 			}
 		}
+
+		for (MaterialId[] tier : TieredMaterialIds.WOODS)
+		{
+			for (MaterialId materialId : tier)
+			{
+				overridesBuilder.add(SoftMalletHeadMaterialStats.ID, materialId);
+			}
+		}
+
+		overridesBuilder.add(PlungerHeadMaterialStats.ID, GregicTinkeringMaterialIds.RUBBER);
+		overridesBuilder.add(PlungerHeadMaterialStats.ID, GregicTinkeringMaterialIds.POLYETHYLENE);
+		overridesBuilder.add(PlungerHeadMaterialStats.ID, GregicTinkeringMaterialIds.SILICONE_RUBBER);
+		overridesBuilder.add(PlungerHeadMaterialStats.ID, GregicTinkeringMaterialIds.STYRENE_BUTADIENE_RUBBER);
+		overridesBuilder.add(PlungerHeadMaterialStats.ID, GregicTinkeringMaterialIds.POLYTETRAFLUOROETHYLENE);
+		overridesBuilder.add(PlungerHeadMaterialStats.ID, GregicTinkeringMaterialIds.POLYBENZIMIDAZOLE);
 
 		GeneratorPartTextureJsonGenerator.StatOverride overrides = overridesBuilder.build();
 
@@ -111,6 +130,21 @@ public final class GregicTinkeringDataGen
 				GregicTinkeringTools.CROWBAR.getId(),
 				GregicTinkeringTools.SOFT_MALLET.getId(),
 				GregicTinkeringTools.PLUNGER.getId()
+			)
+		);
+		generator.addProvider(
+			client,
+			new PowerToolModelProvider(
+				packOutput,
+				existingFileHelper,
+				GregicTinkeringTools.DRILL.getId(),
+				GregicTinkeringTools.CHAINSAW.getId(),
+				GregicTinkeringTools.POWERED_WRENCH.getId(),
+				GregicTinkeringTools.POWERED_HAMMER.getId(),
+				GregicTinkeringTools.POWERED_FILE.getId(),
+				GregicTinkeringTools.POWERED_SCREWDRIVER.getId(),
+				GregicTinkeringTools.POWERED_SAW.getId(),
+				GregicTinkeringTools.POWERED_WIRE_CUTTER.getId()
 			)
 		);
 		generator.addProvider(client, new GeneratorPartTextureJsonGenerator(packOutput, MOD_ID, partSprites, overrides));

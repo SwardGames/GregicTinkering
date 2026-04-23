@@ -15,10 +15,10 @@
     },
     {
       "filter": {
-        "item": "tconstruct:tough_handle"
+        "item": "tconstruct:tool_handle"
       },
-      "icon": "tconstruct:tough_handle",
-      "translation_key": "item.tconstruct.tough_handle",
+      "icon": "tconstruct:tool_handle",
+      "translation_key": "item.tconstruct.tool_handle",
       "x": 15,
       "y": 60
     },

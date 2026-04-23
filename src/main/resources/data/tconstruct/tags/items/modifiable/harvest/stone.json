@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "gregic_tinkering:hammer",
-    "gregic_tinkering:drill"
+    "gregic_tinkering:drill",
+    "gregic_tinkering:powered_hammer"
   ]
 }

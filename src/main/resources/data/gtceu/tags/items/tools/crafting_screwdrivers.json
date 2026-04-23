@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "gregic_tinkering:screwdriver"
+    "gregic_tinkering:screwdriver",
+    "gregic_tinkering:powered_screwdriver"
   ]
 }

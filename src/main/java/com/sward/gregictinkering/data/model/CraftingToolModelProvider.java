@@ -22,7 +22,11 @@ public class CraftingToolModelProvider implements DataProvider
 	private final ExistingFileHelper existingFileHelper;
 	private final ResourceLocation[] tools;
 
-	public CraftingToolModelProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper, ResourceLocation... tools)
+	public CraftingToolModelProvider(
+		PackOutput packOutput,
+		ExistingFileHelper existingFileHelper,
+		ResourceLocation... tools
+	)
 	{
 		this.pathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/item");
 		this.existingFileHelper = existingFileHelper;
@@ -47,7 +51,12 @@ public class CraftingToolModelProvider implements DataProvider
 				);
 			}
 
-			if (!existingFileHelper.exists(tool.withSuffix("/broken"), PackType.CLIENT_RESOURCES, ".json", "models/item"))
+			if (!existingFileHelper.exists(
+				tool.withSuffix("/broken"),
+				PackType.CLIENT_RESOURCES,
+				".json",
+				"models/item"
+			))
 			{
 				futures.add(
 					DataProvider.saveStable(
@@ -71,34 +80,34 @@ public class CraftingToolModelProvider implements DataProvider
 		root.addProperty("parent", "tconstruct:item/base/axe");
 
 		JsonObject textures = new JsonObject();
-			textures.add("head", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/head" + headSuffix));
-			textures.add("handle", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/handle"));
-			textures.add("binding", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/binding"));
+		textures.add("head", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/head" + headSuffix));
+		textures.add("handle", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/handle"));
+		textures.add("binding", new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/binding"));
 		root.add("textures", textures);
 
 		JsonArray modifierRoots = new JsonArray();
-			modifierRoots.add(new JsonPrimitive("gregic_tinkering:item/tool/wrench/modifiers/"));
+		modifierRoots.add(new JsonPrimitive("gregic_tinkering:item/tool/" + toolName + "/modifiers/"));
 		root.add("modifier_roots", modifierRoots);
 
 		JsonArray parts = new JsonArray();
-			for (int i = 0; i < PARTS.length; ++i)
-			{
-				JsonObject part = new JsonObject();
-				part.add("name", new JsonPrimitive(PARTS[i]));
-				part.add("index", new JsonPrimitive(i));
-				parts.add(part);
-			}
+		for (int i = 0; i < PARTS.length; ++i)
+		{
+			JsonObject part = new JsonObject();
+			part.add("name", new JsonPrimitive(PARTS[i]));
+			part.add("index", new JsonPrimitive(i));
+			parts.add(part);
+		}
 		root.add("parts", parts);
 
 		if (hasOverrides)
 		{
 			JsonArray overrides = new JsonArray();
-				JsonObject broken = new JsonObject();
-					JsonObject broken_predicate = new JsonObject();
-						broken_predicate.add("tconstruct:broken", new JsonPrimitive(1));
-					broken.add("predicate", broken_predicate);
-					broken.add("model", new JsonPrimitive("gregic_tinkering:item/" + toolName + "/broken"));
-				overrides.add(broken);
+			JsonObject broken = new JsonObject();
+			JsonObject broken_predicate = new JsonObject();
+			broken_predicate.add("tconstruct:broken", new JsonPrimitive(1));
+			broken.add("predicate", broken_predicate);
+			broken.add("model", new JsonPrimitive("gregic_tinkering:item/" + toolName + "/broken"));
+			overrides.add(broken);
 			root.add("overrides", overrides);
 		}
 

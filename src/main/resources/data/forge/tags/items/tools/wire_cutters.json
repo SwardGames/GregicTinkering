@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "gregic_tinkering:wire_cutter"
+    "gregic_tinkering:wire_cutter",
+    "gregic_tinkering:powered_wire_cutter"
   ]
 }

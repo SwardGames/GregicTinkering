@@ -24,13 +24,27 @@
       "tconstruct:manyullyn",
       "tconstruct:knightmetal",
       "tconstruct:fiery"
+    ],
+    "gregic_tinkering:plunger_head": [
+      "gregic_tinkering:rubber",
+      "gregic_tinkering:polyethylene",
+      "gregic_tinkering:silicone_rubber",
+      "gregic_tinkering:styrene_butadiene_rubber",
+      "gregic_tinkering:polytetrafluoroethylene",
+      "gregic_tinkering:polybenzimidazole"
+    ],
+    "gregic_tinkering:soft_mallet_head": [
+      "tconstruct:wood",
+      "tconstruct:chorus",
+      "tconstruct:slimewood",
+      "tconstruct:treated_wood",
+      "tconstruct:ironwood",
+      "tconstruct:nahuatl",
+      "tconstruct:plated_slimewood",
+      "tconstruct:steeleaf"
     ]
   },
   "parts": [
-    {
-      "path": "gregic_tinkering:item/tool/parts/drill_head",
-      "stat_type": "tconstruct:head"
-    },
     {
       "path": "gregic_tinkering:item/tool/wrench/head",
       "stat_type": "tconstruct:head"
@@ -176,6 +190,18 @@
       "stat_type": "tconstruct:handle"
     },
     {
+      "path": "gregic_tinkering:item/tool/power_tool/engine",
+      "stat_type": "gregic_tinkering:engine"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/power_tool/battery",
+      "stat_type": "gregic_tinkering:battery"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/power_tool/casing",
+      "stat_type": "gregic_tinkering:casing"
+    },
+    {
       "path": "gregic_tinkering:item/tool/drill/head",
       "stat_type": "tconstruct:head"
     },
@@ -184,8 +210,9 @@
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "gregic_tinkering:item/tool/drill/casing",
-      "stat_type": "gregic_tinkering:casing"
+      "allow_animated": false,
+      "path": "gregic_tinkering:item/tool/drill/head_active",
+      "stat_type": "tconstruct:head"
     },
     {
       "path": "gregic_tinkering:item/tool/chainsaw/head",
@@ -196,26 +223,91 @@
       "stat_type": "tconstruct:head"
     },
     {
-      "path": "gregic_tinkering:item/tool/chainsaw/casing",
-      "stat_type": "gregic_tinkering:casing"
-    },
-    {
-      "path": "gregic_tinkering:item/tool/power_tool/engine",
-      "stat_type": "gregic_tinkering:engine"
-    },
-    {
-      "path": "gregic_tinkering:item/tool/power_tool/battery",
-      "stat_type": "gregic_tinkering:battery"
-    },
-    {
-      "allow_animated": false,
-      "path": "gregic_tinkering:item/tool/drill/head_active",
-      "stat_type": "tconstruct:head"
-    },
-    {
       "allow_animated": false,
       "path": "gregic_tinkering:item/tool/chainsaw/head_active",
       "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_wrench/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_wrench/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "allow_animated": false,
+      "path": "gregic_tinkering:item/tool/powered_wrench/head_active",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_hammer/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_hammer/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "allow_animated": false,
+      "path": "gregic_tinkering:item/tool/powered_hammer/head_active",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_file/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_file/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "allow_animated": false,
+      "path": "gregic_tinkering:item/tool/powered_file/head_active",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_screwdriver/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_screwdriver/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "allow_animated": false,
+      "path": "gregic_tinkering:item/tool/powered_screwdriver/head_active",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_saw/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_saw/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "allow_animated": false,
+      "path": "gregic_tinkering:item/tool/powered_saw/head_active",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_wire_cutter/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/powered_wire_cutter/head_broken",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "allow_animated": false,
+      "path": "gregic_tinkering:item/tool/powered_wire_cutter/head_active",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "gregic_tinkering:item/tool/drill/casing",
+      "stat_type": "gregic_tinkering:casing"
     }
   ],
   "replace": false

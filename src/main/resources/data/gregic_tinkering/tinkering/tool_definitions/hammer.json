@@ -43,6 +43,7 @@
     {
       "type": "tconstruct:tool_actions",
       "tool_actions": [
+        "pickaxe_dig",
         "hammer_dig",
         "hammer_mute"
       ]
@@ -50,19 +51,22 @@
     {
       "type": "tconstruct:is_effective",
       "predicate_type": "mantle:tag",
-      "tag": "forge:mineable/hammer"
+      "tag": "gregic_tinkering:mineable/hammer"
     },
     {
-      "type": "tconstruct:box_aoe",
-      "expansion_direction": "tconstruct:pitch",
-      "expansions": [
-        {
-          "depth": 2
-        },
-        {
-          "height": 1
-        }
-      ]
+      "type": "gregic_tinkering:sneak_conditional_aoe",
+      "if_false": {
+        "type": "tconstruct:box_aoe",
+        "expansion_direction": "tconstruct:pitch",
+        "expansions": [
+          {
+            "depth": 2
+          },
+          {
+            "height": 1
+          }
+        ]
+      }
     },
     {
       "type": "tconstruct:fixed_material_name",

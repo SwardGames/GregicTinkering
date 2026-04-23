@@ -1,6 +1,12 @@
 {
   "values": [
     "gregic_tinkering:drill",
-    "gregic_tinkering:chainsaw"
+    "gregic_tinkering:chainsaw",
+    "gregic_tinkering:powered_wrench",
+    "gregic_tinkering:powered_hammer",
+    "gregic_tinkering:powered_file",
+    "gregic_tinkering:powered_screwdriver",
+    "gregic_tinkering:powered_saw",
+    "gregic_tinkering:powered_wire_cutter"
   ]
 }

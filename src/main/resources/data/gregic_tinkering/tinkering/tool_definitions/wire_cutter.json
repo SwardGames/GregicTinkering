@@ -53,16 +53,19 @@
       "tag": "forge:mineable/wire_cutter"
     },
     {
-      "type": "tconstruct:box_aoe",
-      "expansion_direction": "tconstruct:pitch",
-      "expansions": [
-        {
-          "depth": 2
-        },
-        {
-          "height": 1
-        }
-      ]
+      "type": "gregic_tinkering:sneak_conditional_aoe",
+      "if_false": {
+        "type": "tconstruct:box_aoe",
+        "expansion_direction": "tconstruct:pitch",
+        "expansions": [
+          {
+            "depth": 2
+          },
+          {
+            "height": 1
+          }
+        ]
+      }
     },
     {
       "type": "tconstruct:fixed_material_name",

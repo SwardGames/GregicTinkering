@@ -8,7 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class GregicTinkeringTools
@@ -29,6 +28,13 @@ public final class GregicTinkeringTools
 	public static final RegistryObject<ModifiableGTToolItem> PLUNGER = ITEMS.register("plunger", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.PLUNGER, GTToolType.PLUNGER));
 
 	// Power Tools
-	public static final RegistryObject<ModifiableItem> DRILL = ITEMS.register("drill", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.DRILL, GTToolType.DRILL_LV, true));
-	public static final RegistryObject<ModifiableItem> CHAINSAW = ITEMS.register("chainsaw", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.CHAINSAW, GTToolType.DRILL_MV, true));
+	public static final RegistryObject<ModifiableGTToolItem> DRILL = ITEMS.register("drill", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.DRILL, GTToolType.DRILL_LV, true));
+	public static final RegistryObject<ModifiableGTToolItem> CHAINSAW = ITEMS.register("chainsaw", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.CHAINSAW, GTToolType.CHAINSAW_LV, true));
+
+	public static final RegistryObject<ModifiableGTToolItem> POWERED_WRENCH = ITEMS.register("powered_wrench", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.POWERED_WRENCH, GTToolType.WRENCH, true));
+	public static final RegistryObject<ModifiableGTToolItem> POWERED_HAMMER = ITEMS.register("powered_hammer", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.POWERED_HAMMER, GTToolType.HARD_HAMMER, true));
+	public static final RegistryObject<ModifiableGTToolItem> POWERED_FILE = ITEMS.register("powered_file", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.POWERED_FILE, GTToolType.FILE, true));
+	public static final RegistryObject<ModifiableGTToolItem> POWERED_SCREWDRIVER = ITEMS.register("powered_screwdriver", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.POWERED_SCREWDRIVER, GTToolType.SCREWDRIVER, true));
+	public static final RegistryObject<ModifiableGTToolItem> POWERED_SAW = ITEMS.register("powered_saw", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.POWERED_SAW, GTToolType.SAW, true));
+	public static final RegistryObject<ModifiableGTToolItem> POWERED_WIRE_CUTTER = ITEMS.register("powered_wire_cutter", () -> new ModifiableGTToolItem(PROPS, GregicTinkeringToolDefinitions.POWERED_WIRE_CUTTER, GTToolType.WIRE_CUTTER, true));
 }

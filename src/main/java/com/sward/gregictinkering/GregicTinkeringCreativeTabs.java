@@ -16,6 +16,7 @@ import java.util.function.Supplier;
 import static com.sward.gregictinkering.GregicTinkeringMod.*;
 import static com.sward.gregictinkering.GregicTinkeringToolParts.*;
 import static com.sward.gregictinkering.GregicTinkeringTools.*;
+import static com.sward.gregictinkering.GregicTinkeringTools.POWERED_HAMMER;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @SuppressWarnings("unused")
@@ -106,6 +107,12 @@ public final class GregicTinkeringCreativeTabs
 					// Power Tools
 					output.accept(DRILL.get());
 					output.accept(CHAINSAW.get());
+					output.accept(POWERED_WRENCH.get());
+					output.accept(POWERED_HAMMER.get());
+					output.accept(POWERED_FILE.get());
+					output.accept(POWERED_SCREWDRIVER.get());
+					output.accept(POWERED_SAW.get());
+					output.accept(POWERED_WIRE_CUTTER.get());
 				}
 			)
 			.build()

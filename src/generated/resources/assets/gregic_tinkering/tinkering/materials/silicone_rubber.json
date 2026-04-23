@@ -1,0 +1,28 @@
+{
+  "color": "FFF0F0F0",
+  "generator": {
+    "supported_stats": [
+      "gregic_tinkering:plunger_head"
+    ],
+    "transformer": {
+      "type": "tconstruct:recolor_sprite",
+      "color_mapping": {
+        "type": "tconstruct:grey_to_color",
+        "palette": [
+          {
+            "color": "FF000000",
+            "grey": 0
+          },
+          {
+            "color": "FFE8E8E0",
+            "grey": 127
+          },
+          {
+            "color": "FFF0F0F0",
+            "grey": 255
+          }
+        ]
+      }
+    }
+  }
+}

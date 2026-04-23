@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "tag": "forge:ingots/polytetrafluoroethylene"
+  },
+  "material": "gregic_tinkering:polytetrafluoroethylene",
+  "needed": 1,
+  "value": 1
+}

@@ -2,7 +2,7 @@
   "parent": "tconstruct:item/base/axe",
   "loader": "tconstruct:tool",
   "modifier_roots": [
-    "gregic_tinkering:item/tool/wrench/modifiers/"
+    "gregic_tinkering:item/tool/plunger/modifiers/"
   ],
   "parts": [
     {

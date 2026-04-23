@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "tag": "forge:ingots/styrene_butadiene_rubber"
+  },
+  "material": "gregic_tinkering:styrene_butadiene_rubber",
+  "needed": 1,
+  "value": 1
+}

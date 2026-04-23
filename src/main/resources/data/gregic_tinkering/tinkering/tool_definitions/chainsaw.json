@@ -64,39 +64,43 @@
     {
       "type": "tconstruct:tool_actions",
       "tool_actions": [
-        "axe_dig"
+        "axe_dig",
+        "hoe_dig"
       ]
     },
     {
       "type": "tconstruct:is_effective",
       "predicate_type": "mantle:tag",
-      "tag": "minecraft:mineable/axe"
+      "tag": "gregic_tinkering:mineable/chainsaw"
     },
     {
-      "type": "tconstruct:conditional_aoe",
-      "condition": {
-        "type": "mantle:tag",
-        "tag": "tconstruct:tree_log"
-      },
+      "type": "gregic_tinkering:sneak_conditional_aoe",
       "if_false": {
-        "type": "tconstruct:box_aoe",
-        "bonus": {
-          "height": 5
+        "type": "tconstruct:conditional_aoe",
+        "condition": {
+          "type": "mantle:tag",
+          "tag": "tconstruct:tree_log"
         },
-        "expansion_direction": "tconstruct:height",
-        "expansions": [
-          {
-            "width": 1
+        "if_false": {
+          "type": "tconstruct:box_aoe",
+          "bonus": {
+            "height": 5
           },
-          {
-            "depth": 1
-          }
-        ]
-      },
-      "if_true": {
-        "type": "tconstruct:tree_aoe",
-        "depth_bonus": 1,
-        "width_bonus": 1
+          "expansion_direction": "tconstruct:height",
+          "expansions": [
+            {
+              "width": 1
+            },
+            {
+              "depth": 1
+            }
+          ]
+        },
+        "if_true": {
+          "type": "tconstruct:tree_aoe",
+          "depth_bonus": 1,
+          "width_bonus": 1
+        }
       }
     },
     {

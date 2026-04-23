@@ -1,16 +1,16 @@
 {
   "replace": false,
   "values": [
-    "gregic_tinkering:drill",
-    "gregic_tinkering:chainsaw",
     "gregic_tinkering:wrench",
     "gregic_tinkering:hammer",
-    "gregic_tinkering:file",
-    "gregic_tinkering:screwdriver",
     "gregic_tinkering:saw",
     "gregic_tinkering:wire_cutter",
     "gregic_tinkering:crowbar",
-    "gregic_tinkering:soft_mallet",
-    "gregic_tinkering:plunger"
+    "gregic_tinkering:drill",
+    "gregic_tinkering:chainsaw",
+    "gregic_tinkering:powered_wrench",
+    "gregic_tinkering:powered_hammer",
+    "gregic_tinkering:powered_saw",
+    "gregic_tinkering:powered_wire_cutter"
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:mineable/pickaxe",
+    {
+      "id": "#forge:mineable/hammer",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "parent": "gregic_tinkering:item/base/power_tool",
+  "loader": "tconstruct:tool",
+  "modifier_roots": [
+    "gregic_tinkering:item/tool/powered_file/modifiers/"
+  ],
+  "overrides": [
+    {
+      "model": "gregic_tinkering:item/powered_file/broken",
+      "predicate": {
+        "tconstruct:broken": 1
+      }
+    },
+    {
+      "model": "gregic_tinkering:item/powered_file/active",
+      "predicate": {
+        "gregic_tinkering:mining": 1
+      }
+    }
+  ],
+  "parts": [
+    {
+      "index": 0,
+      "name": "head"
+    },
+    {
+      "index": 1,
+      "name": "casing"
+    },
+    {
+      "index": 2,
+      "name": "engine"
+    },
+    {
+      "index": 3,
+      "name": "battery"
+    },
+    {
+      "name": "handle"
+    }
+  ],
+  "textures": {
+    "battery": "gregic_tinkering:item/tool/power_tool/battery",
+    "casing": "gregic_tinkering:item/tool/power_tool/casing",
+    "engine": "gregic_tinkering:item/tool/power_tool/engine",
+    "handle": "gregic_tinkering:item/tool/power_tool/handle",
+    "head": "gregic_tinkering:item/tool/powered_file/head"
+  }
+}

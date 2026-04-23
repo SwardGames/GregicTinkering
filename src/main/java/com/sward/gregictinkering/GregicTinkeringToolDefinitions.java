@@ -21,4 +21,11 @@ public final class GregicTinkeringToolDefinitions
 	// Power Tools
 	public static final ToolDefinition DRILL = ToolDefinition.create(GregicTinkeringTools.DRILL);
 	public static final ToolDefinition CHAINSAW = ToolDefinition.create(GregicTinkeringTools.CHAINSAW);
+
+	public static final ToolDefinition POWERED_WRENCH = ToolDefinition.create(GregicTinkeringTools.POWERED_WRENCH);
+	public static final ToolDefinition POWERED_HAMMER = ToolDefinition.create(GregicTinkeringTools.POWERED_HAMMER);
+	public static final ToolDefinition POWERED_FILE = ToolDefinition.create(GregicTinkeringTools.POWERED_FILE);
+	public static final ToolDefinition POWERED_SCREWDRIVER = ToolDefinition.create(GregicTinkeringTools.POWERED_SCREWDRIVER);
+	public static final ToolDefinition POWERED_SAW = ToolDefinition.create(GregicTinkeringTools.POWERED_SAW);
+	public static final ToolDefinition POWERED_WIRE_CUTTER = ToolDefinition.create(GregicTinkeringTools.POWERED_WIRE_CUTTER);
 }

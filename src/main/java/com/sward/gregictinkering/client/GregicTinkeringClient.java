@@ -31,6 +31,12 @@ public class GregicTinkeringClient
 
 				registerElectricToolItemProperties(GregicTinkeringTools.DRILL.get());
 				registerElectricToolItemProperties(GregicTinkeringTools.CHAINSAW.get());
+				registerElectricToolItemProperties(GregicTinkeringTools.POWERED_WRENCH.get());
+				registerElectricToolItemProperties(GregicTinkeringTools.POWERED_HAMMER.get());
+				registerElectricToolItemProperties(GregicTinkeringTools.POWERED_FILE.get());
+				registerElectricToolItemProperties(GregicTinkeringTools.POWERED_SCREWDRIVER.get());
+				registerElectricToolItemProperties(GregicTinkeringTools.POWERED_SAW.get());
+				registerElectricToolItemProperties(GregicTinkeringTools.POWERED_WIRE_CUTTER.get());
 			}
 		);
 	}

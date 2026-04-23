@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "gregic_tinkering:wrench"
+    "gregic_tinkering:wrench",
+    "gregic_tinkering:powered_wrench"
   ]
 }

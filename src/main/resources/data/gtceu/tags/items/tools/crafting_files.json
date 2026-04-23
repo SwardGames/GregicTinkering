@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "gregic_tinkering:file"
+    "gregic_tinkering:file",
+    "gregic_tinkering:powered_file"
   ]
 }

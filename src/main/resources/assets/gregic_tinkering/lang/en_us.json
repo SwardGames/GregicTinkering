@@ -9,28 +9,46 @@
   "item.gregic_tinkering.file.description": "The File is a tool used in crafting to shape an item by removing material.",
 
   "item.gregic_tinkering.screwdriver": "Screwdriver",
-  "item.gregic_tinkering.screwdriver.description": "The Screwdriver is a used to configure a machines outputs.\nIt is also used in crafting to fasten screws.",
+  "item.gregic_tinkering.screwdriver.description": "The Screwdriver is a tool used to configure a machines outputs.\nIt is also used in crafting to fasten screws.",
 
   "item.gregic_tinkering.saw": "Saw",
-  "item.gregic_tinkering.saw.description": "The Saw is a used to cut wood and harvest ice.\nIt is also used in crafting to cut apart items.",
+  "item.gregic_tinkering.saw.description": "The Saw is a tool used to cut wood and harvest ice.\nIt is also used in crafting to cut apart items.",
 
   "item.gregic_tinkering.wire_cutter": "Wire Cutter",
-  "item.gregic_tinkering.wire_cutter.description": "The Wire Cutter is a used to manipulate and break wires.\nIt is also used in crafting to make fine cuts in metal.",
+  "item.gregic_tinkering.wire_cutter.description": "The Wire Cutter is a tool used to manipulate and break wires.\nIt is also used in crafting to make fine cuts in metal.",
 
   "item.gregic_tinkering.crowbar": "Crowbar",
-  "item.gregic_tinkering.crowbar.description": "The Crowbar is a used to pry covers off of machines and pipes.\nIt is also used to kill headcrabs.",
+  "item.gregic_tinkering.crowbar.description": "The Crowbar is a tool used to pry covers off of machines and pipes.\nIt is also used to kill headcrabs.",
 
   "item.gregic_tinkering.soft_mallet": "Soft Mallet",
-  "item.gregic_tinkering.soft_mallet.description": "The Soft Mallet is a used to toggle a machines active state.\nIt is also used in crafting where a hammer would be too damaging.",
+  "item.gregic_tinkering.soft_mallet.description": "The Soft Mallet is a tool used to toggle a machines active state.\nIt is also used in crafting where a hammer would be too damaging.",
 
   "item.gregic_tinkering.plunger": "Plunger",
-  "item.gregic_tinkering.plunger.description": "The Soft Mallet is a used to erase unwanted fluids from tanks.\nIt is also used to EXTERMINATE.",
+  "item.gregic_tinkering.plunger.description": "The Soft Mallet is a tool used to erase unwanted fluids from tanks.\nIt is also used to EXTERMINATE.",
 
   "item.gregic_tinkering.drill": "Drill",
   "item.gregic_tinkering.drill.description": "The Drill is a powered mining tool. It is effective on both dirt and rock, and harvests blocks in a large range.\nIt requires energy to function.",
 
   "item.gregic_tinkering.chainsaw": "Chainsaw",
   "item.gregic_tinkering.chainsaw.description": "The Chainsaw is a powered wood-cutting tool, capable of quickly felling even the largest of trees.\nIt requires energy to function.",
+
+  "item.gregic_tinkering.powered_wrench": "Impact Wrench",
+  "item.gregic_tinkering.powered_wrench.description": "The Impact Wrench is a powered tool used to manipulate and dismantle machines and pipes.\nIt is also used in crafting to assemble components.\nIt requires energy to function.",
+
+  "item.gregic_tinkering.powered_hammer": "Jackhammer",
+  "item.gregic_tinkering.powered_hammer.description": "The Jackhammer is a powered tool used in crafting to shape metals, silence machines, and prospect for ores or caves.\nIt can also harvest blocks, breaking them down in the process.\nIt requires energy to function.",
+
+  "item.gregic_tinkering.powered_file": "Angle Grinder",
+  "item.gregic_tinkering.powered_file.description": "The Angle Grinder is a powered tool used in crafting to shape an item by removing material.\nIt requires energy to function.",
+
+  "item.gregic_tinkering.powered_screwdriver": "Screw Gun",
+  "item.gregic_tinkering.powered_screwdriver.description": "The Screw Gun is a powered tool used to configure a machines outputs.\nIt is also used in crafting to fasten screws.\nIt requires energy to function.",
+
+  "item.gregic_tinkering.powered_saw": "Buzzsaw",
+  "item.gregic_tinkering.powered_saw.description": "The Buzzsaw is a powered tool used to cut wood and harvest ice.\nIt is also used in crafting to cut apart items.\nIt requires energy to function.",
+
+  "item.gregic_tinkering.powered_wire_cutter": "Powered Wire Cutter",
+  "item.gregic_tinkering.powered_wire_cutter.description": "The Powered Wire Cutter is a powered tool used to manipulate and break wires.\nIt is also used in crafting to make fine cuts in metal.\nIt requires energy to function.",
 
   "item.gregic_tinkering.wrench_head": "Wrench Head",
   "item.gregic_tinkering.hammer_head": "Hard Hammer Head",
@@ -45,7 +63,7 @@
   "item.gregic_tinkering.chainsaw_head": "Chainsaw Head",
   "item.gregic_tinkering.casing": "Tool Casing",
   "item.gregic_tinkering.engine": "Engine Unit",
-  "item.gregic_tinkering.battery": "Battery",
+  "item.gregic_tinkering.battery": "Battery/Tank",
   "item.gregic_tinkering.tank": "Tank",
 
   "item.gregic_tinkering.powered.eu": "Electric %s",
@@ -53,10 +71,37 @@
   "item.gregic_tinkering.powered.diesel": "Diesel %s",
   "item.gregic_tinkering.powered.gas": "Gas %s",
 
+  "item.gregic_tinkering.wrench_head_cast": "Wrench Head Cast",
+  "item.gregic_tinkering.hammer_head_cast": "Hard Hammer Head Cast",
+  "item.gregic_tinkering.file_head_cast": "File Head Cast",
+  "item.gregic_tinkering.screwdriver_head_cast": "Screwdriver Head Cast",
+  "item.gregic_tinkering.saw_head_cast": "Saw Head Cast",
+  "item.gregic_tinkering.wire_cutter_head_cast": "Wire Cutter Head Cast",
+  "item.gregic_tinkering.crowbar_head_cast": "Crowbar Head Cast",
+
+  "item.gregic_tinkering.wrench_head_sand_cast": "Wrench Head Sand Cast",
+  "item.gregic_tinkering.hammer_head_sand_cast": "Wrench Head Sand Cast",
+  "item.gregic_tinkering.file_head_sand_cast": "Wrench Head Sand Cast",
+  "item.gregic_tinkering.screwdriver_head_sand_cast": "Wrench Head Sand Cast",
+  "item.gregic_tinkering.saw_head_sand_cast": "Wrench Head Sand Cast",
+  "item.gregic_tinkering.wire_cutter_head_sand_cast": "Wrench Head Sand Cast",
+  "item.gregic_tinkering.crowbar_head_sand_cast": "Wrench Head Sand Cast",
+
+  "item.gregic_tinkering.wrench_head_red_sand_cast": "Wrench Head Red Sand Cast",
+  "item.gregic_tinkering.hammer_head_red_sand_cast": "Wrench Head Red Sand Cast",
+  "item.gregic_tinkering.file_head_red_sand_cast": "Wrench Head Red Sand Cast",
+  "item.gregic_tinkering.screwdriver_head_red_sand_cast": "Wrench Head Red Sand Cast",
+  "item.gregic_tinkering.saw_head_red_sand_cast": "Wrench Head Red Sand Cast",
+  "item.gregic_tinkering.wire_cutter_head_red_sand_cast": "Wrench Head Red Sand Cast",
+  "item.gregic_tinkering.crowbar_head_red_sand_cast": "Wrench Head Red Sand Cast",
+
+  "stat.gregic_tinkering.soft_mallet_head": "Soft Mallet Head",
+  "stat.gregic_tinkering.plunger_head": "Plunger Head",
   "stat.gregic_tinkering.casing": "Tool Casing",
   "stat.gregic_tinkering.engine": "Engine Unit",
-  "stat.gregic_tinkering.battery": "Battery",
-  "stat.gregic_tinkering.tank": "Tank",
+  "stat.gregic_tinkering.battery": "Battery/Tank",
+  "stat.gregic_tinkering.battery.battery": "Battery",
+  "stat.gregic_tinkering.battery.tank": "Tank",
 
   "tool_stat.gregic_tinkering.efficiency": "Energy Efficiency: ",
   "tool_stat.gregic_tinkering.efficiency.description": "How efficiently the engine converts fuel into power.",
@@ -99,6 +144,13 @@
   "modifier.gregic_tinkering.lubricated.flavor": "Slippery!",
   "modifier.gregic_tinkering.lubricated.description": "Reduces the energy cost of using the tool.",
 
+  "material.gregic_tinkering.rubber": "Rubber",
+  "material.gregic_tinkering.polyethylene": "Polyethylene",
+  "material.gregic_tinkering.silicone_rubber": "Silicone Rubber",
+  "material.gregic_tinkering.styrene_butadiene_rubber": "Styrene Butadiene Rubber",
+  "material.gregic_tinkering.polytetrafluoroethylene": "Polytetrafluoroethylene",
+  "material.gregic_tinkering.polybenzimidazole": "Polybenzimidazole",
+
   "material.gregic_tinkering.lv_electric": "LV Electric",
   "material.gregic_tinkering.mv_electric": "MV Electric",
   "material.gregic_tinkering.hv_electric": "HV Electric",
@@ -136,5 +188,15 @@
   "material.gregic_tinkering.bronze_fluid_tank.format": "Bronze Fluid Tank",
   "material.gregic_tinkering.steel_fluid_tank.format": "Steel Fluid Tank",
   "material.gregic_tinkering.aluminium_fluid_tank.format": "Aluminium Fluid Tank",
-  "material.gregic_tinkering.stainless_steel_fluid_tank.format": "Stainless Steel Fluid Tank"
+  "material.gregic_tinkering.stainless_steel_fluid_tank.format": "Stainless Steel Fluid Tank",
+
+  "pattern.gregic_tinkering.wrench_head": "Wrench Head",
+  "pattern.gregic_tinkering.hammer_head": "Hard Hammer Head",
+  "pattern.gregic_tinkering.file_head": "File Head",
+  "pattern.gregic_tinkering.screwdriver_head": "Screwdriver Head",
+  "pattern.gregic_tinkering.saw_head": "Saw Head",
+  "pattern.gregic_tinkering.wire_cutter_head": "Wire Cutter Head",
+  "pattern.gregic_tinkering.crowbar_head": "Crowbar Head",
+  "pattern.gregic_tinkering.soft_mallet_head": "Soft Mallet Head",
+  "pattern.gregic_tinkering.plunger_head": "Plunger Head"
 }

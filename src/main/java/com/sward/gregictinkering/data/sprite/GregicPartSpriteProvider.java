@@ -10,6 +10,8 @@ public class GregicPartSpriteProvider extends AbstractPartSpriteProvider
 {
 	private static final String[] CRAFTING_TOOLS = { "wrench", "hammer", "file", "screwdriver", "saw", "wire_cutter", "crowbar" };
 
+	private static final String[] POWER_TOOLS = { "drill", "chainsaw", "powered_wrench", "powered_hammer", "powered_file", "powered_screwdriver", "powered_saw", "powered_wire_cutter" };
+
 	public GregicPartSpriteProvider()
 	{
 		super(GregicTinkeringMod.MOD_ID);
@@ -24,9 +26,6 @@ public class GregicPartSpriteProvider extends AbstractPartSpriteProvider
 	@Override
 	protected void addAllSpites()
 	{
-		// Parts
-		addHead("drill_head");
-
 		// Tools
 		for (String craftingTool : CRAFTING_TOOLS)
 		{
@@ -46,24 +45,18 @@ public class GregicPartSpriteProvider extends AbstractPartSpriteProvider
 			.addBinding("binding")
 			.addHandle("handle");
 
-		buildTool("drill")
-			.addBreakableHead("head")
-			.addPart("casing", GregicStatlessMaterialStats.CASING.getIdentifier());
-
-		buildTool("chainsaw")
-			.addBreakableHead("head")
-			.addPart("casing", GregicStatlessMaterialStats.CASING.getIdentifier());
-
 		buildTool("power_tool")
 			.addPart("engine", EngineMaterialStats.ID)
-			.addPart("battery", BatteryMaterialStats.ID);
+			.addPart("battery", BatteryMaterialStats.ID)
+			.addPart("casing", GregicStatlessMaterialStats.CASING.getIdentifier());
 
-		buildTool("drill")
-			.addPart("head_active", HeadMaterialStats.ID)
-			.disallowAnimated();
+		for (String tool : POWER_TOOLS)
+		{
+			buildTool(tool).addBreakableHead("head");
 
-		buildTool("chainsaw")
-			.addPart("head_active", HeadMaterialStats.ID)
-			.disallowAnimated();
+			buildTool(tool).addPart("head_active", HeadMaterialStats.ID).disallowAnimated();
+		}
+
+		buildTool("drill").addPart("casing", GregicStatlessMaterialStats.CASING.getIdentifier());
 	}
 }
