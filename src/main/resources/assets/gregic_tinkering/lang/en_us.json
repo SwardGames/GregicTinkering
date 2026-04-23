@@ -206,5 +206,8 @@
   "pattern.gregic_tinkering.wire_cutter_head": "Wire Cutter Head",
   "pattern.gregic_tinkering.crowbar_head": "Crowbar Head",
   "pattern.gregic_tinkering.soft_mallet_head": "Soft Mallet Head",
-  "pattern.gregic_tinkering.plunger_head": "Plunger Head"
+  "pattern.gregic_tinkering.plunger_head": "Plunger Head",
+
+  "item_group.gregic_tinkering.tool_parts": "Gregic Tinkering Tool Parts",
+  "item_group.gregic_tinkering.tools": "Gregic Tinkering Tools"
 }
