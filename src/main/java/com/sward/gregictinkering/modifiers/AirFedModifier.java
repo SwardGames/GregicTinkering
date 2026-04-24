@@ -1,15 +1,23 @@
 package com.sward.gregictinkering.modifiers;
 
+import com.sward.gregictinkering.GregicTinkeringConfig;
+import com.sward.gregictinkering.GregicTinkeringMod;
 import com.sward.gregictinkering.GregicTinkeringTags;
+import com.sward.gregictinkering.GregicTinkeringToolStats;
+import com.sward.gregictinkering.player.IGregicTinkeringPlayer;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedContext;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
@@ -22,8 +30,11 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 public class AirFedModifier extends NoLevelsModifier implements
 	ConditionalStatModifierHook,
 	BreakSpeedModifierHook,
-	MeleeDamageModifierHook
+	MeleeDamageModifierHook,
+	InventoryTickModifierHook
 {
+	public static final ResourceLocation STORED_AIR_KEY = GregicTinkeringMod.id("stored_air");
+
 	@Override
 	protected void registerHooks(ModuleHookMap.Builder hookBuilder)
 	{
@@ -31,7 +42,8 @@ public class AirFedModifier extends NoLevelsModifier implements
 			this,
 			ModifierHooks.CONDITIONAL_STAT,
 			ModifierHooks.BREAK_SPEED,
-			ModifierHooks.MELEE_DAMAGE
+			ModifierHooks.MELEE_DAMAGE,
+			ModifierHooks.INVENTORY_TICK
 		);
 	}
 
@@ -45,7 +57,7 @@ public class AirFedModifier extends NoLevelsModifier implements
 		float multiplier
 	)
 	{
-		if (stat == ToolStats.DRAW_SPEED && hasNoAir(living))
+		if (stat == ToolStats.DRAW_SPEED && hasNoAir(tool, living))
 		{
 			return 0F;
 		}
@@ -63,7 +75,7 @@ public class AirFedModifier extends NoLevelsModifier implements
 		float miningSpeedModifier
 	)
 	{
-		if (isEffective && hasNoAir(event.getEntity()))
+		if (isEffective && hasNoAir(tool, event.getEntity()))
 		{
 			event.setNewSpeed(0F);
 		}
@@ -72,7 +84,7 @@ public class AirFedModifier extends NoLevelsModifier implements
 	@Override
 	public float modifyBreakSpeed(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, @NotNull BreakSpeedContext context, float speed)
 	{
-		if (context.isEffective() && hasNoAir(context.player()))
+		if (context.isEffective() && hasNoAir(tool, context.player()))
 		{
 			return 0F;
 		}
@@ -89,7 +101,7 @@ public class AirFedModifier extends NoLevelsModifier implements
 		float damage
 	)
 	{
-		if (hasNoAir(context.getAttacker()))
+		if (hasNoAirConsuming(tool, context.getAttacker(), GregicTinkeringConfig.getAirConsumedPerAttack()))
 		{
 			return baseDamage;
 		}
@@ -97,18 +109,70 @@ public class AirFedModifier extends NoLevelsModifier implements
 		return damage;
 	}
 
-	private static boolean hasNoAir(@NotNull Entity entity)
+	@Override
+	public void onInventoryTick(
+		@NotNull IToolStackView tool,
+		@NotNull ModifierEntry modifier,
+		@NotNull Level world,
+		@NotNull LivingEntity holder,
+		int itemSlot,
+		boolean isSelected,
+		boolean isCorrectSlot,
+		@NotNull ItemStack stack
+	)
 	{
-		if (entity.isUnderWater())
+		if (entityHasNoAir(holder))
 		{
-			return true;
-		}
+			if (holder instanceof IGregicTinkeringPlayer player)
+			{
+				if (player.gregicTinkering$getGameMode().gregicTinkering$isDestroyingBlock())
+				{
+					int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
 
-		if (entity.level().dimensionTypeRegistration().is(GregicTinkeringTags.DimensionTypes.NO_AIR))
+					tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - 1, 0));
+				}
+			}
+		}
+		else
 		{
-			return true;
+			int air = Math.min(
+				tool.getPersistentData().getInt(STORED_AIR_KEY) + GregicTinkeringConfig.getAirTankRechargeRate(),
+				tool.getStats().getInt(GregicTinkeringToolStats.AIR_TANK_CAPACITY)
+			);
+
+			tool.getPersistentData().putInt(STORED_AIR_KEY, air);
+		}
+	}
+
+	private static boolean hasNoAirConsuming(@NotNull IToolStackView tool, @NotNull Entity entity, int amount)
+	{
+		if (entityHasNoAir(entity))
+		{
+			int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
+
+			tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - amount, 0));
+
+			return air <= 0;
 		}
 
 		return false;
+	}
+
+	private static boolean hasNoAir(@NotNull IToolStackView tool, @NotNull Entity entity)
+	{
+		return entityHasNoAir(entity) && hasNoStoredAir(tool);
+	}
+
+	private static boolean entityHasNoAir(@NotNull Entity entity)
+	{
+		return entity.isUnderWater() ||
+		       entity.level().dimensionTypeRegistration().is(GregicTinkeringTags.DimensionTypes.NO_AIR);
+	}
+
+	private static boolean hasNoStoredAir(@NotNull IToolStackView tool)
+	{
+		int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
+
+		return air <= 0;
 	}
 }

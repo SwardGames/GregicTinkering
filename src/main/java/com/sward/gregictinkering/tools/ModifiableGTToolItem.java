@@ -144,7 +144,6 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 
 		if (result)
 		{
-			//noinspection resource
 			if (!player.level().isClientSide)
 			{
 				if (playSoundOnBlockDestroy())
@@ -182,13 +181,13 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 	@Override
 	public boolean shouldCauseBlockBreakReset(@NotNull ItemStack oldStack, @NotNull ItemStack newStack)
 	{
-		return super.shouldCauseBlockBreakReset(oldStack, newStack) || definition$shouldCauseBlockBreakReset(oldStack, newStack);
+		return super.shouldCauseBlockBreakReset(oldStack, newStack);
 	}
 
 	@Override
 	public boolean shouldCauseReequipAnimation(@NotNull ItemStack oldStack, @NotNull ItemStack newStack, boolean slotChanged)
 	{
-		return super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged) || definition$shouldCauseReequipAnimation(oldStack, newStack, slotChanged);
+		return super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged);
 	}
 
 	@Override

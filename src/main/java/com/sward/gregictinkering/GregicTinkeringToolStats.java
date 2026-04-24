@@ -9,7 +9,6 @@ import com.sward.gregictinkering.tools.stat.IntToolStat;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import net.minecraft.core.registries.Registries;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.RegisterEvent;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
@@ -37,6 +36,9 @@ public final class GregicTinkeringToolStats
 	/** Which type of fuel is consumed to produce power. */
 	public static final EnumToolStat<FuelType> FUEL_TYPE = new EnumToolStat<>(FuelType.class, id("fuel_type"), FuelType.EU, GregicTinkeringTags.Items.POWER_TOOL);
 
+	/** How much air the tool can store */
+	public static final IntToolStat AIR_TANK_CAPACITY = new IntToolStat(id("air_tank_capacity"), 0xFF2CD499, 0, 0, Integer.MAX_VALUE, GregicTinkeringTags.Items.POWER_TOOL);
+
 	private static ToolStatId id(String name)
 	{
 		return new ToolStatId(GregicTinkeringMod.MOD_ID, name);
@@ -60,6 +62,8 @@ public final class GregicTinkeringToolStats
 			ToolStats.register(EFFICIENCY);
 			ToolStats.register(POWER_DRAW);
 			ToolStats.register(FUEL_TYPE);
+
+			ToolStats.register(AIR_TANK_CAPACITY);
 
 			ToolStats.register(ToolElectricItemCapability.MAX_CHARGE_STAT);
 			ToolStats.register(ToolElectricItemCapability.POWER_TIER_STAT);

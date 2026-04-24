@@ -6,12 +6,16 @@
   "refmap": "mixins.gregic_tinkering.refmap.json",
   "mixins": [
     "CraftingTableRepairKitRecipeMixin",
+    "ServerPlayerGameModeMixin",
+    "ServerPlayerMixin",
     "ShapedRecipeMixin",
     "ShapelessRecipeMixin",
     "ToolHelperMixin"
   ],
   "client": [
-    "GTToolBarRendererMixin"
+    "GTToolBarRendererMixin",
+    "LocalPlayerMixin",
+    "MultiPlayerGameModeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

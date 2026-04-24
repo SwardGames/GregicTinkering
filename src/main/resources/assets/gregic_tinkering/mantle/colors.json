@@ -3,6 +3,8 @@
     "electric_item_handler": "#54FC54",
     "powered": "#5299F7",
     "transformer": "#E457FA",
-    "lubricated": "#F9E7AC"
+    "lubricated": "#F9E7AC",
+    "air_fed": "#A8DEFF",
+    "air_tank": "#2CD499"
   }
 }
