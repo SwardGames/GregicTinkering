@@ -34,7 +34,7 @@ public class GregicTinkeringConfig
 
 	private static final ForgeConfigSpec.EnumValue<DustItemSize> DUST_LOOT_DUST_ITEM_SIZE = BUILDER
 		.comment("Size of the dust item produced by the dust loot.")
-		.defineEnum("dust_loot_dust_item_size", DustItemSize.NORMAL);
+		.defineEnum("dust_loot_dust_item_size", DustItemSize.SMALL);
 
 	static final ForgeConfigSpec SPEC = BUILDER.build();
 

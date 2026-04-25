@@ -1,27 +1,24 @@
 {
   "type": "tconstruct:modifier",
-  "allow_crystal": true,
+  "allow_crystal": false,
   "inputs": [
     {
-      "tag": "forge:plates/brass"
+      "tag": "forge:plates/rhodium_plated_palladium"
     },
     {
-      "item": "gtceu:diamond_grinding_head"
+      "item": "gtceu:ev_electric_piston"
     },
     {
-      "tag": "forge:plates/brass"
+      "tag": "forge:plates/rhodium_plated_palladium"
     },
     {
-      "item": "gtceu:item_filter"
+      "item": "gtceu:item_smart_filter"
     },
     {
-      "item": "gtceu:item_filter"
+      "item": "gtceu:item_smart_filter"
     }
   ],
-  "level": {
-    "min": 2,
-    "max": 3
-  },
+  "level": 3,
   "result": "gregic_tinkering:dust_loot",
   "slots": {
     "upgrades": 1

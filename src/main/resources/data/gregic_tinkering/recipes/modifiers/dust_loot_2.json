@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "tag": "forge:plates/rose_gold"
+    },
+    {
+      "item": "gtceu:mv_electric_piston"
+    },
+    {
+      "tag": "forge:plates/rose_gold"
+    },
+    {
+      "item": "gtceu:item_tag_filter"
+    },
+    {
+      "item": "gtceu:item_tag_filter"
+    }
+  ],
+  "level": 2,
+  "result": "gregic_tinkering:dust_loot",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/harvest"
+    }
+  ]
+}
