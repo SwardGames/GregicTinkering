@@ -1,114 +1,158 @@
 package com.sward.gregictinkering.modifiers;
 
-import com.sward.gregictinkering.GregicTinkeringTags;
-import net.minecraft.core.Direction;
+import com.sward.gregictinkering.*;
+import com.sward.gregictinkering.compat.AdAstraCompat;
+import com.sward.gregictinkering.modifierhooks.HasPowerModifierHook;
+import com.sward.gregictinkering.player.IGregicTinkeringPlayer;
+import com.sward.gregictinkering.util.HasMod;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
-import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedContext;
-import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.combat.DamageDealtModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
-import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
+import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.library.tools.stat.FloatToolStat;
-import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 public class AirFedModifier extends NoLevelsModifier implements
-	ConditionalStatModifierHook,
-	BreakSpeedModifierHook,
-	MeleeDamageModifierHook
+	InventoryTickModifierHook,
+	DamageDealtModifierHook,
+	HasPowerModifierHook
 {
+	public static final ResourceLocation STORED_AIR_KEY = GregicTinkeringMod.id("stored_air");
+	public static final ResourceLocation HAS_AIR_KEY = GregicTinkeringMod.id("has_air");
+
 	@Override
-	protected void registerHooks(ModuleHookMap.Builder hookBuilder)
+	protected void registerHooks(@NotNull ModuleHookMap.Builder hookBuilder)
 	{
 		hookBuilder.addHook(
 			this,
-			ModifierHooks.CONDITIONAL_STAT,
-			ModifierHooks.BREAK_SPEED,
-			ModifierHooks.MELEE_DAMAGE
+			ModifierHooks.INVENTORY_TICK,
+			ModifierHooks.DAMAGE_DEALT,
+			PoweredModifier.HOOK
 		);
 	}
 
 	@Override
-	public float modifyStat(
+	public void onInventoryTick(
 		@NotNull IToolStackView tool,
 		@NotNull ModifierEntry modifier,
-		@NotNull LivingEntity living,
-		@NotNull FloatToolStat stat,
-		float baseValue,
-		float multiplier
+		@NotNull Level world,
+		@NotNull LivingEntity holder,
+		int itemSlot,
+		boolean isSelected,
+		boolean isCorrectSlot,
+		@NotNull ItemStack stack
 	)
 	{
-		if (stat == ToolStats.DRAW_SPEED && hasNoAir(living))
+		boolean hasAir = entityHasAir(tool, holder);
+
+		if (hasAir)
 		{
-			return 0F;
+			int air = Math.min(
+				tool.getPersistentData().getInt(STORED_AIR_KEY) + GregicTinkeringConfig.getAirTankRechargeRate(),
+				tool.getStats().getInt(GregicTinkeringToolStats.AIR_TANK_CAPACITY)
+			);
+
+			tool.getPersistentData().putInt(STORED_AIR_KEY, air);
+		}
+		else
+		{
+			if (holder.getMainHandItem() == stack || holder.getOffhandItem() == stack)
+			{
+				if (holder instanceof IGregicTinkeringPlayer player)
+				{
+					if (player.gregicTinkering$getGameMode().gregicTinkering$isDestroyingBlock())
+					{
+						int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
+
+						tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - 1, 0));
+					}
+				}
+			}
 		}
 
-		return baseValue;
+		if (!world.isClientSide)
+		{
+			tool.getPersistentData().putBoolean(HAS_AIR_KEY, hasAir);
+		}
 	}
 
 	@Override
-	public void onBreakSpeed(
+	public void onDamageDealt(
 		@NotNull IToolStackView tool,
 		@NotNull ModifierEntry modifier,
-		@NotNull PlayerEvent.BreakSpeed event,
-		@NotNull Direction sideHit,
-		boolean isEffective,
-		float miningSpeedModifier
+		@NotNull EquipmentContext context,
+		@NotNull EquipmentSlot slotType,
+		@NotNull LivingEntity target,
+		@NotNull DamageSource source,
+		float amount,
+		boolean isDirectDamage
 	)
 	{
-		if (isEffective && hasNoAir(event.getEntity()))
+		if (!entityHasAir(tool, context.getEntity()))
 		{
-			event.setNewSpeed(0F);
+			int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
+
+			tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - 1, 0));
 		}
 	}
 
 	@Override
-	public float modifyBreakSpeed(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, @NotNull BreakSpeedContext context, float speed)
-	{
-		if (context.isEffective() && hasNoAir(context.player()))
-		{
-			return 0F;
-		}
-
-		return BreakSpeedModifierHook.super.modifyBreakSpeed(tool, modifier, context, speed);
-	}
-
-	@Override
-	public float getMeleeDamage(
+	public boolean hasPower(
 		@NotNull IToolStackView tool,
-		@NotNull ModifierEntry modifier,
-		@NotNull ToolAttackContext context,
-		float baseDamage,
-		float damage
+		@Nullable ModifierEntry modifier,
+		@Nullable LivingEntity holder
 	)
 	{
-		if (hasNoAir(context.getAttacker()))
-		{
-			return baseDamage;
-		}
-
-		return damage;
+		return (holder == null || entityHasAir(tool, holder)) || hasStoredAir(tool);
 	}
 
-	private static boolean hasNoAir(@NotNull Entity entity)
+	private static boolean entityHasAir(@NotNull IToolStackView tool, @NotNull Entity entity)
 	{
+		Level level = entity.level();
+
+		if (level.isClientSide)
+		{
+			return tool.getPersistentData().getBoolean(HAS_AIR_KEY);
+		}
+
 		if (entity.isUnderWater())
 		{
-			return true;
+			return false;
 		}
 
-		if (entity.level().dimensionTypeRegistration().is(GregicTinkeringTags.DimensionTypes.NO_AIR))
+		if (HasMod.AD_ASTRA)
 		{
-			return true;
+			if (AdAstraCompat.hasAirAtPosition(level, entity.blockPosition()))
+			{
+				return true;
+			}
+		}
+		else
+		{
+			if (!level.dimensionTypeRegistration().is(GregicTinkeringTags.DimensionTypes.NO_AIR))
+			{
+				return true;
+			}
 		}
 
 		return false;
+	}
+
+	private static boolean hasStoredAir(@NotNull IToolStackView tool)
+	{
+		int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
+
+		return air > 0;
 	}
 }

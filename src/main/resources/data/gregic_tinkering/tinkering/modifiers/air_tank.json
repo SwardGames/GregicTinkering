@@ -1,0 +1,12 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 100,
+      "operation": "add",
+      "stat": "gregic_tinkering:air_tank_capacity"
+    }
+  ],
+  "tooltip_display": "always"
+}

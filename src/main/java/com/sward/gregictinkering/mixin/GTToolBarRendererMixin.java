@@ -7,6 +7,8 @@ import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.client.renderer.item.ToolChargeBarRenderer;
 import com.gregtechceu.gtceu.client.renderer.item.decorator.GTToolBarRenderer;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import com.sward.gregictinkering.GregicTinkeringToolStats;
+import com.sward.gregictinkering.modifiers.AirFedModifier;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.util.FastColor;
@@ -24,7 +26,7 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 public abstract class GTToolBarRendererMixin
 {
 	@Inject(method = "render", at = @At(value = "HEAD"), cancellable = true)
-	private void render(
+	private void gregicTinkering$render(
 		GuiGraphics guiGraphics,
 		Font font,
 		ItemStack stack,
@@ -74,7 +76,7 @@ public abstract class GTToolBarRendererMixin
 						int level = Math.round(fluid.getAmount() * 13.0F / capacity);
 
 						int leftColor = -1;
-						int rightColor = -1;
+						int rightColor;
 
 						Material material = ChemicalHelper.getMaterial(fluid.getFluid());
 
@@ -104,19 +106,28 @@ public abstract class GTToolBarRendererMixin
 							rightColor,
 							false
 						);
-
-						// Render as an electric bar for now
-						// Later I will figure out how to get a fluids color
-//						ToolChargeBarRenderer.renderElectricBar(
-//							guiGraphics,
-//							fluid.getAmount(),
-//							capacity,
-//							x,
-//							y,
-//							renderDurability
-//						);
 					}
 				}
+			}
+
+			int air = tool.getPersistentData().getInt(AirFedModifier.STORED_AIR_KEY);
+			int airCapacity = tool.getStats().getInt(GregicTinkeringToolStats.AIR_TANK_CAPACITY);
+
+			if (air < airCapacity)
+			{
+				int level = Math.round(air * 13.0F / airCapacity);
+
+				ToolChargeBarRenderer.render(
+					guiGraphics,
+					level,
+					x,
+					y,
+					12,
+					true,
+					0xFFDDDDDD,
+					0xFFFFFFFF,
+					false
+				);
 			}
 
 			cir.setReturnValue(true);

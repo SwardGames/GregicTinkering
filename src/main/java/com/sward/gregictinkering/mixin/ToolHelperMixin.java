@@ -18,7 +18,7 @@ import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 public abstract class ToolHelperMixin
 {
 	@Inject(method = "damageItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;I)V", at = @At("HEAD"), cancellable = true)
-	private static void onDamageItem(
+	private static void gregicTinkering$damageItem(
 		@NotNull ItemStack stack,
 		@Nullable LivingEntity user,
 		int damage,
@@ -37,7 +37,7 @@ public abstract class ToolHelperMixin
 	}
 
 	@Inject(method = "canUse", at = @At("HEAD"), cancellable = true)
-	private static void onCanUse(ItemStack stack, CallbackInfoReturnable<Boolean> ci)
+	private static void gregicTinkering$canUse(ItemStack stack, CallbackInfoReturnable<Boolean> ci)
 	{
 		if (stack.getItem() instanceof ModifiableItem)
 		{

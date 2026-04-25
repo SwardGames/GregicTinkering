@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "gtceu:lv_electric_pump"
+    },
+    {
+      "item": "gtceu:steel_fluid_cell"
+    },
+    {
+      "item": "gtceu:bronze_tiny_fluid_pipe"
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "gregic_tinkering:air_tank",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "gregic_tinkering:modifiable/power_tool"
+    }
+  ]
+}

@@ -1,8 +1,7 @@
 package com.sward.gregictinkering.mixin;
 
-import com.sward.gregictinkering.GregicTinkeringModifiers;
-import com.sward.gregictinkering.modifiers.PoweredModifier;
 import com.sward.gregictinkering.tools.ModifiableGTToolItem;
+import com.sward.gregictinkering.util.PowerToolHelper;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.ItemStack;
@@ -13,9 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
-import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.List;
 
@@ -29,7 +25,7 @@ public abstract class ShapelessRecipeMixin
 		locals = LocalCapture.CAPTURE_FAILHARD,
 		cancellable = true
 	)
-	private void onMatches(
+	private void gregicTinkering$matches(
 		CraftingContainer inv,
 		Level level,
 		CallbackInfoReturnable<Boolean> cir,
@@ -42,14 +38,7 @@ public abstract class ShapelessRecipeMixin
 	{
 		if (stack.getItem() instanceof ModifiableGTToolItem)
 		{
-			if (ToolDamageUtil.isBroken(stack))
-			{
-				cir.setReturnValue(false);
-			}
-
-			ToolStack toolStack = ToolStack.from(stack);
-
-			if (toolStack.getModifier(GregicTinkeringModifiers.POWERED.getId()) != ModifierEntry.EMPTY && !PoweredModifier.isPowered(toolStack))
+			if (!PowerToolHelper.canCraftWith(stack))
 			{
 				cir.setReturnValue(false);
 			}
