@@ -2,6 +2,7 @@ package com.sward.gregictinkering;
 
 import com.sward.gregictinkering.energy.ElectricItemHandlerModifier;
 import com.sward.gregictinkering.modifiers.AirFedModifier;
+import com.sward.gregictinkering.modifiers.DustLootModifier;
 import com.sward.gregictinkering.modifiers.PoweredModifier;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -21,4 +22,6 @@ public final class GregicTinkeringModifiers
 	public static final StaticModifier<AirFedModifier> AIR_FED = MODIFIERS.register("air_fed", AirFedModifier::new);
 
 	public static final DynamicModifier TRANSFORMER = MODIFIERS.registerDynamic("transformer");
+
+	public static final StaticModifier<DustLootModifier> DUST_LOOT = MODIFIERS.register("dust_loot", DustLootModifier::new);
 }

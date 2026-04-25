@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "tag": "forge:plates/brass"
+    },
+    {
+      "item": "gtceu:diamond_grinding_head"
+    },
+    {
+      "tag": "forge:plates/brass"
+    },
+    {
+      "item": "gtceu:item_filter"
+    },
+    {
+      "item": "gtceu:item_filter"
+    }
+  ],
+  "level": 1,
+  "result": "gregic_tinkering:dust_loot",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/harvest"
+    }
+  ]
+}

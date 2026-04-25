@@ -156,6 +156,9 @@
   "modifier.gregic_tinkering.air_tank": "Air Tank",
   "modifier.gregic_tinkering.air_tank.flavor": "Glub, glub, glub",
   "modifier.gregic_tinkering.air_tank.description": "Stores some air to supply the engine with when underwater or in a vacuum.",
+  "modifier.gregic_tinkering.dust_loot": "Ore Grinder",
+  "modifier.gregic_tinkering.dust_loot.flavor": "Your Silicosis is not work related",
+  "modifier.gregic_tinkering.dust_loot.description": "Harvesting ores has a chance of producing some dust.",
 
   "material.gregic_tinkering.rubber": "Rubber",
   "material.gregic_tinkering.polyethylene": "Polyethylene",
