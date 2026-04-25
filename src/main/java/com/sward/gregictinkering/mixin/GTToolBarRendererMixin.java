@@ -26,7 +26,7 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 public abstract class GTToolBarRendererMixin
 {
 	@Inject(method = "render", at = @At(value = "HEAD"), cancellable = true)
-	private void render(
+	private void gregicTinkering$render(
 		GuiGraphics guiGraphics,
 		Font font,
 		ItemStack stack,

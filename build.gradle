@@ -71,6 +71,11 @@ repositories {
         name 'DVS1 Maven FS'
         url 'https://dvs1.progwml6.com/files/maven'
     }
+
+    maven {
+        // Ad Astra
+        url "https://maven.teamresourceful.com/repository/maven-public/"
+    }
 }
 
 version = mod_version
@@ -161,13 +166,18 @@ dependencies {
 	// Tinkers Construct and dependencies
     modImplementation("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_build}")
     modImplementation("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tinkers_build}")
-	
+
+    // Ad Astra
+    modImplementation("earth.terrarium.adastra:ad_astra-forge-${minecraft_version}:${ad_astra_version}")
+    modImplementation("earth.terrarium.botarium:botarium-forge-${minecraft_version}:${botarium_version}")
+    modImplementation("com.teamresourceful.resourcefullib:resourcefullib-forge-${minecraft_version}:${resourceful_lib_version}")
+    modImplementation("com.teamresourceful.resourcefulconfig:resourcefulconfig-forge-${minecraft_version}:${resourceful_config_version}")
+
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
-// See com.example.examplemod.mixin.DummyMixin for information about mixins
 mixin {
     add sourceSets.main, "mixins.${mod_id}.refmap.json"
     config "${mod_id}.mixins.json"

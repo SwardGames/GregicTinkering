@@ -25,7 +25,7 @@ public abstract class ShapelessRecipeMixin
 		locals = LocalCapture.CAPTURE_FAILHARD,
 		cancellable = true
 	)
-	private void onMatches(
+	private void gregicTinkering$matches(
 		CraftingContainer inv,
 		Level level,
 		CallbackInfoReturnable<Boolean> cir,

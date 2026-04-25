@@ -1,11 +1,10 @@
 package com.sward.gregictinkering.modifiers;
 
-import com.sward.gregictinkering.GregicTinkeringConfig;
-import com.sward.gregictinkering.GregicTinkeringMod;
-import com.sward.gregictinkering.GregicTinkeringTags;
-import com.sward.gregictinkering.GregicTinkeringToolStats;
+import com.sward.gregictinkering.*;
+import com.sward.gregictinkering.compat.AdAstraCompat;
 import com.sward.gregictinkering.modifierhooks.HasPowerModifierHook;
 import com.sward.gregictinkering.player.IGregicTinkeringPlayer;
+import com.sward.gregictinkering.util.HasMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -30,9 +29,10 @@ public class AirFedModifier extends NoLevelsModifier implements
 	HasPowerModifierHook
 {
 	public static final ResourceLocation STORED_AIR_KEY = GregicTinkeringMod.id("stored_air");
+	public static final ResourceLocation HAS_AIR_KEY = GregicTinkeringMod.id("has_air");
 
 	@Override
-	protected void registerHooks(ModuleHookMap.Builder hookBuilder)
+	protected void registerHooks(@NotNull ModuleHookMap.Builder hookBuilder)
 	{
 		hookBuilder.addHook(
 			this,
@@ -54,7 +54,18 @@ public class AirFedModifier extends NoLevelsModifier implements
 		@NotNull ItemStack stack
 	)
 	{
-		if (entityHasNoAir(holder))
+		boolean hasAir = entityHasAir(tool, holder);
+
+		if (hasAir)
+		{
+			int air = Math.min(
+				tool.getPersistentData().getInt(STORED_AIR_KEY) + GregicTinkeringConfig.getAirTankRechargeRate(),
+				tool.getStats().getInt(GregicTinkeringToolStats.AIR_TANK_CAPACITY)
+			);
+
+			tool.getPersistentData().putInt(STORED_AIR_KEY, air);
+		}
+		else
 		{
 			if (holder.getMainHandItem() == stack || holder.getOffhandItem() == stack)
 			{
@@ -69,20 +80,16 @@ public class AirFedModifier extends NoLevelsModifier implements
 				}
 			}
 		}
-		else
-		{
-			int air = Math.min(
-				tool.getPersistentData().getInt(STORED_AIR_KEY) + GregicTinkeringConfig.getAirTankRechargeRate(),
-				tool.getStats().getInt(GregicTinkeringToolStats.AIR_TANK_CAPACITY)
-			);
 
-			tool.getPersistentData().putInt(STORED_AIR_KEY, air);
+		if (!world.isClientSide)
+		{
+			tool.getPersistentData().putBoolean(HAS_AIR_KEY, hasAir);
 		}
 	}
 
 	@Override
 	public void onDamageDealt(
-		IToolStackView tool,
+		@NotNull IToolStackView tool,
 		@NotNull ModifierEntry modifier,
 		@NotNull EquipmentContext context,
 		@NotNull EquipmentSlot slotType,
@@ -92,9 +99,12 @@ public class AirFedModifier extends NoLevelsModifier implements
 		boolean isDirectDamage
 	)
 	{
-		int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
+		if (!entityHasAir(tool, context.getEntity()))
+		{
+			int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
 
-		tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - 1, 0));
+			tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - 1, 0));
+		}
 	}
 
 	@Override
@@ -104,19 +114,45 @@ public class AirFedModifier extends NoLevelsModifier implements
 		@Nullable LivingEntity holder
 	)
 	{
-		return holder == null || !(entityHasNoAir(holder) && hasNoStoredAir(tool));
+		return (holder == null || entityHasAir(tool, holder)) || hasStoredAir(tool);
 	}
 
-	private static boolean entityHasNoAir(@NotNull Entity entity)
+	private static boolean entityHasAir(@NotNull IToolStackView tool, @NotNull Entity entity)
 	{
-		return entity.isUnderWater() ||
-		       entity.level().dimensionTypeRegistration().is(GregicTinkeringTags.DimensionTypes.NO_AIR);
+		Level level = entity.level();
+
+		if (level.isClientSide)
+		{
+			return tool.getPersistentData().getBoolean(HAS_AIR_KEY);
+		}
+
+		if (entity.isUnderWater())
+		{
+			return false;
+		}
+
+		if (HasMod.AD_ASTRA)
+		{
+			if (AdAstraCompat.hasAirAtPosition(level, entity.blockPosition()))
+			{
+				return true;
+			}
+		}
+		else
+		{
+			if (!level.dimensionTypeRegistration().is(GregicTinkeringTags.DimensionTypes.NO_AIR))
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 
-	private static boolean hasNoStoredAir(@NotNull IToolStackView tool)
+	private static boolean hasStoredAir(@NotNull IToolStackView tool)
 	{
 		int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
 
-		return air <= 0;
+		return air > 0;
 	}
 }

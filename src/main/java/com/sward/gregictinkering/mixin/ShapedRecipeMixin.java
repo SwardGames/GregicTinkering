@@ -20,7 +20,7 @@ public abstract class ShapedRecipeMixin
 		locals = LocalCapture.CAPTURE_FAILHARD,
 		cancellable = true
 	)
-	private void onMatches(
+	private void gregicTinkering$matches(
 		CraftingContainer craftingInventory,
 		int width,
 		int height,
