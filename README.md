@@ -17,17 +17,16 @@ Adds tinkerable varieties of all crafting tools (excluding the knife), including
 
 This means that you can make a wrench from multiple parts, repair it and even give it modifiers.
 
-Crafting tool heads are made with the casting table. Copper tool heads can also be crafted.
+Crafting tool heads are made with the casting table. Head Shapes, which are used to make tool head casts, can be produced from cobblestone in a Part Builder.
 
 ## Power Tools
 
-This mod also adds Power Tools (available at steam age, requires the Tinkers Anvil), electric variants of broad harvest tools.
-
-Power Tools, as their name suggests, require a form of power to function, determined by the tools Engine Unit.
+This mod also adds Power Tools (available at steam age, requires the Tinkers Anvil), broad tools which consume power to operate.
 
 They can not only be powered by EU, but also by various fuels, as determined by their engine type (using Steam Turbine, Gas Turbine or Combustion Generator recipes).
 
-Power Tools are entirely reliant upon power to function, and will not work without any! Furthermore, gas- and diesel-powered tools need an air supply in order to produce power (currently, this means that they will not function underwater or in any dimension type tagged `gregic_tinkering:no_air`)
+Power Tools are entirely reliant upon power to function, and will not work without any! Furthermore, gas- and diesel-powered tools need an air supply in order to produce power.
+This means that they will not function underwater, or in any dimension without air, determined by Ad Astra if installed, or dimension types tagged `gregic_tinkering:no_air` if not.
 
 However, they consume durability far slower than normal tools, ignoring 60% of durability damage at LV, and a further 5% per tier above LV.
 
@@ -39,7 +38,7 @@ The current Power Tools are the Drill, which mines dirt and stone blocks in a 3x
 
 # Planned Features
 
-Energy Sword/Cleaver: Electric powered versions of the Sword and Cleaver. Will have special modifiers to 
+Energy Sword/Cleaver: Electric powered versions of the Sword and Cleaver.
 
 Omnitool: HV-tier electric crafting tool which cycle through any crafting tool type with a keybind.
 
@@ -51,8 +50,4 @@ Power Armor: High defense and toughness, as well as piece-dependent boosts (such
 
 Steam Charger: A steam-age machine which fills inserted fluid tanks with steam.
 
-Air Tank Modifier: Lets air fed tools work without air for a brief period of time.
-
 Breathtaking Modifier: Lets air fed tools work without air by consuming the players breath bar.
-
-Ad Astra Compat: Lets air fed tools work within an oxygen bubble, even in dimensions without air.
