@@ -210,6 +210,10 @@ public class ModifiableGTToolItem extends ModifiableItem implements IGTTool
 		return stack;
 	}
 
+	// #######################
+	// *** IGTTool Members ***
+	// #######################
+
 	@Override
 	public Material getMaterial()
 	{

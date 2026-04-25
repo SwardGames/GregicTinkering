@@ -4,34 +4,30 @@ import com.sward.gregictinkering.GregicTinkeringConfig;
 import com.sward.gregictinkering.GregicTinkeringMod;
 import com.sward.gregictinkering.GregicTinkeringTags;
 import com.sward.gregictinkering.GregicTinkeringToolStats;
+import com.sward.gregictinkering.modifierhooks.HasPowerModifierHook;
 import com.sward.gregictinkering.player.IGregicTinkeringPlayer;
-import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
-import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.combat.DamageDealtModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedContext;
-import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
-import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
+import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.library.tools.stat.FloatToolStat;
-import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 public class AirFedModifier extends NoLevelsModifier implements
-	ConditionalStatModifierHook,
-	BreakSpeedModifierHook,
-	MeleeDamageModifierHook,
-	InventoryTickModifierHook
+	InventoryTickModifierHook,
+	DamageDealtModifierHook,
+	HasPowerModifierHook
 {
 	public static final ResourceLocation STORED_AIR_KEY = GregicTinkeringMod.id("stored_air");
 
@@ -40,73 +36,10 @@ public class AirFedModifier extends NoLevelsModifier implements
 	{
 		hookBuilder.addHook(
 			this,
-			ModifierHooks.CONDITIONAL_STAT,
-			ModifierHooks.BREAK_SPEED,
-			ModifierHooks.MELEE_DAMAGE,
-			ModifierHooks.INVENTORY_TICK
+			ModifierHooks.INVENTORY_TICK,
+			ModifierHooks.DAMAGE_DEALT,
+			PoweredModifier.HOOK
 		);
-	}
-
-	@Override
-	public float modifyStat(
-		@NotNull IToolStackView tool,
-		@NotNull ModifierEntry modifier,
-		@NotNull LivingEntity living,
-		@NotNull FloatToolStat stat,
-		float baseValue,
-		float multiplier
-	)
-	{
-		if (stat == ToolStats.DRAW_SPEED && hasNoAir(tool, living))
-		{
-			return 0F;
-		}
-
-		return baseValue;
-	}
-
-	@Override
-	public void onBreakSpeed(
-		@NotNull IToolStackView tool,
-		@NotNull ModifierEntry modifier,
-		@NotNull PlayerEvent.BreakSpeed event,
-		@NotNull Direction sideHit,
-		boolean isEffective,
-		float miningSpeedModifier
-	)
-	{
-		if (isEffective && hasNoAir(tool, event.getEntity()))
-		{
-			event.setNewSpeed(0F);
-		}
-	}
-
-	@Override
-	public float modifyBreakSpeed(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, @NotNull BreakSpeedContext context, float speed)
-	{
-		if (context.isEffective() && hasNoAir(tool, context.player()))
-		{
-			return 0F;
-		}
-
-		return BreakSpeedModifierHook.super.modifyBreakSpeed(tool, modifier, context, speed);
-	}
-
-	@Override
-	public float getMeleeDamage(
-		@NotNull IToolStackView tool,
-		@NotNull ModifierEntry modifier,
-		@NotNull ToolAttackContext context,
-		float baseDamage,
-		float damage
-	)
-	{
-		if (hasNoAirConsuming(tool, context.getAttacker(), GregicTinkeringConfig.getAirConsumedPerAttack()))
-		{
-			return baseDamage;
-		}
-
-		return damage;
 	}
 
 	@Override
@@ -123,13 +56,16 @@ public class AirFedModifier extends NoLevelsModifier implements
 	{
 		if (entityHasNoAir(holder))
 		{
-			if (holder instanceof IGregicTinkeringPlayer player)
+			if (holder.getMainHandItem() == stack || holder.getOffhandItem() == stack)
 			{
-				if (player.gregicTinkering$getGameMode().gregicTinkering$isDestroyingBlock())
+				if (holder instanceof IGregicTinkeringPlayer player)
 				{
-					int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
+					if (player.gregicTinkering$getGameMode().gregicTinkering$isDestroyingBlock())
+					{
+						int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
 
-					tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - 1, 0));
+						tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - 1, 0));
+					}
 				}
 			}
 		}
@@ -144,23 +80,31 @@ public class AirFedModifier extends NoLevelsModifier implements
 		}
 	}
 
-	private static boolean hasNoAirConsuming(@NotNull IToolStackView tool, @NotNull Entity entity, int amount)
+	@Override
+	public void onDamageDealt(
+		IToolStackView tool,
+		@NotNull ModifierEntry modifier,
+		@NotNull EquipmentContext context,
+		@NotNull EquipmentSlot slotType,
+		@NotNull LivingEntity target,
+		@NotNull DamageSource source,
+		float amount,
+		boolean isDirectDamage
+	)
 	{
-		if (entityHasNoAir(entity))
-		{
-			int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
+		int air = tool.getPersistentData().getInt(STORED_AIR_KEY);
 
-			tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - amount, 0));
-
-			return air <= 0;
-		}
-
-		return false;
+		tool.getPersistentData().putInt(STORED_AIR_KEY, Math.max(air - 1, 0));
 	}
 
-	private static boolean hasNoAir(@NotNull IToolStackView tool, @NotNull Entity entity)
+	@Override
+	public boolean hasPower(
+		@NotNull IToolStackView tool,
+		@Nullable ModifierEntry modifier,
+		@Nullable LivingEntity holder
+	)
 	{
-		return entityHasNoAir(entity) && hasNoStoredAir(tool);
+		return holder == null || !(entityHasNoAir(holder) && hasNoStoredAir(tool));
 	}
 
 	private static boolean entityHasNoAir(@NotNull Entity entity)

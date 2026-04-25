@@ -7,9 +7,11 @@ import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.recipe.ingredient.FluidIngredient;
 import com.gregtechceu.gtceu.common.data.GTRecipeCapabilities;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-import com.sward.gregictinkering.GregicTinkeringToolStats;
+import com.sward.gregictinkering.GregicTinkeringMod;
 import com.sward.gregictinkering.energy.ToolElectricItemCapability;
 import com.sward.gregictinkering.materials.stats.FuelType;
+import com.sward.gregictinkering.modifierhooks.HasPowerModifierHook;
+import com.sward.gregictinkering.util.PowerToolHelper;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
@@ -28,6 +30,7 @@ import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHoo
 import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedContext;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.module.ModuleHook;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -37,12 +40,22 @@ import slimeknights.tconstruct.library.utils.Util;
 
 import java.util.*;
 
+import static com.sward.gregictinkering.GregicTinkeringToolStats.*;
+
 public class PoweredModifier extends NoLevelsModifier implements
 	ConditionalStatModifierHook,
 	BreakSpeedModifierHook,
 	ToolDamageModifierHook,
-	TooltipModifierHook
+	TooltipModifierHook,
+	HasPowerModifierHook
 {
+	public static final ModuleHook<HasPowerModifierHook> HOOK = ModifierHooks.register(
+		GregicTinkeringMod.id("has_power"),
+		HasPowerModifierHook.class,
+		HasPowerModifierHook.Merger::new,
+		(tool, modifier, holder) -> true
+	);
+
 	@Override
 	protected void registerHooks(ModuleHookMap.Builder hookBuilder)
 	{
@@ -51,7 +64,8 @@ public class PoweredModifier extends NoLevelsModifier implements
 			ModifierHooks.CONDITIONAL_STAT,
 			ModifierHooks.BREAK_SPEED,
 			ModifierHooks.TOOL_DAMAGE,
-			ModifierHooks.TOOLTIP
+			ModifierHooks.TOOLTIP,
+			HOOK
 		);
 	}
 
@@ -65,7 +79,7 @@ public class PoweredModifier extends NoLevelsModifier implements
 		float multiplier
 	)
 	{
-		if (stat == ToolStats.DRAW_SPEED && !isPowered(tool))
+		if (stat == ToolStats.DRAW_SPEED && !PowerToolHelper.hasPower(tool, living))
 		{
 			return 0F;
 		}
@@ -83,18 +97,18 @@ public class PoweredModifier extends NoLevelsModifier implements
 		float miningSpeedModifier
 	)
 	{
-		if (isEffective && !isPowered(tool))
+		if (isEffective && !PowerToolHelper.hasPower(tool, event.getEntity()))
 		{
-			event.setNewSpeed(0F);
+			event.setNewSpeed(-1F);
 		}
 	}
 
 	@Override
 	public float modifyBreakSpeed(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, @NotNull BreakSpeedContext context, float speed)
 	{
-		if (context.isEffective() && !isPowered(tool))
+		if (context.isEffective() && !PowerToolHelper.hasPower(tool, context.player()))
 		{
-			return 0F;
+			return -1F;
 		}
 
 		return BreakSpeedModifierHook.super.modifyBreakSpeed(tool, modifier, context, speed);
@@ -103,11 +117,11 @@ public class PoweredModifier extends NoLevelsModifier implements
 	@Override
 	public int onDamageTool(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, int amount, @Nullable LivingEntity holder)
 	{
-		boolean wasPowered = isPowered(tool);
+		boolean wasPowered = PowerToolHelper.hasPower(tool, holder);
 
 		discharge(tool, amount);
 
-		if (wasPowered && RANDOM.nextFloat() < tool.getStats().get(GregicTinkeringToolStats.POWER_REINFORCEMENT))
+		if (wasPowered && RANDOM.nextFloat() < tool.getStats().get(POWER_REINFORCEMENT))
 		{
 			return 0;
 		}
@@ -136,13 +150,14 @@ public class PoweredModifier extends NoLevelsModifier implements
 			applyStyle(
 				Component.translatable(
 					"modifier.gregic_tinkering.powered.reinforcement",
-					Util.PERCENT_FORMAT.format(tool.getStats().get(GregicTinkeringToolStats.POWER_REINFORCEMENT))
+					Util.PERCENT_FORMAT.format(tool.getStats().get(POWER_REINFORCEMENT))
 				)
 			)
 		);
 	}
 
-	public static boolean isPowered(IToolStackView tool)
+	@Override
+	public boolean hasPower(@NotNull IToolStackView tool, @Nullable ModifierEntry modifier, @Nullable LivingEntity holder)
 	{
 		if (ToolElectricItemCapability.getCharge(tool) > 0L)
 		{
@@ -163,8 +178,7 @@ public class PoweredModifier extends NoLevelsModifier implements
 
 	private static int getPowerDraw(IToolStackView tool)
 	{
-		return (int)(tool.getStats().get(GregicTinkeringToolStats.POWER_DRAW) / tool.getStats().get(
-			GregicTinkeringToolStats.EFFICIENCY));
+		return (int)(tool.getStats().get(POWER_DRAW) / tool.getStats().get(EFFICIENCY));
 	}
 
 	private static void discharge(IToolStackView tool, int amount)
@@ -185,7 +199,7 @@ public class PoweredModifier extends NoLevelsModifier implements
 
 	private static long tryCharge(IToolStackView tool, long charge)
 	{
-		FuelType fuelType = tool.getStats().get(GregicTinkeringToolStats.FUEL_TYPE);
+		FuelType fuelType = tool.getStats().get(FUEL_TYPE);
 
 		if (fuelType == FuelType.EU)
 		{
