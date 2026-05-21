@@ -173,6 +173,9 @@ dependencies {
     modImplementation("com.teamresourceful.resourcefullib:resourcefullib-forge-${minecraft_version}:${resourceful_lib_version}")
     modImplementation("com.teamresourceful.resourcefulconfig:resourcefulconfig-forge-${minecraft_version}:${resourceful_config_version}")
 
+    // Greg's Modern Construct
+    modRuntimeOnly("curse.maven:gregs-modern-construct-1178557:7578176")
+
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
