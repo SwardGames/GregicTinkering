@@ -2,7 +2,7 @@ package com.sward.gregictinkering.energy;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.IElectricItem;
-import com.gregtechceu.gtceu.api.capability.forge.GTCapability;
+import com.gregtechceu.gtceu.api.capability.GTCapability;
 import com.sward.gregictinkering.GregicTinkeringTags;
 import com.sward.gregictinkering.GregicTinkeringMod;
 import com.sward.gregictinkering.GregicTinkeringModifiers;
